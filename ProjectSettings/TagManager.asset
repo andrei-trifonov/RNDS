@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Missile
+  - Item
+  - Moving
+  - ScaleCanvas
+  - UI
+  - AlphaCanvas
+  - Machine
+  - Door
+  - Debug
+  - ShadowCaster
+  - Tint
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Item
+  - Wheel
+  - Player
+  - BG_Machine
+  - Garbage_col
+  - doorsNoGroundCol
+  - visualLayer_3D_foreground
+  - visualLayer_3D_white
+  - NoColorCorrect
+  - ShadowCol
+  - LightRender
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: ColorPlane
+    uniqueID: 3446709597
+    locked: 0
+  - name: LightFeathering
+    uniqueID: 3586179939
+    locked: 0
