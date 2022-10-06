@@ -92,7 +92,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ASEOutlineWidth: 1
-    - _AlphaCutoff: 0.4
+    - _AlphaCutoff: 0.287
     - _Anchorthefoliagebase: 0
     - _BumpScale: 1
     - _Color2Enable: 1
@@ -100,8 +100,8 @@ Material:
     - _Cutoff: 0.5
     - _Cutofff: 0.35
     - _DetailNormalMapScale: 1
-    - _DirectLightInt: 1.41
-    - _DirectLightOffset: 0.7
+    - _DirectLightInt: 1
+    - _DirectLightOffset: 0
     - _DirectLightOffset2: 1
     - _DstBlend: 0
     - _EnableWind: 1
@@ -114,24 +114,24 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _IndirectLightInt: 4.78
+    - _IndirectLightInt: 10
     - _Keyword0: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SecondColorFade: 0.74
+    - _SecondColorFade: 1
     - _SecondColorOffset: -0.38
     - _SecondColorOverlayType: 0
     - _ShadowCutoffOffset: -30
     - _Shininess: 0.1
-    - _Smoothness: 0.714
+    - _Smoothness: 0
     - _SmoothnessInt: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tiling: 1
-    - _TranslucencyInt: 39.5
+    - _TranslucencyInt: 0
     - _TranslucencyOffset: -0.5
     - _UVBigWavesScale: 0.25
     - _UVBigWavesSpeed: 5
@@ -160,5 +160,5 @@ Material:
     - _Color0: {r: 0, g: 0.5110004, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainColor: {r: 0.25985226, g: 0.5, b: 0.1669811, a: 0}
-    - _SecondColor: {r: 0.94342566, g: 1, b: 0.42830187, a: 0}
+    - _SecondColor: {r: 0.5153747, g: 0.8207547, b: 0.18118544, a: 1}
   m_BuildTextureStacks: []

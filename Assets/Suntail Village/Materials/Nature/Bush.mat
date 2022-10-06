@@ -112,7 +112,7 @@ Material:
     - _SecondColorOffset: -0.59
     - _SecondColorOverlayType: 0
     - _Shininess: 0.15
-    - _Smoothness: 0.769
+    - _Smoothness: 0
     - _SmoothnessInt: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
