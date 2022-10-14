@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class HealBar : MonoBehaviour {
 	[SerializeField] private float[] Borders = new float[2];
 	[SerializeField] private  Material mat;
+	[SerializeField] private Image barMaterial;
 	[SerializeField] private float fillTime = 5f;
 	[SerializeField] private  float decreaseTime = 2.5f;
 	[SerializeField] private  ActionZone m_ActionZone;
@@ -52,7 +53,8 @@ public class HealBar : MonoBehaviour {
 
 	private void Start()
 	{
-		
+		mat = Instantiate(mat);
+		barMaterial.material = mat;
 		SetStateStart();
 		
 	}

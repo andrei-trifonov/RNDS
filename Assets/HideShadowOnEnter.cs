@@ -22,8 +22,9 @@ public class HideShadowOnEnter : MonoBehaviour
         {
             for (int i = 0; i< Shadow.Count; i++)
             {
-
-                isHiden[i] = Shadow[i].GetBool("Hide");
+                bool status;
+                if (status = Shadow[i].GetBool("Hide"))
+                    isHiden[i] = status;
                 Shadow[i].SetBool("Hide", true);    
             }
             

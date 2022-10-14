@@ -10,3 +10,8 @@ Library
 obj
 .idea
 0001-ALL.patch
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/QualitySettings.asset
+.vs
+.vsconfig

@@ -4,16 +4,24 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+[System.Serializable]
+public struct ListOfWeather
+{
+    public List<GameObject> Weather;
+}
 public class WeatherSystem : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> Weather;
+    [SerializeField] private List<ListOfWeather> Weather;
     [SerializeField] private Vector2 timeBounds;
     private void Start()
     {
-        foreach (var obj in Weather)
+        foreach (ListOfWeather obj in Weather)
         {
-            obj.SetActive(false);
+            foreach (var obj2 in obj.Weather)
+            {
+                obj2.SetActive(false);
+            }
+            
         }
 
         StartCoroutine(WeatherWaitCoroutine());
@@ -27,9 +35,16 @@ public class WeatherSystem : MonoBehaviour
     }
     IEnumerator WeatherCoroutine(int weatherNum)
     {
-        Weather[weatherNum].SetActive(true);
+
+        foreach (var obj in Weather[weatherNum].Weather)
+        {
+            obj.SetActive(true);
+        }
         yield return new WaitForSeconds(Random.Range(timeBounds.x, timeBounds.y));
-        Weather[weatherNum].SetActive(false);
+        foreach (var obj in Weather[weatherNum].Weather)
+        {
+            obj.SetActive(false);
+        }
         StartCoroutine(WeatherWaitCoroutine());
     }
 }

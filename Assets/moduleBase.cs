@@ -46,5 +46,9 @@ public  class moduleBase : MonoBehaviour
     public void CallElevator2()
     {
         GetComponent<Elevator>().GetHere(2);
-    }  
+    }
+    public void GoToAnotherZone()
+    {
+        GetComponent<SwitchZone>().GoToAnotherZone();
+    }
 }
