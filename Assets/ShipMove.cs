@@ -78,7 +78,15 @@ public class ShipMove : MonoBehaviour
         engineAnimator.enabled = false;
         m_Rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
-
+    
+    
+    public  void FireFeedbackCoroutine()
+    {
+      
+        m_Rigidbody.AddForce(new Vector2(-10 *Speed, -0.5f));
+       
+       
+    }
     IEnumerator StopFeedbackCoroutine()
     {
         pipeAnimator.SetBool("StartSmoke" , false);

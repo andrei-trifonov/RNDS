@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 590877140062173673}
   - component: {fileID: 590877140062173674}
   - component: {fileID: 837911889}
-  - component: {fileID: 7527343079659928793}
-  - component: {fileID: 7470374168750484911}
   m_Layer: 9
   m_Name: Reloader
   m_TagString: Untagged
@@ -158,47 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 2
---- !u!61 &7527343079659928793
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590877140062173679}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.048977613, y: 0.3377484}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.48, y: 1.64}
-    newSize: {x: 2.48, y: 1.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3215079, y: 0.9645033}
-  m_EdgeRadius: 0
---- !u!114 &7470374168750484911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590877140062173679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6aafc8173c0404485394fe13bcb3f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadCellNum: 0
-  Cannon: {fileID: 0}
-  Anchor: {fileID: 1523726278247614180}
 --- !u!1 &5798561763117229777
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ TagManager:
   - Debug
   - ShadowCaster
   - Tint
+  - Obstacle
   layers:
   - Default
   - TransparentFX
