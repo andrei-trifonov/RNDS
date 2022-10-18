@@ -34,7 +34,7 @@ TagManager:
   - NoColorCorrect
   - ShadowCol
   - LightRender
-  - 
+  - visualLayer_3D_road
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: LightFeathering
     uniqueID: 3586179939
+    locked: 0
+  - name: Reloader
+    uniqueID: 1235977143
     locked: 0

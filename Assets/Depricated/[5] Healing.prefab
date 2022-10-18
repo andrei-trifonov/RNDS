@@ -54,6 +54,7 @@ MonoBehaviour:
   - 0
   - 0
   mat: {fileID: 2100000, guid: c4251ebb27a9a034ab88b37147802181, type: 2}
+  barMaterial: {fileID: 3752248820983140679}
   fillTime: 5
   decreaseTime: 2.5
   m_ActionZone: {fileID: 0}

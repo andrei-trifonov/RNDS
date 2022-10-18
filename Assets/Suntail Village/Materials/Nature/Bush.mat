@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0.183
+    - _AlphaCutoff: 0.215
     - _Anchorthefoliagebase: 0
     - _BumpScale: 1
     - _Color2Enable: 1
@@ -138,6 +138,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.07208968, g: 0.5660378, b: 0.079837896, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.08249999, g: 0.275, b: 0.16107143, a: 0}
-    - _SecondColor: {r: 0.58515465, g: 0.66, b: 0.14628865, a: 0}
+    - _MainColor: {r: 0.062216803, g: 0.14150941, b: 0.045923807, a: 1}
+    - _SecondColor: {r: 0.09019608, g: 0.17254902, b: 0.11764707, a: 1}
   m_BuildTextureStacks: []

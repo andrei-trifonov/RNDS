@@ -14,7 +14,7 @@ public class HealBar : MonoBehaviour {
 	[SerializeField] private float fillTime = 5f;
 	[SerializeField] private  float decreaseTime = 2.5f;
 	[SerializeField] private  ActionZone m_ActionZone;
-
+	[SerializeField] private bool noDecrease;
 	public float outputValue;
 	public bool Finished; 
 	public float outPercentage;
@@ -24,7 +24,7 @@ public class HealBar : MonoBehaviour {
 	private bool Clicked;
 	private bool Switched;
 	private bool Triggered;
-
+	
 	private float initialFillPercentage;
 	// Use this for initialization
 	
@@ -44,7 +44,14 @@ public class HealBar : MonoBehaviour {
 		outPercentage = fillPercentage;
 		mat.SetFloat("_Fillpercentage", fillPercentage);
 		increaseAmount = Time.fixedDeltaTime / fillTime;
-		decreaseAmount =  Time.fixedDeltaTime / decreaseTime;
+		if (noDecrease)
+		{
+			decreaseAmount = 0;
+		}
+		else
+		{
+			decreaseAmount =  Time.fixedDeltaTime / decreaseTime;
+		}
 	}
 	public void SetClicked(bool state)
 	{

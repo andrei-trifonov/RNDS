@@ -17,6 +17,9 @@ public class commonThrower : MonoBehaviour
     {
         panZoomCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PanZoom>();
     }
+
+
+
     public IEnumerator ThrowerCoroutine(GameObject spawnObject, float delayBefore, float delayAfter)
     {
         BeforeSpawn();
@@ -25,7 +28,9 @@ public class commonThrower : MonoBehaviour
         GameObject garbage;
         garbage = Instantiate(spawnObject,throwPoint.position, throwPoint.rotation, throwPoint);
         inSpawn(garbage);
-        garbage.GetComponent<Rigidbody2D>().AddForce((Vector2.up - new Vector2 (  Mathf.Cos(throwAngle * Mathf.Deg2Rad),0 )) * garbageSpeed);
+        float xComponent = Mathf.Cos(throwAngle * Mathf.PI / 180) * garbageSpeed;
+        float yComponent = Mathf.Sin(throwAngle * Mathf.PI / 180) * garbageSpeed;
+        garbage.GetComponent<Rigidbody2D>().AddForce(new Vector2(xComponent, yComponent));
         if (garbage.GetComponentInChildren<Canvas>())
             panZoomCamera.Canvases.Add(garbage.GetComponentInChildren<Canvas>().gameObject);
         yield return new WaitForSeconds(delayAfter);

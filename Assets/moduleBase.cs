@@ -51,4 +51,8 @@ public  class moduleBase : MonoBehaviour
     {
         GetComponent<SwitchZone>().GoToAnotherZone();
     }
+    public void FireCannon()
+    {
+        GetComponent<moduleCannon>().FireCannon();
+    }
 }
