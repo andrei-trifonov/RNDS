@@ -58,6 +58,7 @@ MonoBehaviour:
   fillTime: 5
   decreaseTime: 2.5
   m_ActionZone: {fileID: 0}
+  noDecrease: 0
   outputValue: 0
   Finished: 0
   outPercentage: 0
@@ -100,7 +101,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00021172, y: 0.0000038147}
-  m_SizeDelta: {x: 43.18, y: 18.42}
+  m_SizeDelta: {x: 43.18, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3752248820910193448
 CanvasRenderer:

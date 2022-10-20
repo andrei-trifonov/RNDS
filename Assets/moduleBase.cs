@@ -55,4 +55,13 @@ public  class moduleBase : MonoBehaviour
     {
         GetComponent<moduleCannon>().FireCannon();
     }
+    public void Grab()
+    {
+        GetComponent<moduleBigHook>().Grab();
+    }
+    
+    public void Scan()
+    {
+        GetComponent<WorldArchive>().Scan();
+    }
 }

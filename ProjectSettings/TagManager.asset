@@ -17,6 +17,7 @@ TagManager:
   - ShadowCaster
   - Tint
   - Obstacle
+  - BigHookItem
   layers:
   - Default
   - TransparentFX
