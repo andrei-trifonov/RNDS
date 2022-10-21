@@ -137,6 +137,7 @@
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
      <Compile Include="Assets\itemBucket.cs" />
      <Compile Include="Assets\modulePipe.cs" />
+     <Compile Include="Assets\InvokeOnTriggerEnter.cs" />
      <Compile Include="Assets\ChainPack\scriptsOther\CutMouse.cs" />
      <Compile Include="Assets\PlatformerCharacter2D.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
@@ -215,7 +216,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\InvokeOnTriggerEnter.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
