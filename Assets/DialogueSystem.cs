@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using Color = System.Drawing.Color;
 
 public enum charsDropdown { 
       Psye,
@@ -13,6 +15,7 @@ public enum charsDropdown {
 [System.Serializable]
 public struct chatWindow {
     public charsDropdown Char;
+    public Text textAuthor;
     public Text textLine;
     public Animator chatCloud;
 }
@@ -24,25 +27,33 @@ public struct chatLine
     public string textLine;
 
 }
+
+[System.Serializable]
+
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private chatWindow[] chatWindows;
     [SerializeField] private chatLine[] chatLines;
-    [HideInInspector] public List<int> charNumbers;
+
     private string Language;
     [SerializeField] private PlatformerCharacter2D Player;
     private int stringCounter;
     private bool Blocked;
 
-    private string ReturnCharName(int Char)
+    private Tuple<UnityEngine.Color, string> ReturnCharName(int Char)
     {
+        
+
         switch (Language) {
             case "RUS":
                 { 
                     switch (Char) {
-                        case 0: return "—‡È"; break;
-                        case 1: return "ÀËÎÎË"; break;
-                        case 2: return "’‡ÌÒ"; break;
+                        case 0:
+                            return Tuple.Create(UnityEngine.Color.yellow, "–°–∞–π"); break;
+                        case 1: 
+                            return Tuple.Create(UnityEngine.Color.red,  "–õ–∏–ª–ª–∏"); break;
+                        case 2: 
+                            return Tuple.Create(UnityEngine.Color.gray, "–•–∞–Ω—Å"); break;
                     
                                      
                     } 
@@ -50,7 +61,7 @@ public class DialogueSystem : MonoBehaviour
                 }
             break;
         }
-        return "";
+      return Tuple.Create(UnityEngine.Color.black,  "Unknown");;
 
     }
 
@@ -60,50 +71,47 @@ public class DialogueSystem : MonoBehaviour
         if (DEBUG) {
             PlayerPrefs.SetString("Language", "RUS");
         }
-        for(int i =0; i< chatWindows.Length; i++)
-        {
-            chatWindows[i].chatCloud = Instantiate(chatWindows[i].chatCloud);
-        }
+         for(int i =0; i< chatWindows.Length; i++)
+         {
+             chatWindows[i].chatCloud.gameObject.SetActive(false);
+         }
         Language = PlayerPrefs.GetString("Language");
-    }
-    public void StartDialogue()
-    {
-        Player.Block();
+    }   
 
-        foreach (chatWindow chat in chatWindows)
-        {
-            
-            charNumbers.Add((int)chat.Char);            
-        }
 
-       
-
-    }
-    IEnumerator DiaSwapCoroutine()
-    {
-        Blocked = true;
-
-        foreach (chatWindow chat in chatWindows)
-        {
-            chat.chatCloud.SetBool("PopUp", false);
-        }
-        yield return new WaitForSeconds(0.2f);
-        foreach (chatWindow chat in chatWindows)
-        {
-            chat.chatCloud.SetBool("PopUp", true);
-        }
-        chatWindows[charNumbers[(int)chatLines[0].Char]].textLine.text = chatLines[stringCounter].textLine;
-        stringCounter++;
-        if (stringCounter > chatLines.Length)
-        {
-            EndDialogue();
-        } 
-        Blocked = false;
-    }
     public void ContinueDialogue()
     {
-        if (!Blocked)
-            StartCoroutine(DiaSwapCoroutine());
+        Player.Block();
+        if (!Blocked && stringCounter < chatLines.Length)
+        {
+
+        
+            for(int i=0;i< chatWindows.Length; i++)
+            {
+                chatWindows[i].chatCloud.gameObject.SetActive(false);
+                if (chatWindows[i].Char == chatLines[stringCounter].Char)
+                {
+                   
+                    chatWindows[i].chatCloud.gameObject.SetActive(true);
+                    Tuple<UnityEngine.Color, string>  tuple= ReturnCharName(i);
+                    chatWindows[i].textAuthor.color = tuple.Item1;
+                    chatWindows[i].textAuthor.text = tuple.Item2; 
+                    chatWindows[i].chatCloud.SetBool("PopUp", true);
+                    chatWindows[i].textLine.text = chatLines[stringCounter].textLine;
+                    break;
+                }
+            }
+        
+            stringCounter++;
+       
+
+           
+        }
+        else
+        {
+            EndDialogue();
+        }
+          
        
     }
     private void EndDialogue()
@@ -113,8 +121,8 @@ public class DialogueSystem : MonoBehaviour
         foreach (chatWindow chat in chatWindows)
         {
             chat.chatCloud.gameObject.SetActive(false);
-            chat.chatCloud.SetBool("PopUp",false);
-            charNumbers.Clear();
+           
+            
         }
     }
 }

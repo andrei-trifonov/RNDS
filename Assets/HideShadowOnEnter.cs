@@ -1,18 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class HideShadowOnEnter : MonoBehaviour
 {
     
-    [SerializeField] private  List<Animator> Shadow;
+    [SerializeField] public  List<Animator> Shadow;
     [SerializeField] private GameObject VShadowMask;
-    [SerializeField] private  List<bool> isHiden;
+    [HideInInspector] public  List<bool> isHiden;
 
     private void Start()
     {
-       
+        foreach (var item in Shadow)
+        {
+            isHiden.Add(false);
+        }
+      
         
     }
 
@@ -44,8 +49,8 @@ public class HideShadowOnEnter : MonoBehaviour
                 if (isHiden[i] == false)
                     Shadow[i].SetBool("Hide", false);    
             }
-           
-                VShadowMask.SetActive(true);
+            
+            VShadowMask.SetActive(true);
        
         }
     }
