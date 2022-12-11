@@ -167,9 +167,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4935
-        y: 888
+        y: 849
         width: 1965
-        height: 2898
+        height: 2937
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,9 +188,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2071
-        y: 3948
+        y: 3800
         width: 1682
-        height: 2021
+        height: 2169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +208,10 @@ TextureImporter:
       name: Cover_3
       rect:
         serializedVersion: 2
-        x: 3892
-        y: 3948
-        width: 1919
-        height: 1962
+        x: 3752
+        y: 3800
+        width: 2059
+        height: 2164
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,9 +314,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1048
-        y: 3935
+        y: 3775
         width: 951
-        height: 2065
+        height: 2225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,7 +402,7 @@ TextureImporter:
         width: 588
         height: 457
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

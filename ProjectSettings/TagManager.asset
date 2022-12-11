@@ -37,7 +37,7 @@ TagManager:
   - ShadowCol
   - LightRender
   - visualLayer_3D_road
-  - 
+  - PlayerCol
   - 
   - 
   - 
@@ -63,4 +63,7 @@ TagManager:
     locked: 0
   - name: Reloader
     uniqueID: 1235977143
+    locked: 0
+  - name: SplitHouse
+    uniqueID: 3110825701
     locked: 0

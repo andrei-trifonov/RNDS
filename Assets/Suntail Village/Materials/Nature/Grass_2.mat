@@ -100,22 +100,22 @@ Material:
     - _SecondColorFade: 0.85
     - _SecondColorOffset: -0.01
     - _SecondColorOverlayType: 1
-    - _Smoothness: 0.3
+    - _Smoothness: 0.124
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tiling: 1
     - _TranslucencyInt: 0
     - _UVSec: 0
-    - _WindForce: 0.425
-    - _WindSpeed: 0.4
-    - _WindWavesScale: 0.4
+    - _WindForce: 0.765
+    - _WindSpeed: 0.042
+    - _WindWavesScale: 1
     - _WorldScale: 1
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.21538894, g: 0.4339623, b: 0.12445708, a: 1}
-    - _SecondColor: {r: 0.34160584, g: 0.6, b: 0, a: 0}
+    - _MainColor: {r: 0.1293478, g: 0.254717, b: 0.07785689, a: 1}
+    - _SecondColor: {r: 0.31482947, g: 0.44313726, b: 0.015686281, a: 0}
   m_BuildTextureStacks: []

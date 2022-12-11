@@ -34,7 +34,7 @@ public class Parallax : MonoBehaviour
         for (int i = 0; i < Layers.Count; i++)
         {
            
-            Layers[i].transform.localPosition = new Vector3( (startPositions[i].x  -wayPercentage * ModifierX[i]), startPositions[i].y - ymaxOffset * camPos.y - startPositions[i].y / ModifierY , startPositions[i].z);
+            Layers[i].transform.localPosition = new Vector3( ( camPos.x  -wayPercentage * ModifierX[i]), startPositions[i].y - ymaxOffset * camPos.y - startPositions[i].y / ModifierY , startPositions[i].z);
         }
     }
 
