@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 78160385228165895
     second: warehouse2_3
+  - first:
+      213: 7107518486284533362
+    second: warehouse2_4
+  - first:
+      213: 5410995487269175021
+    second: warehouse2_5
+  - first:
+      213: -7643629354144272336
+    second: warehouse2_6
+  - first:
+      213: 304961428775051078
+    second: warehouse2_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +206,90 @@ TextureImporter:
       bones: []
       spriteID: 703580dc47ea51100800000000000000
       internalID: 78160385228165895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warehouse2_4
+      rect:
+        serializedVersion: 2
+        x: 2759
+        y: 610
+        width: 724
+        height: 737
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ef281f76af2a260800000000000000
+      internalID: 7107518486284533362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warehouse2_5
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 537
+        width: 1049
+        height: 1626
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deebbeb1ab7b71b40800000000000000
+      internalID: 5410995487269175021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warehouse2_6
+      rect:
+        serializedVersion: 2
+        x: 4895
+        y: 199
+        width: 1244
+        height: 2627
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0307b7f999f5ce590800000000000000
+      internalID: -7643629354144272336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warehouse2_7
+      rect:
+        serializedVersion: 2
+        x: 6157
+        y: 1072
+        width: 497
+        height: 1404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f1550cdc07b3400800000000000000
+      internalID: 304961428775051078
       vertices: []
       indices: 
       edges: []

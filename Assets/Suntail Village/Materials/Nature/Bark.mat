@@ -138,7 +138,7 @@ Material:
     - _EnableEmission: 0
     - _EnableExternalAlpha: 0
     - _Float0: 1
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _InvertCoverageMask: 0

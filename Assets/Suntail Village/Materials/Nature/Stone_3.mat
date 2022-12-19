@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Stone_3
   m_Shader: {fileID: 4800000, guid: b50955928b87e714ab31f7fe9003b849, type: 3}
-  m_ShaderKeywords: _BLENDNORMALS_ON _COVERAGEOVERLAYMETHOD_WORLD_NORMAL
+  m_ShaderKeywords: _BLENDNORMALS_ON _COVERAGEOVERLAYMETHOD_WORLD_NORMAL _SMOOTHNESSSOURCE_ALBEDO_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,18 +112,18 @@ Material:
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SmoothnessSource: 0
+    - _SmoothnessSource: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SurfaceNormalInt: 1
-    - _SurfaceSmoothness: 0.3
+    - _SurfaceSmoothness: 0
     - _Tiling: 1
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.6698113, g: 0.6176602, b: 0.60914916, a: 1}
+    - _Color: {r: 0.9150943, g: 0.9009513, b: 0.84085083, a: 1}
     - _CoverageColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.14150941, g: 0.096252106, b: 0.048593793, a: 1}
+    - _EmissionColor: {r: 0.09797402, g: 0.11320752, b: 0.0014951878, a: 1}
   m_BuildTextureStacks: []
