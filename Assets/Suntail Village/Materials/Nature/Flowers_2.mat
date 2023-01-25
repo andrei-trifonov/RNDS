@@ -79,6 +79,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.35
     - _Anchorthefoliagebase: 0
@@ -137,5 +138,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.5647059, g: 0.07058824, b: 0.14817911, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1, g: 0.81695867, b: 0, a: 0}
+    - _MainColor: {r: 0.78932005, g: 0.8241526, b: 0.8679245, a: 0}
     - _SecondColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

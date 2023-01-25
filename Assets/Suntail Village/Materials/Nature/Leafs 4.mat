@@ -70,7 +70,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SmoothnessTexture:
-        m_Texture: {fileID: 2800000, guid: 12ff8af2ed1536b49b4cf6f0dea277b3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6af7d0347ed19854093dbe2c1d1ead17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
@@ -159,6 +159,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0, g: 0.5110004, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.07059623, g: 0.1792453, b: 0.03280526, a: 1}
-    - _SecondColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 0.20874593, g: 0.24705882, b: 0, a: 1}
+    - _SecondColor: {r: 0, g: 0.27987757, b: 0.4811321, a: 1}
   m_BuildTextureStacks: []

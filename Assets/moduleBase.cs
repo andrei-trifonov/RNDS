@@ -64,4 +64,8 @@ public  class moduleBase : MonoBehaviour
     {
         GetComponent<WorldArchive>().Scan();
     }
+    public void OpenBridge()
+    {
+        GetComponent<puzzleBridge>().Open();
+    }
 }

@@ -93,6 +93,7 @@
      <Compile Include="Assets\Credits\3_Demo\CreditsExampleScript.cs" />
      <Compile Include="Assets\moduleBase.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\ConvexSplineMesh.cs" />
+     <Compile Include="Assets\puzzleScales.cs" />
      <Compile Include="Assets\ChainPack\Chain2D\scripts\Link.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Rainbow\Rainbow.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Clock\Clock.cs" />
@@ -145,6 +146,7 @@
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Rotate.cs" />
      <Compile Include="Assets\MagneticItem.cs" />
      <Compile Include="Assets\MaskObject.cs" />
+     <Compile Include="Assets\itemWeight.cs" />
      <Compile Include="Assets\Alpha Masking\Samples\Scripts\ShipMover.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Picture\PictureBar.cs" />
      <Compile Include="Assets\CarryManager.cs" />
@@ -182,6 +184,7 @@
      <Compile Include="Assets\moduleFurnance.cs" />
      <Compile Include="Assets\commonMagnet.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\LineMesh.cs" />
+     <Compile Include="Assets\Puzzle1Manager.cs" />
      <Compile Include="Assets\ActionZone.cs" />
      <Compile Include="Assets\SwitchShadowRegime.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Camera\CameraPositions.cs" />
@@ -215,6 +218,7 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
+     <Compile Include="Assets\puzzleBridge.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />

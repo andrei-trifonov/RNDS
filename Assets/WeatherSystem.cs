@@ -27,6 +27,11 @@ public class WeatherSystem : MonoBehaviour
         StartCoroutine(WeatherWaitCoroutine());
 
     }
+    public void SetTimeBounds(float first, float second)
+    {
+        timeBounds.x = first;
+        timeBounds.y = second;
+    }
     IEnumerator WeatherWaitCoroutine()
     {
         

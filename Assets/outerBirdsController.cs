@@ -20,11 +20,19 @@ public class outerBirdsController : MonoBehaviour
     private bool Blocked;
     private bool playerStaying;
     private bool onPlace;
+    
+    
     public static List<GameObject> GetChildren(Transform parent)
     {
         List<GameObject> ret = new List<GameObject>();
         foreach (Transform child in parent) ret.Add(child.gameObject);
         return ret;
+    }
+
+    public void SetTimeBounds(float first, float second)
+    {
+        Borders.x = first;
+        Borders.y = second;
     }
     private List<outerBirds> GetBirds(Transform parent)
     {

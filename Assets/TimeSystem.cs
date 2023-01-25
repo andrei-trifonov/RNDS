@@ -240,6 +240,54 @@ public class TimeSystem : MonoBehaviour
     {
         currentColor = tintColors[i];
         PPV.profile = PPVPresets[i];
+        switch (i)
+        {
+            case 0:
+            {
+                FlipShadows();
+                currShadowRot = shadowRot;
+                shadowRot = new Quaternion(0.626f, -0.009f, 0.001f, 0.779f);
+                shadowVector = shadowRot.eulerAngles;
+                Stars.SetActive(false);
+                Sun.SetActive(false);
+            }
+                break;
+
+            case 1:
+            {
+
+                currShadowRot = shadowRot;
+                shadowRot = new Quaternion(0.536f, -0.204f, 0.359f, 0.735f);
+            }
+                break;
+
+            case 2:
+            {
+                FlipShadows();
+                currShadowRot = shadowRot;
+                shadowRot = new Quaternion(0.008f, -0.617f, 0.786f, 0.005f);
+                Stars.SetActive(true);
+            }
+                break;
+            case 3:
+            {
+
+                currShadowRot = shadowRot;
+                shadowRot = new Quaternion(0.536f, 0.204f, -0.359f, 0.735f);
+                Sun.SetActive(true);
+            }
+                break;
+            default:
+            {
+                i = 0;
+                FlipShadows();
+                currShadowRot = shadowRot;
+                shadowRot = new Quaternion(0.626f, -0.009f, 0.001f, 0.779f);
+                Sun.SetActive(false);
+                Stars.SetActive(false);
+            }
+                break;
+        }
     }
 
     public bool isNight()

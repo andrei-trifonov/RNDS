@@ -19,6 +19,7 @@ public class ActionZone : commonOutliner
     [SerializeField] GameObject Target;
     [SerializeField] private  moduleBase machineModule;
     [SerializeField] private string actionName;
+    [SerializeField] private bool ignoreCarry;
     private PlatformerCharacter2D CharacterController;
     private CarryManager CarryController;
     private bool Finished;
@@ -64,7 +65,7 @@ public class ActionZone : commonOutliner
     {
        
         
-        if (!CarryController.isPicked())
+        if (ignoreCarry || !CarryController.isPicked())
         {
             m_AudioSource.PlayOneShot(Clip);
             if (Rotor)

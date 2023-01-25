@@ -41,6 +41,12 @@ public class BreakManager : MonoBehaviour
         bFinishTime = Random.Range(breakTimerBounds[0], breakTimerBounds[1]);
     }
 
+    public void SetTimeBounds(float first, float second)
+    {
+        breakTimerBounds[0] = first;
+        breakTimerBounds[1] = second;
+    }
+
     public void TurnAlarm(bool state)
     {
         Bar.FillReset();
