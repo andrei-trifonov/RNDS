@@ -97,6 +97,7 @@
      <Compile Include="Assets\ChainPack\Chain2D\scripts\Link.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Rainbow\Rainbow.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Clock\Clock.cs" />
+     <Compile Include="Assets\puzzleBridge.cs" />
      <Compile Include="Assets\TintLightSwitch.cs" />
      <Compile Include="Assets\outerStopZone.cs" />
      <Compile Include="Assets\PSG\Scripts\MeshHelper.cs" />
@@ -218,7 +219,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\puzzleBridge.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
