@@ -59,6 +59,12 @@ TextureImporter:
   - first:
       213: -6992572220149214315
     second: puzzle2_18
+  - first:
+      213: 5498473970998727417
+    second: puzzle2_19
+  - first:
+      213: 5529912314497152486
+    second: puzzle2_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -205,9 +211,9 @@ TextureImporter:
       name: puzzle2_2
       rect:
         serializedVersion: 2
-        x: 1260
+        x: 1266
         y: 109
-        width: 493
+        width: 487
         height: 612
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -525,7 +531,7 @@ TextureImporter:
         width: 413
         height: 284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,7 +552,7 @@ TextureImporter:
         width: 282
         height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -554,6 +560,27 @@ TextureImporter:
       bones: []
       spriteID: 593ddbf2d9465fe90800000000000000
       internalID: -6992572220149214315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puzzle2_20
+      rect:
+        serializedVersion: 2
+        x: 2846
+        y: 10
+        width: 470
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e539a883f13ebc40800000000000000
+      internalID: 5529912314497152486
       vertices: []
       indices: 
       edges: []

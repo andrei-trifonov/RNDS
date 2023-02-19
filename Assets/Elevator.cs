@@ -27,7 +27,14 @@ public class Elevator : MonoBehaviour
     private bool playerEnter;
     // Start is called before the first frame update
 
-
+    public int GetState()
+    {
+        return State;
+    }
+    public bool GetStateB()
+    {
+        return Blocked;
+    }
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();

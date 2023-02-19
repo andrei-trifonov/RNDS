@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
+     <Compile Include="Assets\upgradeManager.cs" />
      <Compile Include="Assets\itemLightShadow.cs" />
      <Compile Include="Assets\PanZoom.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Camera\CameraController.cs" />
@@ -103,7 +104,9 @@
      <Compile Include="Assets\PSG\Scripts\MeshHelper.cs" />
      <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceSingleColumn.cs" />
      <Compile Include="Assets\Suntail Village\Scripts\PhysicsObject.cs" />
+     <Compile Include="Assets\puzzleElevator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\GearMesh.cs" />
+     <Compile Include="Assets\moduleHookPuzzle.cs" />
      <Compile Include="Assets\JournalScanLabel.cs" />
      <Compile Include="Assets\ShipMove.cs" />
      <Compile Include="Assets\CoverParallax.cs" />
@@ -152,6 +155,7 @@
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Picture\PictureBar.cs" />
      <Compile Include="Assets\CarryManager.cs" />
      <Compile Include="Assets\CopyRotation.cs" />
+     <Compile Include="Assets\puzzleButton.cs" />
      <Compile Include="Assets\PSG\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\BreakManager.cs" />
      <Compile Include="Assets\PSG\Scripts\ConvexHull.cs" />
@@ -184,6 +188,7 @@
      <Compile Include="Assets\StorageManager.cs" />
      <Compile Include="Assets\moduleFurnance.cs" />
      <Compile Include="Assets\commonMagnet.cs" />
+     <Compile Include="Assets\puzzleTower.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\LineMesh.cs" />
      <Compile Include="Assets\Puzzle1Manager.cs" />
      <Compile Include="Assets\ActionZone.cs" />
@@ -219,6 +224,7 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
+     <Compile Include="Assets\ShadowGPT.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />

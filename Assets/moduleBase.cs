@@ -39,6 +39,11 @@ public  class moduleBase : MonoBehaviour
     {
         GetComponent<Elevator>().GetHere(0);
     } 
+    public void CallElevator0P()
+    {
+        GetComponent<Elevator>().GetHere(0);
+        GetComponent<puzzleElevator>().MoveLiftDown();
+    } 
     public void CallElevator1()
     {
         GetComponent<Elevator>().GetHere(1);
