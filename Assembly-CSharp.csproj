@@ -65,6 +65,7 @@
      <Compile Include="Assets\TimeSystem.cs" />
      <Compile Include="Assets\PSG\Scripts\Demo Scripts\GearsDemo.cs" />
      <Compile Include="Assets\E_Water\Scripts_C\FlyDeko.cs" />
+     <Compile Include="Assets\ShadowGPT.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\RainbowRing\RainbowRing1.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\EllipseMesh.cs" />
@@ -224,7 +225,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\ShadowGPT.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
