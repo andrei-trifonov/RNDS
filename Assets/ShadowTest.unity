@@ -219,6 +219,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783223560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783223562}
+  - component: {fileID: 783223561}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &783223561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783223560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6afc4a636d7aab49aa74468a917f990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Light: {fileID: 1048276869}
+  Sprite: {fileID: -4570153536982545689, guid: 889ef7c591537df49abad9d38fe9ad5d, type: 3}
+  Quality: 5
+  Pixel: {fileID: 5114984231582374341, guid: 102516aabb22390428feb80d6936c932, type: 3}
+  Pixels_: []
+  shadowMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  shadowDistance: 300
+--- !u!4 &783223562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783223560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1250.32, y: 1281.9131, z: -507.15}
+  m_LocalScale: {x: 0.34649, y: 0.34649, z: 0.34649}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048276869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5114984231582374341, guid: 102516aabb22390428feb80d6936c932,
@@ -242,7 +294,6 @@ GameObject:
   - component: {fileID: 1067577429}
   - component: {fileID: 1067577428}
   - component: {fileID: 1067577427}
-  - component: {fileID: 1067577426}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -250,27 +301,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1067577426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067577425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6afc4a636d7aab49aa74468a917f990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Light: {fileID: 1048276869}
-  Sprite: {fileID: -4570153536982545689, guid: 889ef7c591537df49abad9d38fe9ad5d, type: 3}
-  Quality: 10
-  Pixel: {fileID: 5114984231582374341, guid: 102516aabb22390428feb80d6936c932, type: 3}
-  Pixels: []
-  shadowMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
-  shadowDistance: 2
 --- !u!81 &1067577427
 AudioListener:
   m_ObjectHideFlags: 0
