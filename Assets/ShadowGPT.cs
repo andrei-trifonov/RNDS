@@ -7,13 +7,15 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine.PlayerLoop;
 [System.Serializable]
-public struct shadowDot
+public class shadowDot
     {   
     public Vector3 coordinates;
-    public GameObject obj;
-    public shadowDot(GameObject obj, Vector3 coordinates) {
-        this.obj = obj;
+    public Vector3 position;
+    public bool needRender;
+    public shadowDot(Vector3 coordinates) {
+        this.position = Vector3.zero;
         this.coordinates = coordinates;
+        needRender = false;
     }
 
 
@@ -42,32 +44,33 @@ public class ShadowGPT : MonoBehaviour
         return slicedTex;
     }
 
-    private void FixedUpdate()
+   /* private void FixedUpdate()
     {
-        foreach (var pixels in Pixels_)
+        for (int i=0; i< Pixels_.Count;i++)
         {
-          
+
+           
             RaycastHit hit;
-            Vector3 ray = (pixels.coordinates - Light.transform.position).normalized;
+            Vector3 ray = (Pixels_[i].coordinates - Light.transform.position).normalized;
             Debug.DrawRay(Light.transform.position, ray * shadowDistance, UnityEngine.Color.yellow);
             // Does the ray intersect any objects excluding the player layer
 
             if (Physics.Raycast(Light.transform.position, ray, out hit, shadowDistance, shadowMask))
             {
-                if (pixels.obj)
-                {
-                    pixels.obj.SetActive(true);
-                    pixels.obj.transform.position = hit.point;
+
+                Pixels_[i].needRender = true;
+                Pixels_[i].position = hit.point;
                     Debug.Log("Did Hit");
-                }
+                GetComponent<PolyDrawer>().AddPoints(Pixels_[i].position);       
             }
             else
             {
-                pixels.obj.SetActive(false);
+                Pixels_[i].needRender = false;
             }
+            GetComponent<PolyDrawer>().UpdateFigure();
             
         }
-    }
+    }*/
     private void Start()
 
     {
@@ -84,25 +87,28 @@ public class ShadowGPT : MonoBehaviour
            
             for (int j=0; j < sprite_new.height;j+=Quality)
             {
-                bool a = (sprite_new.GetPixel(i, j).a > 0.5;
-                if ((a && sprite_new.GetPixel(i+1, j).a <= 0.5) || a &&  sprite_new.GetPixel(i-1, j).a <= 0.5) || a )
+                bool a = (sprite_new.GetPixel(i, j).a > 0.5);
+                if (a)
                 {
-                    GameObject go = Instantiate(Pixel, gameObject.transform);
-                    go.transform.position = new Vector3(i, j, 0);
-                    shadowDot shadowPart = new shadowDot(go, go.transform.position);
-                    Pixels_.Add(new shadowDot(go, go.transform.position));
+                   // GameObject go = Instantiate(Pixel, gameObject.transform);
+                   // go.transform.position = new Vector3(i, j, 0);
+                    shadowDot shadowPart = new shadowDot(new Vector3(i, j, 0));
+                    Pixels_.Add(shadowPart);
+                    GetComponent<PolyDrawer>().AddPoints(new Vector3(i, j, 0));
+
                 }
 
 
             }
         }
-       
+        GetComponent<PolyDrawer>().UpdateFigure();
+
 
 
 
 
 // always top-left color
-        }
+    }
 }
 
 
