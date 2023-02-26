@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,16 +41,24 @@ public class PolyDrawer : MonoBehaviour
     public void UpdateFigure()
     {
 
-        Pointcount = RawPoints.Count;
-        PolyPointList = new PolyPoint[Pointcount + 1];
-        m_TriPointList = new List<Vector3>();
+        try
+        {
+            Pointcount = RawPoints.Count;
+            PolyPointList = new PolyPoint[Pointcount + 1];
+            m_TriPointList = new List<Vector3>();
 
-        Debug.Log(RawPoints.Count);
-        FillLists();
+        
+            FillLists();
 
-        Triangulate();
+            Triangulate();
 
-        DrawPolygon();
+            DrawPolygon();
+        }
+        catch 
+        {
+          
+        }
+    
 
     }
 
@@ -155,7 +164,7 @@ public class PolyDrawer : MonoBehaviour
 
         int i;
 
-        while (Pointcount > 3)
+        while (Pointcount > 3 )
         {
 
             /*
@@ -165,8 +174,12 @@ public class PolyDrawer : MonoBehaviour
             */
             i = PolyPointList[0].NextEar;
 
-            int PrevP = PolyPointList[i].PrevP;
-            int NextP = PolyPointList[i].NextP;
+            int PrevP = 0;
+            int NextP = 0;
+
+            PrevP = PolyPointList[i].PrevP;
+            NextP = PolyPointList[i].NextP;
+           
 
             m_TriPointList.Add(new Vector3(PrevP, i, NextP));
 
@@ -257,7 +270,7 @@ public class PolyDrawer : MonoBehaviour
             vertices[i] = RawPoints[i];
         }
 
-        RawPoints.Clear();
+       // RawPoints.Clear();
 
         m_Mesh.vertices = vertices;
 
@@ -310,92 +323,103 @@ public class PolyDrawer : MonoBehaviour
 
     private bool isCleanEar(int Ear)
     {
+     
+            float dot00;
+            float dot01;
+            float dot02;
+            float dot11;
+            float dot12;
+
+            float invDenom;
+            float U;
+            float V;
+
+            Vector2 v0 = RawPoints[PolyPointList[Ear].PrevP - 1] - RawPoints[Ear - 1];
+            Vector2 v1 = RawPoints[PolyPointList[Ear].NextP - 1] - RawPoints[Ear - 1];
+            Vector2 v2;
+
+            int i = PolyPointList[0].NextRefl;
+
+            while (i != -1)
+            {
+
+                v2 = RawPoints[i - 1] - RawPoints[Ear - 1];
+
+                dot00 = Vector2.Dot(v0, v0);
+                dot01 = Vector2.Dot(v0, v1);
+                dot02 = Vector2.Dot(v0, v2);
+                dot11 = Vector2.Dot(v1, v1);
+                dot12 = Vector2.Dot(v1, v2);
+
+                invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+                U = (dot11 * dot02 - dot01 * dot12) * invDenom;
+                V = (dot00 * dot12 - dot01 * dot02) * invDenom;
+
+                if ((U > 0) && (V > 0) && (U + V < 1))
+                    return false;
+
+                i = PolyPointList[i].NextRefl;
+            }
+
+            return true;
 
         /*
         * Barycentric Technique is used to test
         * if the reflective vertices are in selected ears
         */
 
-        float dot00;
-        float dot01;
-        float dot02;
-        float dot11;
-        float dot12;
-
-        float invDenom;
-        float U;
-        float V;
-
-        Vector2 v0 = RawPoints[PolyPointList[Ear].PrevP - 1] - RawPoints[Ear - 1];
-        Vector2 v1 = RawPoints[PolyPointList[Ear].NextP - 1] - RawPoints[Ear - 1];
-        Vector2 v2;
-
-        int i = PolyPointList[0].NextRefl;
-
-        while (i != -1)
-        {
-
-            v2 = RawPoints[i - 1] - RawPoints[Ear - 1];
-
-            dot00 = Vector2.Dot(v0, v0);
-            dot01 = Vector2.Dot(v0, v1);
-            dot02 = Vector2.Dot(v0, v2);
-            dot11 = Vector2.Dot(v1, v1);
-            dot12 = Vector2.Dot(v1, v2);
-
-            invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
-            U = (dot11 * dot02 - dot01 * dot12) * invDenom;
-            V = (dot00 * dot12 - dot01 * dot02) * invDenom;
-
-            if ((U > 0) && (V > 0) && (U + V < 1))
-                return false;
-
-            i = PolyPointList[i].NextRefl;
-        }
-
-        return true;
+      
     }
 
     private bool isReflective(int P)
     {
+ 
+            Vector2 v0 = RawPoints[PolyPointList[P].PrevP - 1] - RawPoints[P - 1];
+            Vector2 v1 = RawPoints[PolyPointList[P].NextP - 1] - RawPoints[P - 1];
 
+            Vector3 A = Vector3.Cross(v0, v1);
+
+            if (A.z < 0)
+                return true;
+
+            return false;
+        
+      
         /*
         * vector cross product is used to determin the reflectiveness of vertices
         * because "Sin" values of angles are always - if the angle > 180
         */
 
-        Vector2 v0 = RawPoints[PolyPointList[P].PrevP - 1] - RawPoints[P - 1];
-        Vector2 v1 = RawPoints[PolyPointList[P].NextP - 1] - RawPoints[P - 1];
 
-        Vector3 A = Vector3.Cross(v0, v1);
-
-        if (A.z < 0)
-            return true;
-
-        return false;
     }
 
     private void RemoveEar(int Ear)
     {
+    
+      
+              int PrevEar = 0;
+            int NextEar = 0;
+       
+        
+             PrevEar = PolyPointList[Ear].PrevEar;
+             NextEar = PolyPointList[Ear].NextEar;
+             PolyPointList[Ear].isEar = false;
+             if (PrevEar == -1)
+             {
+                 PolyPointList[0].NextEar = NextEar;
+             }
+             else
+             {
+                 PolyPointList[PrevEar].NextEar = NextEar;
+             }
 
-        int PrevEar = PolyPointList[Ear].PrevEar;
-        int NextEar = PolyPointList[Ear].NextEar;
+             if (NextEar != -1)
+             {
+                 PolyPointList[NextEar].PrevEar = PrevEar;
+             }
+     
 
-        PolyPointList[Ear].isEar = false;
-
-        if (PrevEar == -1)
-        {
-            PolyPointList[0].NextEar = NextEar;
-        }
-        else
-        {
-            PolyPointList[PrevEar].NextEar = NextEar;
-        }
-
-        if (NextEar != -1)
-        {
-            PolyPointList[NextEar].PrevEar = PrevEar;
-        }
+       
     }
 
     private void AddEar(int Ear)
@@ -443,6 +467,7 @@ public class PolyDrawer : MonoBehaviour
 
     private void AddReflective(int P)
     {
+        
 
         int NextRefl = PolyPointList[0].NextRefl;
 
@@ -462,17 +487,18 @@ public class PolyDrawer : MonoBehaviour
 
     private void RemoveP(int P)
     {
+       
+            int NextP = PolyPointList[P].NextP;
+            int PrevP = PolyPointList[P].PrevP;
 
-        int NextP = PolyPointList[P].NextP;
-        int PrevP = PolyPointList[P].PrevP;
+            PolyPointList[PrevP].NextP = NextP;
+            PolyPointList[NextP].PrevP = PrevP;
 
-        PolyPointList[PrevP].NextP = NextP;
-        PolyPointList[NextP].PrevP = PrevP;
+            if (PolyPointList[0].NextP == P)
+                PolyPointList[0].NextP = NextP;
 
-        if (PolyPointList[0].NextP == P)
-            PolyPointList[0].NextP = NextP;
+            --Pointcount;
 
-        --Pointcount;
     }
 
 }
