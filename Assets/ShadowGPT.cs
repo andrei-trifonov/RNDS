@@ -8,37 +8,26 @@ using System.Data;
 using System.Linq;
 using UnityEngine.PlayerLoop;
 
+
 [System.Serializable]
-/*
-public class shadowDot
-    {   
-     
-    public Vector3 coordinates;
-    public Vector3 position;
-    public bool needRender;
-    public int i;
-    
-    public shadowDot(Vector3 coordinates) {
-        this.position = Vector3.zero;
-        this.coordinates = coordinates;
-        needRender = false;
-    }
 
-
-}
-*/
 public class ListOfList
 {
+    public PolyDrawer PD;
     public List<Vector3> VectorList;
+    public Sprite shadowSprite;
+    public GameObject shadowObj;
+    public List<Vector3> StartList;
+    public List<Vector3> MoveList;
 }
 public class ShadowGPT : MonoBehaviour
 
 {
     [SerializeField] private bool Bind;
     private GameObject shadowPrototype ;
-    private List<ListOfList> StartCoutours = new List<ListOfList>();
+   
     private  List<ListOfList> AllCountours = new List<ListOfList>() ;
-    private List<ListOfList> MoveCountours = new List<ListOfList>();
+
     [SerializeField] private Material Mat;
     public float Scale;
     public float shiftScale;
@@ -52,94 +41,102 @@ public class ShadowGPT : MonoBehaviour
     private List<GameObject> Shadows = new List<GameObject>();
     [SerializeField] private LayerMask shadowMask;
     [SerializeField] private float shadowDistance;
-    private List<PolyDrawer> PDList = new List<PolyDrawer>();
     private Sprite lastSprite;
-
+    ListOfList targetCountour = new ListOfList();
     public void SetSprite(Sprite newSprite)
     {
         Sprite = newSprite;
     }
-    void Draw()
+    void Draw(ListOfList target)
     {
-        for (int i = 0; i < AllCountours.Count; i++)
+        if (target.VectorList.Count > 2) 
         {
-
-            if (AllCountours[i].VectorList.Count > 2)
-            {
-
-        
-                    
-                    PDList[i].RawPoints = MoveCountours[i].VectorList;
-                    PDList[i].UpdateFigure();
-               
-            }
-
-            
+            target.PD.RawPoints = target.MoveList; 
+            target.PD.UpdateFigure();
         }
     }
 
     private void FixedUpdate()
     {
+        
         if (lastSprite != Sprite)
         {
-            StartCoutours.Clear();
-            AllCountours.Clear();
-            MoveCountours.Clear();
-            points.Clear();
-            simplifiedPoints.Clear();
-            PDList.Clear();
-            lastSprite = Sprite;
-
-            foreach (GameObject shadow  in Shadows)
+            bool Found = false;
+            foreach (var countour in AllCountours)
             {
-                Destroy(shadow);
-            }
-            Shadows.Clear();
-            
-            for (int i = 0; i < Sprite.GetPhysicsShapeCount(); i++)
-            {
-                Sprite.GetPhysicsShape(i, points);
-                LineUtility.Simplify(points, Quality, simplifiedPoints);
-                if (simplifiedPoints.Count > 2)
-           
+                if (countour.shadowSprite == Sprite)
                 {
-               
-                    StartCoutours.Add(new ListOfList());
-                    StartCoutours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-               
-                    for(int j=0; j<simplifiedPoints.Count; j++)
+                    targetCountour = countour;
+                    Found = true;
+                    break;
+                }
+            }
+
+            if (!Found)
+            {
+
+                shadowPrototype = new GameObject();
+                List<Vector2> newList = new List<Vector2>();
+                for (int i = 0; i < Sprite.GetPhysicsShapeCount(); i++)
+                {
+
+                    Sprite.GetPhysicsShape(i, points);
+                    if (newList.Count < points.Count)
                     {
-                       
-                        simplifiedPoints[j] = new Vector2((simplifiedPoints[j].x), simplifiedPoints[j].y);
-                       
+                        newList = points;
+                        LineUtility.Simplify(points, Quality, simplifiedPoints);
                     }
+
+                }
+
+
+                if (simplifiedPoints.Count > 2)
+
+                {
+
+                    for (int j = 0; j < simplifiedPoints.Count; j++)
+                    {
+
+                        simplifiedPoints[j] = new Vector2((simplifiedPoints[j].x), simplifiedPoints[j].y);
+
+                    }
+
                     simplifiedPoints.Reverse();
 
                     AllCountours.Add(new ListOfList());
                     AllCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-                    MoveCountours.Add(new ListOfList());
-                    MoveCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-                   
+
+                    AllCountours.Add(new ListOfList());
+                    AllCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
+                    AllCountours.Last().StartList = (Vector2ListToVector3List(simplifiedPoints));
+                    AllCountours.Last().MoveList  = (Vector2ListToVector3List(simplifiedPoints));
+
+
                     GameObject sp = Instantiate(shadowPrototype, transform);
+
                     Shadows.Add(sp);
-                    PolyDrawer pd = sp.AddComponent<PolyDrawer>()as PolyDrawer;
-                    PDList.Add(sp.GetComponent<PolyDrawer>());
+                    AllCountours.Last().shadowObj = sp;
+                    AllCountours.Last().shadowSprite = Sprite;
+
+                    PolyDrawer pd = sp.AddComponent<PolyDrawer>() as PolyDrawer;
+                    AllCountours.Last().PD = (sp.GetComponent<PolyDrawer>());
                     pd.RawPoints = Vector2ListToVector3List1(simplifiedPoints);
                     pd.Mat = Mat;
-                    pd.UpdateFigure();
                 }
-              
-              
-            
-           
-          
-         
+
+                targetCountour = AllCountours.Last();
             }
 
-            lastSprite = Sprite;
+            foreach (GameObject shadow in Shadows)
+            {
+                shadow.SetActive(false);
+            }
 
-            
+            targetCountour.shadowObj.SetActive(true);
+
+
         }
+
         if (Bind)
         {   
             foreach (GameObject shadow  in Shadows)
@@ -148,16 +145,15 @@ public class ShadowGPT : MonoBehaviour
             }
         }
        
-        for (int i = 0; i < AllCountours.Count; i++)
-        {
+  
             Vector3 lowestPoint = new Vector3(0,999,0);
-            for (int j=0; j< AllCountours[i].VectorList.Count;j++)
+            for (int j=0; j< targetCountour.VectorList.Count;j++)
             {
-                AllCountours[i].VectorList[j] =  StartCoutours[i].VectorList[j] + (Sihouette.position*shiftScale-  AllCountours[i].VectorList[j]);
-                AllCountours[i].VectorList[j] = new Vector2( AllCountours[i].VectorList[j].x/Scale+Correction.x,  AllCountours[i].VectorList[j].y/Scale+Correction.y);
+                targetCountour.VectorList[j] =  targetCountour.StartList[j] + (Sihouette.position*shiftScale-  targetCountour.VectorList[j]);
+                targetCountour.VectorList[j] = new Vector2( targetCountour.VectorList[j].x/Scale+Correction.x,  targetCountour.VectorList[j].y/Scale+Correction.y);
                 
                 RaycastHit hit;
-                Vector3 ray = (ConvertToVector3(AllCountours[i].VectorList[j]) - Light.transform.position).normalized;
+                Vector3 ray = (ConvertToVector3(targetCountour.VectorList[j]) - Light.transform.position).normalized;
                 Debug.DrawRay(Light.transform.position, ray * shadowDistance, UnityEngine.Color.yellow);
                 // Does the ray intersect any objects excluding the player layer
                 
@@ -165,7 +161,7 @@ public class ShadowGPT : MonoBehaviour
                 {
                     if (lowestPoint.y > hit.point.y)
                         lowestPoint = hit.point;
-                    MoveCountours[i].VectorList[j] = hit.point;
+                    targetCountour.MoveList[j] = hit.point;
                     
                     Debug.Log("Did Hit");
                     // GetComponent<PolyDrawer>().AddPoints(Pixels_[i].position);       
@@ -174,7 +170,7 @@ public class ShadowGPT : MonoBehaviour
                 else
                 {
                     if (j-1>=0)
-                        MoveCountours[i].VectorList[j] =    MoveCountours[i].VectorList[j-1];
+                        targetCountour.MoveList[j] =    targetCountour.MoveList[j-1];
                     
                   
                 }
@@ -183,18 +179,18 @@ public class ShadowGPT : MonoBehaviour
 
             }
 
-            for (int j = 0; j < AllCountours[i].VectorList.Count; j++)
+            for (int j = 0; j < targetCountour.VectorList.Count; j++)
             {
-                MoveCountours[i].VectorList[j] = MoveCountours[i].VectorList[j] - lowestPoint;
+                targetCountour.MoveList[j]  -= lowestPoint;
             }
 
 
-        }
+        
         
 
         try
         {
-            Draw();
+            Draw(targetCountour);
         }
         catch
         {
@@ -226,35 +222,37 @@ public class ShadowGPT : MonoBehaviour
        }
        
           
-           if (simplifiedPoints.Count > 2)
+       if (simplifiedPoints.Count > 2)
+       
+       {
            
+           
+           
+           for(int j=0; j<simplifiedPoints.Count; j++)
            {
-               
-               
-               
-               for(int j=0; j<simplifiedPoints.Count; j++)
-               {
-                       
-                   simplifiedPoints[j] = new Vector2((simplifiedPoints[j].x), simplifiedPoints[j].y);
-                  
-               }
-               simplifiedPoints.Reverse();
-
-               AllCountours.Add(new ListOfList());
-               AllCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-               MoveCountours.Add(new ListOfList());
-               MoveCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-               StartCoutours.Add(new ListOfList());
-               StartCoutours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
-               GameObject sp = Instantiate(shadowPrototype, transform);
-               Shadows.Add(sp);
-               PolyDrawer pd = sp.AddComponent<PolyDrawer>()as PolyDrawer;
-               PDList.Add(sp.GetComponent<PolyDrawer>());
-               pd.RawPoints = Vector2ListToVector3List1(simplifiedPoints);
-               pd.Mat = Mat;
-               pd.UpdateFigure();
-           }
+                   
+               simplifiedPoints[j] = new Vector2((simplifiedPoints[j].x), simplifiedPoints[j].y);
               
+           }
+           simplifiedPoints.Reverse();
+
+           AllCountours.Add(new ListOfList());
+           AllCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
+           AllCountours.Last().StartList = (Vector2ListToVector3List(simplifiedPoints));
+           AllCountours.Last().MoveList  = (Vector2ListToVector3List(simplifiedPoints));
+           
+          
+           GameObject sp = Instantiate(shadowPrototype, transform);
+           Shadows.Add(sp);
+           PolyDrawer pd = sp.AddComponent<PolyDrawer>()as PolyDrawer;
+           AllCountours.Last().PD = sp.GetComponent<PolyDrawer>();
+        
+           pd.RawPoints = Vector2ListToVector3List1(simplifiedPoints);
+           pd.Mat = Mat;
+           pd.UpdateFigure();
+       }
+
+       targetCountour = AllCountours.Last();
               
             
            
