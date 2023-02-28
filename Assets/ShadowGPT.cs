@@ -13,7 +13,7 @@ using UnityEngine.PlayerLoop;
 
 public class ListOfList
 {
-    
+    public int Anchor;
     public PolyDrawer PD;
     public List<Vector3> VectorList;
     public Sprite shadowSprite;
@@ -25,11 +25,11 @@ public class ShadowGPT : MonoBehaviour
 
 {
    
-    public bool Flipped;
+    private bool Flipped;
     Vector3 closestVect ;
-    public float pixelModifier;
-    public float ScaleStart;
-    public Vector2 CorrectionStart;
+    [SerializeField] float zPosition = 5.32f;
+    [SerializeField] private float ScaleStart;
+    [SerializeField] private Vector2 CorrectionStart;
     [SerializeField] private bool Bind;
     private GameObject shadowPrototype ;
    
@@ -46,14 +46,15 @@ public class ShadowGPT : MonoBehaviour
     private List<GameObject> Shadows = new List<GameObject>();
     [SerializeField] private LayerMask shadowMask;
     [SerializeField] private float shadowDistance;
-    public Vector3 Center;
+    private Vector3 Center;
     ListOfList targetCountour = new ListOfList();
-    private bool hasCenter;
+
   
    
     public void SetSprite(Sprite newSprite, bool flipped)
     {
             Flipped = flipped;
+        
             Sprite = newSprite;
     }
     void Draw(ListOfList target)
@@ -109,6 +110,7 @@ public class ShadowGPT : MonoBehaviour
                     simplifiedPoints[j] = sp.transform.TransformPoint(simplifiedPoints[j]);
                     simplifiedPoints[j] += CorrectionStart;
                     simplifiedPoints[j] *= ScaleStart;
+                  
 
                 }
 
@@ -137,11 +139,13 @@ public class ShadowGPT : MonoBehaviour
         Vector3 rightPoint = new Vector3(-999,0,0);
         Vector3 leftPoint = new Vector3(999,0,0);
 
-        for (int j=0; j< targetCountour.VectorList.Count;j++)
+
+
+            for (int j=0; j< targetCountour.VectorList.Count;j++)
         {
             
             targetCountour.VectorList[j] =   new Vector3((Sihouette.position+  targetCountour.StartList[j]).x,  (Sihouette.position+  targetCountour.StartList[j]).y ,0);
-
+          
             RaycastHit hit;
             Vector3 ray = (ConvertToVector3(targetCountour.VectorList[j]) - Light.transform.position).normalized;
             
@@ -169,39 +173,41 @@ public class ShadowGPT : MonoBehaviour
         Center = (leftPoint + rightPoint) / 2;
         Center.y = lowestPoint.y;
         float nearestDist = 999;
-       
+
         for (int j = 0; j < targetCountour.VectorList.Count; j++)
         {
-            if (Vector2.Distance(targetCountour.VectorList[j], Center) < nearestDist )
+            if (Vector2.Distance(targetCountour.VectorList[j], new Vector2(Center.x, lowestPoint.y)) < nearestDist)
             {
                 nearestDist = Vector2.Distance(targetCountour.VectorList[j], Center);
-                closestVect = targetCountour.VectorList[j];
+
+                closestVect = targetCountour.VectorList[targetCountour.Anchor];
             }
         }
         
-        Vector3 Offset = closestVect - Center;
-        
+
+       
+        Vector3 Offset = closestVect - Center ;
+      
 
         foreach (GameObject shadow in Shadows)
         {
             shadow.SetActive(false);
         }
+        for (int j = 0; j < targetCountour.VectorList.Count; j++)
+        {
+           targetCountour.MoveList[j] = new  Vector3 (targetCountour.MoveList[j].x -leftPoint.x, targetCountour.MoveList[j].y-lowestPoint.y, 0 ) ;
+        }
+        
+        
         if (Bind)
         {
             foreach (GameObject shadow in Shadows)
             {
-                if (!Flipped)
-                {
-                   shadow.transform.localScale = new Vector3(  1,  1,   -1);
-                   shadow.transform.rotation = Quaternion.Euler(0,180,0);
-                   shadow.transform.position = Sihouette.transform.position + new Vector3(-Offset.x, Offset.y, 0) - (new Vector3(-closestVect.x, closestVect.y)); 
-                }
-                if (Flipped)
-                {
+
                     shadow.transform.localScale = new Vector3(  1,  1,   1);
                     shadow.transform.rotation = Quaternion.Euler(0,0,0);
-                    shadow.transform.position = Sihouette.transform.position + Offset - closestVect; 
-                }
+                    shadow.transform.position = new Vector3(Sihouette.transform.position.x - Center.x + leftPoint.x, Sihouette.transform.position.y, zPosition); 
+                
                 
             }
         }
@@ -216,7 +222,7 @@ public class ShadowGPT : MonoBehaviour
             }
         }
       
-        
+
         targetCountour.shadowObj.SetActive(true);
         Draw(targetCountour);
 
