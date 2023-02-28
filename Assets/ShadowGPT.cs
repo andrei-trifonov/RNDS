@@ -84,7 +84,7 @@ public class ShadowGPT : MonoBehaviour
             shadowPrototype = new GameObject();
             List<Vector2> newList = new List<Vector2>();
             
-            for (int i = 0; i < Sprite.GetPhysicsShapeCount(); i++)
+            for (int i = 0; i < Sprite. GetPhysicsShapeCount(); i++)
             {
 
                 Sprite.GetPhysicsShape(i, points);
@@ -109,12 +109,13 @@ public class ShadowGPT : MonoBehaviour
            
                     simplifiedPoints[j] = sp.transform.TransformPoint(simplifiedPoints[j]);
                     simplifiedPoints[j] += CorrectionStart;
-                    simplifiedPoints[j] *= ScaleStart;
-                  
+                    simplifiedPoints[j] = new Vector2(simplifiedPoints[j].x*-ScaleStart,simplifiedPoints[j].y*ScaleStart );
+                    //simplifiedPoints[j] = new Vector2(simplifiedPoints[j].x*-1, simplifiedPoints[j].y);
+
 
                 }
 
-                simplifiedPoints.Reverse();
+                //simplifiedPoints.Reverse();
 
                 AllCountours.Add(new ListOfList());
                 AllCountours.Last().VectorList = (Vector2ListToVector3List(simplifiedPoints));
@@ -147,6 +148,19 @@ public class ShadowGPT : MonoBehaviour
             targetCountour.VectorList[j] =   new Vector3((Sihouette.position+  targetCountour.StartList[j]).x,  (Sihouette.position+  targetCountour.StartList[j]).y ,0);
           
             RaycastHit hit;
+            
+            Vector3 rightPoint1 = new Vector3(-999,0,0);
+            Vector3 leftPoint1 = new Vector3(999,0,0);
+
+            for (int i = 0; i < targetCountour.VectorList.Count; i++)
+            {
+                if (rightPoint1.x < targetCountour.VectorList[i].x)
+                    rightPoint1.x = targetCountour.VectorList[i].x;
+                if (leftPoint1.x >  targetCountour.VectorList[i].x)
+                    leftPoint1.x = targetCountour.VectorList[i].x;
+            }
+
+
             Vector3 ray = (ConvertToVector3(targetCountour.VectorList[j]) - Light.transform.position).normalized;
             
             Debug.DrawRay(Light.transform.position, ray * shadowDistance, UnityEngine.Color.yellow);
@@ -171,7 +185,7 @@ public class ShadowGPT : MonoBehaviour
         }
         
         Center = (leftPoint + rightPoint) / 2;
-        Center.y = lowestPoint.y;
+     
         float nearestDist = 999;
 
         for (int j = 0; j < targetCountour.VectorList.Count; j++)
