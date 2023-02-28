@@ -47,6 +47,11 @@ public class PlatformerCharacter2D : MonoBehaviour
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         private float startPos;
         private Animator shadowAnim;
+
+        public bool GetFacing()
+        {
+            return m_FacingRight;
+        }
         public Animator ShareAnimator()
         {
             return m_Anim;

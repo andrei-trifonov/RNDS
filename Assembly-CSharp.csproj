@@ -123,6 +123,7 @@
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Rainbow\RainbowStrip.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
      <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceTitle.cs" />
+     <Compile Include="Assets\OuterRenderer3D.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Destination\DestinationBar.cs" />
      <Compile Include="Assets\Elevator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\SplineShapeMesh.cs" />
@@ -226,7 +227,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\OuterRenderer3D.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
