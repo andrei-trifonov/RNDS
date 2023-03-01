@@ -17,6 +17,6 @@ public class OuterRenderer3D : MonoBehaviour
     private void FixedUpdate()
     {
        
-         shadow3D.SetSprite(Actor.sprite,!PC2D.GetFacing());
+         shadow3D.SetSprite(Actor.sprite, PC2D.GetFacing());
     }
 }
