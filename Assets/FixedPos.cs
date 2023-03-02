@@ -8,6 +8,7 @@ public class FixedPos : MonoBehaviour
 {
     [FormerlySerializedAs("point")] [SerializeField] private GameObject Point;
     [SerializeField] private bool noOffset;
+    [SerializeField] private float zOffset;
     private Vector2 offset;
 
 
@@ -28,6 +29,7 @@ public class FixedPos : MonoBehaviour
     void FixedUpdate()
     {
         
-        transform.position = (Vector2)Point.transform.position  + offset;
+        transform.position = new Vector3 (Point.transform.position.x + offset.x, Point.transform.position.y + offset.y, zOffset  );
+       
     }
 }

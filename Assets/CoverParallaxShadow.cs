@@ -10,27 +10,18 @@ public class CoverParallaxShadow : MonoBehaviour
     [SerializeField] private GameObject opticCenter;
     [SerializeField] private float symmetricBounds;
     [SerializeField] private float xMaxOffset;
-    private Vector3 startPosition;
+
    
     private float xOffset;
-    private float yOffset;
-    private float Percentage;
+
     private float xtranslitedOffset;
-    private float ytranslitedOffset;
-    
+ 
+    public void SetLight(GameObject light)
+    {
+        Light = light;
+    }
     
    
-    // Start is called before the first frame update
-    void Start()
-    {
-                        
-        startPosition = transform.position;
-        
-        
-        
-       
-        
-    }
 
     // Update is called once per frame
     private void FixedUpdate()

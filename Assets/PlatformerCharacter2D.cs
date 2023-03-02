@@ -18,11 +18,10 @@ public class PlatformerCharacter2D : MonoBehaviour
         [SerializeField] private Animator m_Anim;            // Reference to the player's animator component.
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip landSound;
-        [SerializeField] private Transform shadowPos;
-        [SerializeField] private Transform VshadowPos;
-        [SerializeField] private Transform shadowPoint;
-       
-        private bool jumpBlocked;
+             [SerializeField] private ShadowGPT Shadow;
+
+       private bool jumpBlocked;
+
         private AudioSource m_AudioSource;
         private bool Blocked;
         private Transform targetTransform;
@@ -46,7 +45,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         private Rigidbody2D movingObject = new Rigidbody2D() ;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         private float startPos;
-        private Animator shadowAnim;
+      
 
         public bool GetFacing()
         {
@@ -71,9 +70,21 @@ public class PlatformerCharacter2D : MonoBehaviour
         }
 
 
-        void OnTriggerEnter2D(Collider2D collision)
+     void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Light"))
         {
-            if (collision.gameObject.CompareTag("Moving"))
+
+            Shadow.RemoveLight(collision);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Light"))
+            {
+            Shadow.AddLight(collision);
+            }
+        if (collision.gameObject.CompareTag("Moving"))
             {
                 movingObject = collision.gameObject.GetComponentInParent<Rigidbody2D>();
             }
@@ -94,7 +105,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-            shadowAnim = shadowPos.GetComponent<Animator>();
+           
         }
 
 
@@ -274,13 +285,7 @@ public class PlatformerCharacter2D : MonoBehaviour
                         Flip(false);
                     }
                 } 
-                RaycastHit2D hit = Physics2D.Raycast(shadowPoint.transform.position,  -Vector2.up, 20, m_WhatIsGround, 0, 10 );
-                if (hit.collider!= null)
-                {
-                  
-                    shadowPos.transform.position = 
-                        new Vector2(shadowPoint.transform.position.x, hit.point.y);
-                }
+               
                 // If the player should jump...
             if (m_Grounded && jump && !jumpBlocked  && m_Anim.GetBool("Ground"))
             {
@@ -308,8 +313,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Rigidbody2D.velocity = new Vector2(0.0f + o_Velocity.x, 0.0f);
             m_Anim.SetFloat("Speed", 0f);    
             yield return new WaitForSeconds(rotDelay);
-            shadowPos.GetComponent<SpriteRenderer>().flipX = !shadowPos.GetComponent<SpriteRenderer>().flipX;
-            VshadowPos.GetComponent<SpriteRenderer>().flipX = !VshadowPos.GetComponent<SpriteRenderer>().flipX;
+           
             Vector3 theScale = Pivot.transform.localScale;
             theScale.x *= -1;
             Pivot.transform.localScale = theScale;

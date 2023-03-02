@@ -18,6 +18,7 @@ TagManager:
   - Tint
   - Obstacle
   - BigHookItem
+  - Light
   layers:
   - Default
   - TransparentFX

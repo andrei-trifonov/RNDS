@@ -103,6 +103,7 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CircleMesh.cs" />
     <Compile Include="Assets\moduleHook.cs" />
     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstance.cs" />
+    <Compile Include="Assets\CoverParallaxShadow.cs" />
     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceImage.cs" />
     <Compile Include="Assets\Credits\3_Demo\CreditsExampleScript.cs" />
     <Compile Include="Assets\moduleBase.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Assets\TintLightSwitch.cs" />
     <Compile Include="Assets\outerStopZone.cs" />
     <Compile Include="Assets\PSG\Scripts\MeshHelper.cs" />
+    <Compile Include="Assets\PolyDrawer.cs" />
     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceSingleColumn.cs" />
     <Compile Include="Assets\Suntail Village\Scripts\PhysicsObject.cs" />
     <Compile Include="Assets\puzzleElevator.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Rainbow\RainbowStrip.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceTitle.cs" />
+    <Compile Include="Assets\OuterRenderer3D.cs" />
     <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Destination\DestinationBar.cs" />
     <Compile Include="Assets\Elevator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\SplineShapeMesh.cs" />
@@ -237,9 +240,6 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
     <Compile Include="Assets\BarValueTranslator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-    <Compile Include="Assets\PolyDrawer.cs" />
-    <Compile Include="Assets\OuterRenderer3D.cs" />
-    <Compile Include="Assets\CoverParallaxShadow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ChainPack\Chain2D\README.txt" />
