@@ -20,7 +20,8 @@ public class ListOfList
 public class ShadowGPT : MonoBehaviour
 
 {
-   
+
+    public bool isGlobalLight;
     private bool Flipped;
     [SerializeField] CoverParallaxShadow CPS;
     [SerializeField] float zPosition = 5.32f;
@@ -31,11 +32,12 @@ public class ShadowGPT : MonoBehaviour
     [SerializeField] private float Quality = 0.05f;
     [SerializeField] private Transform Sihouette;
     [SerializeField] private LayerMask shadowMask;
+    [SerializeField] private LayerMask blockMask;
     [SerializeField] private float shadowDistance;
 
     private List<GameObject> Lights = new List<GameObject>();
     private float lightDistance =999 ;
-    private GameObject mainLight;
+    [SerializeField] private GameObject mainLight;
     ListOfList targetCountour = new ListOfList(); 
     private Vector3 Center;
     private List<Vector2> points = new List<Vector2>();
@@ -44,24 +46,15 @@ public class ShadowGPT : MonoBehaviour
     private GameObject shadowPrototype;
     private List<ListOfList> AllCountours = new List<ListOfList>();
 
-    public void AddLight(Collider2D collision)
+    public void AddLight(GameObject light)
     {
-        if(!Lights.Contains(collision.gameObject))
-            Lights.Add(collision.gameObject);
+        if(!Lights.Contains(light))
+            Lights.Add(light);
     }
-    public void RemoveLight(Collider2D collision)
-    {
-        if (collision.gameObject == mainLight)
-        {
-            lightDistance = 999;
-            mainLight = null;
-        }
-        if (Lights.Contains(collision.gameObject))
-            Lights.Remove(collision.gameObject);
-    }
+    
     public void checkLight(GameObject light)
     {
-        float distance = Vector2.Distance(light.transform.position, gameObject.transform.position);
+        float distance = Vector2.Distance(light.transform.position, Sihouette.transform.position);
         if (distance < lightDistance)
         {
             mainLight = light;
@@ -101,7 +94,7 @@ public class ShadowGPT : MonoBehaviour
             }
 
         }
-
+        
 
         if (simplifiedPoints.Count > 2)
 
@@ -136,6 +129,10 @@ public class ShadowGPT : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (mainLight)
+            lightDistance = Vector2.Distance(Sihouette.position, mainLight.transform.position);
+        else
+            lightDistance = 999;
         foreach (GameObject light in Lights)
         {
             checkLight(light);
@@ -203,9 +200,9 @@ public class ShadowGPT : MonoBehaviour
 
                 Debug.DrawRay(mainLight.transform.position, ray * shadowDistance, UnityEngine.Color.yellow);
 
-                if (Physics.Raycast(mainLight.transform.position, ray, out hit, shadowDistance, shadowMask))
+                if (Physics.Raycast(mainLight.transform.position, ray, out hit, shadowDistance, shadowMask) && hit.transform.gameObject.layer != blockMask)
                 {
-
+                     
                     if (rightPoint.x < hit.point.x)
                         rightPoint = new Vector3(hit.point.x, 0, 0);
                     if (leftPoint.x > hit.point.x)

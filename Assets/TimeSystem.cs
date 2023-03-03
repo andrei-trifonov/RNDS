@@ -19,6 +19,7 @@ public struct ShadowParam
 }
 public class TimeSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject sunLight;
     [SerializeField] private SpriteRenderer tintSpiteF;
     [SerializeField] private SpriteRenderer tintSpiteB;
     [SerializeField] private float timeStep;
@@ -29,22 +30,19 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private bool Day, Evening, Night, Mourning;
     [SerializeField] private GameObject Stars;
     [SerializeField] private GameObject Sun;
-    [SerializeField] private List<ShadowParam> charShadows; 
+
   
-    private  Quaternion shadowRot;
-    private Quaternion currShadowRot;
+   
     float timeLeft;
     private int i;
-    private Vector2 shadowVector;
-    Color targetColor;
+        Color targetColor;
     Color currentColor;
     private Color startColor;
     
     private void Start()
     {
         
-        currShadowRot = new Quaternion(0.536f,0.204f,-0.359f,0.735f);
-        shadowRot = new Quaternion(0.626f,-0.009f,0.001f,0.779f);
+        
         targetColor = tintColors[0];
         Day = true;
 
@@ -52,21 +50,7 @@ public class TimeSystem : MonoBehaviour
 
 
 
-    void FlipShadows()
-    {
-        for (int i = 0; i < charShadows.Count; i++)
-        {
-
-            if (charShadows[i].castVertical)
-            {
-                charShadows[i].Shadow.GetComponent<SpriteRenderer>().flipX =
-                    !charShadows[i].Shadow.GetComponent<SpriteRenderer>().flipX;
-                charShadows[i].ShadowVertical.GetComponent<SpriteRenderer>().flipX =
-                    !charShadows[i].ShadowVertical.GetComponent<SpriteRenderer>().flipX;
-            }
-        }
-
-    }
+    
     void FixedUpdate()
     {
       
@@ -85,12 +69,10 @@ public class TimeSystem : MonoBehaviour
                 {
                     case 0:
                     {
-                        FlipShadows();
-                        currShadowRot = shadowRot;
-                        shadowRot = new Quaternion(0.626f,-0.009f,0.001f,0.779f);
-                        shadowVector = shadowRot.eulerAngles;
+                        sunLight.transform.localPosition = new Vector3(0, 5.53f, 2.04f);
                       
                         Day = true;
+
                         Stars.SetActive(false);
                         Sun.SetActive(false);
                     }
@@ -98,39 +80,41 @@ public class TimeSystem : MonoBehaviour
 
                     case 1:
                     {
-                       
-                        currShadowRot = shadowRot;
-                        shadowRot = new Quaternion(0.536f,-0.204f,0.359f,0.735f);
+                        sunLight.transform.localPosition = new Vector3(4.16f, 5.53f, -12.99f);
+                     
+
                         Evening = true;
                     }
                         break;
                 
                     case 2:
                     {
-                        FlipShadows();
-                        currShadowRot = shadowRot;
-                        shadowRot = new Quaternion(0.008f,-0.617f,0.786f,0.005f);
+
+                        sunLight.SetActive(false);
+                        sunLight.transform.localPosition = new Vector3(0, 0, 0);
+                      
             
                         Night = true;
+
                         Stars.SetActive(true);
                     }
                         break;
                     case 3:
                     {
-                      
-                        currShadowRot = shadowRot;
-                        shadowRot = new Quaternion(0.536f,0.204f,-0.359f,0.735f);
+                        sunLight.SetActive(true);
+                        sunLight.transform.localPosition = new Vector3(-4.16f, 5.53f, -12.99f);
                         Mourning = true;
+
                         Sun.SetActive(true);
                     }
                         break;
-                    default: {i = 0;
-                        FlipShadows();
-                        currShadowRot = shadowRot;
-                        shadowRot = new Quaternion(0.626f,-0.009f,0.001f,0.779f);
-                        
+                    default: {
+                        sunLight.transform.localPosition = new Vector3(0, 5.53f, 2.04f);
+                        i = 0;
+                      
                         Sun.SetActive(false);
                         Stars.SetActive(false);
+
                         Day = true;
                     } break;
                 }
@@ -149,64 +133,9 @@ public class TimeSystem : MonoBehaviour
                 // calculate interpolated color
                 timeLeft += Time.deltaTime / timeStep;
                 currentColor = Color.Lerp(startColor, targetColor, timeLeft);
-                Quaternion rotation = Quaternion.Lerp(currShadowRot, shadowRot, timeLeft);
+              //  Quaternion rotation = Quaternion.Lerp(currShadowRot, shadowRot, timeLeft);
+                                                 
                 
-                   //if(Night || Mourning)
-                   // for (int j = 0; j < Lights.Count; j++)
-                //    {
-                   //     Lights[j].SetFeathering(currentColor);
-                 //   }
-                for (int i = 0; i < charShadows.Count; i++)
-                {
-                  
-                        if (!charShadows[i].controlledOuter)
-                            charShadows[i].Shadow.transform.localRotation = rotation; // вращение горизонтальной тени
-                        if (charShadows[i].castVertical)
-                        {
-                            /*
-                        RaycastHit2D hit = Physics2D.Raycast(charShadows[i].Shadow.transform.position,
-                            rotation * new Vector2(0, 1), 10, charShadows[i].shadowCollision, 0, 10);
-*/
-                            Quaternion rotationReal = charShadows[i].Shadow.transform.rotation;
-                            RaycastHit2D hit = Physics2D.Raycast(charShadows[i].Shadow.transform.position,
-                                rotationReal * new Vector2(0, 1), 10, charShadows[i].shadowCollision, 0, 10);
-
-                        // UnityEngine.Debug.DrawRay(charShadows[i].Shadow.transform.position,
-                        //     rotation * new Vector2(0,
-                        //         charShadows[i].ShadowVertical.GetComponent<SpriteRenderer>().size.y *
-                        //         charShadows[i].ShadowVertical.transform.localScale.y), Color.cyan, 2);
-
-                        Vector2 maxResVector =  rotationReal * new Vector2(0,
-                            charShadows[i].ShadowVertical.GetComponent<SpriteRenderer>().size.y *
-                            charShadows[i].ShadowVertical.transform.localScale.y);
-
-                        if (hit.collider != null)
-                        {
-
-
-                            float distance = Vector2.Distance(hit.point, charShadows[i].Shadow.transform.position);
-
-                            if (distance < charShadows[i].maxShadowVerticalDistance)
-                            {
-                                charShadows[i].ShadowVertical.SetActive(true);
-                                float offset = (distance / maxResVector.magnitude);
-                                charShadows[i].ShadowVertical.transform.position = new Vector2(hit.point.x,
-                                    hit.point.y - offset *
-                                    (charShadows[i].ShadowVertical.GetComponent<SpriteRenderer>().size.y *
-                                     charShadows[i].ShadowVertical.transform.localScale.y));
-                            }
-                            else
-                            {
-                                charShadows[i].ShadowVertical.SetActive(false);
-                            }
-
-                        }
-                        else
-                        {
-                            charShadows[i].ShadowVertical.SetActive(false);
-                        }
-                    }
-                }
             }
         }
 
@@ -243,49 +172,56 @@ public class TimeSystem : MonoBehaviour
         switch (i)
         {
             case 0:
-            {
-                FlipShadows();
-                currShadowRot = shadowRot;
-                shadowRot = new Quaternion(0.626f, -0.009f, 0.001f, 0.779f);
-                shadowVector = shadowRot.eulerAngles;
-                Stars.SetActive(false);
-                Sun.SetActive(false);
-            }
+                {
+                    sunLight.transform.localPosition = new Vector3(0, 5.53f, -12.99f);
+
+                    Day = true;
+
+                    Stars.SetActive(false);
+                    Sun.SetActive(false);
+                }
                 break;
 
             case 1:
-            {
+                {
+                    sunLight.transform.localPosition = new Vector3(4.16f, 5.53f, -12.99f);
 
-                currShadowRot = shadowRot;
-                shadowRot = new Quaternion(0.536f, -0.204f, 0.359f, 0.735f);
-            }
+
+                    Evening = true;
+                }
                 break;
 
             case 2:
-            {
-                FlipShadows();
-                currShadowRot = shadowRot;
-                shadowRot = new Quaternion(0.008f, -0.617f, 0.786f, 0.005f);
-                Stars.SetActive(true);
-            }
+                {
+
+                   
+                    sunLight.transform.localPosition = new Vector3(0, 0, 30);
+
+
+                    Night = true;
+
+                    Stars.SetActive(true);
+                }
                 break;
             case 3:
-            {
+                {
+                    sunLight.SetActive(true);
+                    sunLight.transform.localPosition = new Vector3(-4.16f, 5.53f, -12.99f);
+                    Mourning = true;
 
-                currShadowRot = shadowRot;
-                shadowRot = new Quaternion(0.536f, 0.204f, -0.359f, 0.735f);
-                Sun.SetActive(true);
-            }
+                    Sun.SetActive(true);
+                }
                 break;
             default:
-            {
-                i = 0;
-                FlipShadows();
-                currShadowRot = shadowRot;
-                shadowRot = new Quaternion(0.626f, -0.009f, 0.001f, 0.779f);
-                Sun.SetActive(false);
-                Stars.SetActive(false);
-            }
+                {
+                    sunLight.transform.localPosition = new Vector3(0, 5.53f, -12.99f);
+                    i = 0;
+
+                    Sun.SetActive(false);
+                    Stars.SetActive(false);
+
+                    Day = true;
+                }
                 break;
         }
     }

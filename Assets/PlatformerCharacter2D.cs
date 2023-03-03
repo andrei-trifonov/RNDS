@@ -70,20 +70,10 @@ public class PlatformerCharacter2D : MonoBehaviour
         }
 
 
-     void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Light"))
-        {
-
-            Shadow.RemoveLight(collision);
-        }
-    }
+   
     void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Light"))
-            {
-            Shadow.AddLight(collision);
-            }
+            
         if (collision.gameObject.CompareTag("Moving"))
             {
                 movingObject = collision.gameObject.GetComponentInParent<Rigidbody2D>();

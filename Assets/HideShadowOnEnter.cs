@@ -6,36 +6,21 @@ using UnityEngine;
 
 public class HideShadowOnEnter : MonoBehaviour
 {
-    
-    [SerializeField] public  List<Animator> Shadow;
-    [SerializeField] private GameObject VShadowMask;
-    [HideInInspector] public  List<bool> isHiden;
 
+    [SerializeField] private Material Shadow;
+    private Color startColor;
     private void Start()
     {
-        foreach (var item in Shadow)
-        {
-            isHiden.Add(false);
-        }
-      
-        
+        startColor = Shadow.color;
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            for (int i = 0; i< Shadow.Count; i++)
-            {
-                bool status;
-                if (status = Shadow[i].GetBool("Hide"))
-                    isHiden[i] = status;
-                Shadow[i].SetBool("Hide", true);    
-            }
-            
-
-
-            VShadowMask.SetActive(false);
+            Shadow.color =  new UnityEngine.Color(startColor.r, startColor.g, startColor.b, 0);
         }
     }
 
@@ -44,14 +29,9 @@ public class HideShadowOnEnter : MonoBehaviour
     
         if(other.CompareTag("Player"))
         {
-            for (int i = 0; i< Shadow.Count; i++)
-            {
-                if (isHiden[i] == false)
-                    Shadow[i].SetBool("Hide", false);    
-            }
-            
-            VShadowMask.SetActive(true);
-       
+
+            Shadow.color = startColor;
+
         }
     }
 }

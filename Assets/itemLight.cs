@@ -14,17 +14,26 @@ public class itemLight : MonoBehaviour
    
     //[SerializeField] private SpriteRenderer Feathering;
     [SerializeField] private GameObject Mask;
+    [SerializeField] private GameObject lightSource;
     private bool isOn;
     private Quaternion[] baseQuartenion = new Quaternion[4];
      public List<GameObject> Shadows;
-    
+    private ShadowGPT[]  Shadows3D;
     private void Awake()
     {
+        Shadows3D = GameObject.FindObjectsOfType<ShadowGPT>();
+        foreach(ShadowGPT shadow in Shadows3D)
+        {
+            if (!shadow.isGlobalLight)
+            shadow.AddLight(lightSource) ;
+        }
         baseQuartenion[3] = new Quaternion(0.626f,-0.009f,0.001f,0.779f);
         baseQuartenion[2] = new Quaternion(0.536f,-0.204f,0.359f,0.735f); //Evening
         baseQuartenion[1] = new Quaternion(0.008f,-0.617f,0.786f,0.005f);//Night
         baseQuartenion[0] = new Quaternion(0.536f,0.204f,-0.359f,0.735f); //Mourning
         GameObject maskParent = GameObject.FindGameObjectWithTag("Tint");
+       // FixedPos shadowMakerFP = Instantiate(shadowMaker).GetComponent<FixedPos>();
+       // shadowMakerFP.SetPoint(gameObject.transform.parent.gameObject);
         Mask = Instantiate(Mask, maskParent.transform);
         Mask.GetComponent<FixedPos>().SetPoint( gameObject);
         Mask.GetComponent<itemLightCol>().Light = this;
