@@ -1,9 +1,10 @@
 Shader "Custom/Mask"
 {
-   Subshader{
-      Tags{
-          "Queue" = "Transparent+1"}
-       Pass {
-           Blend Zero One }
-       }
+SubShader
+	{
+		Tags {"Queue" = "Transparent-1" }
+		ColorMask 0
+		ZWrite On
+		Pass {}
+	}
 }

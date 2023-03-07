@@ -40,8 +40,8 @@ TagManager:
   - visualLayer_3D_road
   - PlayerCol
   - ShadowColRoom
-  - 
-  - 
+  - BlockLight
+  - StartMask
   - 
   - 
   - 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HideShadowOnEnter : MonoBehaviour
 {
-
+    [SerializeField] private GameObject globalShadow;
     [SerializeField] private Material Shadow;
     private Color startColor;
     private void Start()
@@ -20,6 +20,7 @@ public class HideShadowOnEnter : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            
             Shadow.color =  new UnityEngine.Color(startColor.r, startColor.g, startColor.b, 0);
         }
     }
@@ -29,7 +30,7 @@ public class HideShadowOnEnter : MonoBehaviour
     
         if(other.CompareTag("Player"))
         {
-
+            globalShadow.SetActive(true);
             Shadow.color = startColor;
 
         }
