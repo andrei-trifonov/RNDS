@@ -19,6 +19,7 @@ TagManager:
   - Obstacle
   - BigHookItem
   - Light
+  - Front3D
   layers:
   - Default
   - TransparentFX

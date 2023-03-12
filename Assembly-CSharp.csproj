@@ -115,6 +115,7 @@
      <Compile Include="Assets\CoverParallax.cs" />
      <Compile Include="Assets\Alpha Masking\Samples\Scripts\LogoSpecularityAnimator.cs" />
      <Compile Include="Assets\PSG\Scripts\MeshCreator.cs" />
+     <Compile Include="Assets\Materials\MaskSphere3D.cs" />
      <Compile Include="Assets\WeatherSystem.cs" />
      <Compile Include="Assets\moduleRepairer.cs" />
      <Compile Include="Assets\Camera2DFollow.cs" />
@@ -228,7 +229,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\Materials\MaskSphere3D.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
@@ -239,7 +239,6 @@
      <None Include="Assets\Epic Toon FX\Changelog.txt" />
      <None Include="Assets\Alpha Masking\Resources\Shaders 2D (Sprites)\Sprites-Alpha-Mask-WorldCoords.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\Mask.shader" />
      <None Include="Assets\RadialProgressBar\SimpleRadialProgressBar.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\Suntail Village\Shaders\Suntail_Water.shader" />

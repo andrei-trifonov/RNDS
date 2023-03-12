@@ -1,20 +1,38 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MaskSphere3D : MonoBehaviour
 {
-    public Transform player, mask; // трансформ маски и игрока
-    public float maskSize = 4;
-    public float maskFade = 10;
-    public LayerMask playerMask; // слои, которые нужно игнорировать (например, слой игрока)
-    private Vector3 maskScale, maskDir;
-    private MaskObject wall;
+    [SerializeField] private Material transparentMat;
+    private List<Material> transparent = new List<Material>();
+    private Material[] objMat;
+
+    private void Start()
+    {
+        for(int i=0; i < GetComponent<MeshRenderer>().materials.Length; i++)
+        {
+            transparent.Add(transparentMat);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if col.CompareTag("")
+        if (col.CompareTag("Front3D"))
+        {
+            objMat  = GetComponent<MeshRenderer>().materials;
+       
+                GetComponent<MeshRenderer>().materials  = transparent.ToArray();     
+            
+           
+        }
     }
+
     private void OnTriggerExit2D(Collider2D col)
     {
-        if col.CompareTag("")
+        if (col.CompareTag("Front3D"))
+        {
+            GetComponent<MeshRenderer>().materials  = objMat;     
+        }
     }
+}

@@ -11,7 +11,7 @@ public class MaskObject : MonoBehaviour
     [SerializeField] private Material transparent;
     private Material[] opaque;
 
-    void OnStart()
+    void Start()
     {
        
         materials = GetComponent<MeshRenderer>().materials;
@@ -24,7 +24,7 @@ public class MaskObject : MonoBehaviour
         {
             for(int i = 0; i< materials.Length; i++)
             {
-                materials[i] = transparent;
+                GetComponent<MeshRenderer>().materials[i]  = transparent;
 
             }
             
@@ -34,7 +34,7 @@ public class MaskObject : MonoBehaviour
         {
             for(int i = 0; i< materials.Length; i++)
             {
-                materials[i] = opaque[i];
+                GetComponent<MeshRenderer>().materials[i]  = opaque[i];
 
             }
 
