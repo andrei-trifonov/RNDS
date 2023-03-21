@@ -7,6 +7,11 @@ using System.Linq;
 
 [System.Serializable]
 
+public class Correction
+{
+    public Vector3 correction;
+    public int num;
+}
 public class ListOfList
 {
     public bool Flipped;
@@ -23,6 +28,7 @@ public class ShadowGPT : MonoBehaviour
     public float distortion;
     public bool isGlobalLight;
     private bool Flipped;
+    [SerializeField] private Correction[] correctSprites;
     [SerializeField] CoverParallaxShadow CPS;
     [SerializeField] float zPosition = 5.32f;
     [SerializeField] private float ScaleStart;
@@ -130,14 +136,13 @@ public class ShadowGPT : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (mainLight)
-            lightDistance = Vector2.Distance(Sihouette.position, mainLight.transform.position);
-        else
-            lightDistance = 999;
-        foreach (GameObject light in Lights)
-        {
-            checkLight(light);
-        }
+      
+        lightDistance = 999; 
+        if (!isGlobalLight)
+            foreach (GameObject light in Lights)
+            {
+                checkLight(light);
+            }
         if (mainLight != null && Vector3.Distance(mainLight.transform.position, Sihouette.transform.position)< disableDistance)
         {
           
@@ -266,6 +271,18 @@ public class ShadowGPT : MonoBehaviour
            Sprite = sprite;
            CreateShadowFrame();
        }
+
+       foreach (Correction cor in correctSprites)
+       {
+           for (int i=0; i< AllCountours[cor.num].VectorList.Count; i++)
+           {
+            //   AllCountours[cor.num].VectorList[i] += cor.correction;
+               AllCountours[cor.num].StartList[i] += cor.correction;
+             //  AllCountours[cor.num].MoveList[i] += cor.correction;
+           }
+          
+       }
+       
 
        lastShadow = targetCountour.shadowObj;
     }

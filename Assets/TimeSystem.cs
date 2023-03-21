@@ -90,8 +90,8 @@ public class TimeSystem : MonoBehaviour
                     case 2:
                     {
 
-                        sunLight.SetActive(false);
-                        sunLight.transform.localPosition = new Vector3(0, 0, 0);
+                        
+                        sunLight.transform.localPosition = new Vector3(0, 100, 0);
                       
             
                         Night = true;

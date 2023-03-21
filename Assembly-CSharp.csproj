@@ -154,7 +154,6 @@
      <Compile Include="Assets\moduleBreaker.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Rotate.cs" />
      <Compile Include="Assets\MagneticItem.cs" />
-     <Compile Include="Assets\MaskObject.cs" />
      <Compile Include="Assets\itemWeight.cs" />
      <Compile Include="Assets\Alpha Masking\Samples\Scripts\ShipMover.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Picture\PictureBar.cs" />
