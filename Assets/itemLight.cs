@@ -15,10 +15,11 @@ public class itemLight : MonoBehaviour
     //[SerializeField] private SpriteRenderer Feathering;
     [SerializeField] private GameObject Mask;
     [SerializeField] private GameObject lightSource;
-    private bool isOn;
+    private bool isOn = true;
     private Quaternion[] baseQuartenion = new Quaternion[4];
      public List<GameObject> Shadows;
     private ShadowGPT[]  Shadows3D;
+  
     private void Awake()
     {
         Shadows3D = GameObject.FindObjectsOfType<ShadowGPT>();
@@ -39,7 +40,6 @@ public class itemLight : MonoBehaviour
         Mask.GetComponent<itemLightCol>().Light = this;
 
     }
-
 
 
 
@@ -93,13 +93,53 @@ public class itemLight : MonoBehaviour
         for (int j = 0; j < Shadows.Count; j++)
         {
             Shadows[j].GetComponent<itemLightShadow>().SetBusy(false);
+            
+        }
+        foreach (ShadowGPT shadow in Shadows3D)
+        {
+            if (!shadow.isGlobalLight)
+                shadow.RemoveLight(lightSource);
         }
 
     }
+
+
+    public void OnOff()
+    {
+        if (isOn) {
+
+            for (int j = 0; j < Shadows.Count; j++)
+            {
+                Shadows[j].GetComponent<itemLightShadow>().SetBusy(false);
+               
+            }
+            foreach (ShadowGPT shadow in Shadows3D)
+            {
+                if (!shadow.isGlobalLight)
+                    shadow.RemoveLight(lightSource);
+            }
+        }
+        else
+        {
+            Mask.SetActive(true);
+            for (int j = 0; j < Shadows.Count; j++)
+            {
+                Shadows[j].GetComponent<itemLightShadow>().SetBusy(true);
+              
+            }
+            foreach (ShadowGPT shadow in Shadows3D)
+            {
+                if (!shadow.isGlobalLight)
+                    shadow.AddLight(lightSource);
+            }
+        }
+        isOn = !isOn;
+    }
+
     //    public void SetFeathering(Color tintColor)
     //    {
     //        Feathering.color = tintColor;
-     //   }
+    //   }
 
 
 }

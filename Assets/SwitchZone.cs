@@ -17,6 +17,6 @@ public class SwitchZone : MonoBehaviour
     public void GoToAnotherZone()
     {
         Player.transform.SetParent(null);
-        Player.transform.position = teleportPoint.position;
+        Player.transform.position =  new Vector3 (teleportPoint.position.x, teleportPoint.position.y, Player.transform.position.z );
     }
 }

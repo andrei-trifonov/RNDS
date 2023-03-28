@@ -20,6 +20,7 @@ TagManager:
   - BigHookItem
   - Light
   - Front3D
+  - Actor
   layers:
   - Default
   - TransparentFX

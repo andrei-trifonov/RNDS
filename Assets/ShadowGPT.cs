@@ -59,7 +59,12 @@ public class ShadowGPT : MonoBehaviour
         if(!Lights.Contains(light))
             Lights.Add(light);
     }
-    
+    public void RemoveLight(GameObject light)
+    {
+        if (Lights.Contains(light))
+            Lights.Remove(light);
+    }
+
     public void checkLight(GameObject light)
     {
         float distance = Vector2.Distance(light.transform.position, Sihouette.transform.position);
@@ -72,7 +77,7 @@ public class ShadowGPT : MonoBehaviour
            
 
     }
-
+  
     public void SetSprite(Sprite newSprite, bool flipped)
     {
             Flipped = flipped;
