@@ -9,6 +9,7 @@ public class moduleBigHook :  commonMagneticPlace{
     private bool isPrepared;
     private bool isGrabbed;
     private bool isClosed;
+
     public void Grab()
     {
         if (!isClosed)
@@ -32,7 +33,7 @@ public class moduleBigHook :  commonMagneticPlace{
         {
             m_Animator.SetBool("Catch", false);
             isGrabbed = false;
-            o_MagneticItem = Item.transform.GetChild(0).gameObject.GetComponent<MagneticItem>();
+            o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
             Picked = false;
             o_MagneticItem.StopPick();
             Hooked = false;
@@ -46,7 +47,7 @@ public class moduleBigHook :  commonMagneticPlace{
     {
         if (other.CompareTag("BigHookItem"))
         {
-            Item = other.gameObject;
+            hookedItem = other.gameObject;
             isPrepared = true;
         }
     }

@@ -10,6 +10,7 @@ public class MagneticItem : MonoBehaviour
     [SerializeField] private GameObject Menu;
     [SerializeField] private bool Stashable;
     [SerializeField] private bool turnRight = false;
+    
     private bool Picked;
     private Collider2D PlayerCollider;
     private GameObject m_Parent;
@@ -54,7 +55,7 @@ public class MagneticItem : MonoBehaviour
         }
     }
 
-
+   
 
     public void Connect()
     {
@@ -76,8 +77,11 @@ public class MagneticItem : MonoBehaviour
     }
 
     public void StartPick(){
-        Picked = true; 
-        o_CarryManager.PickItem(gameObject.transform.parent.gameObject);
+        if (o_CarryManager)
+        {
+            Picked = true;
+            o_CarryManager.PickItem(gameObject.transform.parent.gameObject);
+        }
     }
 
     public void SetCarryManager(CarryManager o_CarryManager)

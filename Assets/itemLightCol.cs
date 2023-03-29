@@ -8,9 +8,27 @@ using UnityEngine.PlayerLoop;
 
 public class itemLightCol : MonoBehaviour
 {
+    private PlatformerCharacter2D PC2D;
+    private HandsHolds HH;
     public itemLight Light;
-
-
+    private bool facingRight = true;
+    public GameObject lightParent;
+    private void OnEnable()
+    {
+        HH = GameObject.FindObjectOfType<HandsHolds>();
+        PC2D = GameObject.FindObjectOfType<PlatformerCharacter2D>();
+    }
+    private void FixedUpdate()
+    {
+        if ( lightParent && HH.Item() == lightParent)
+        {
+            if (PC2D.GetFacing() != facingRight)
+            {
+                facingRight = !facingRight;
+                gameObject.transform.localScale *= -1;
+            }
+        }
+    }
     private void OnTriggerExit2D(Collider2D other)
     {
         if ( other.CompareTag("ShadowCaster") ) 

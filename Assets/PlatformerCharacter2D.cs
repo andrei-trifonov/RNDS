@@ -18,7 +18,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         [SerializeField] private Animator m_Anim;            // Reference to the player's animator component.
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip landSound;
-             [SerializeField] private ShadowGPT Shadow;
+        
 
        private bool jumpBlocked;
 

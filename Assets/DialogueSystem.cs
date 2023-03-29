@@ -39,7 +39,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     private List<GameObject> actorsList = new List<GameObject>();
     private string Language;
-
+    private HandsHolds HH;
     private int stringCounter;
 
 
@@ -80,9 +80,29 @@ public class DialogueSystem : MonoBehaviour
             chatWindows[i].chatCloud.gameObject.SetActive(false);
         }
         Language = PlayerPrefs.GetString("Language");
+        HH = GameObject.FindObjectOfType<HandsHolds>();
     }
+    IEnumerator CastString(string str, Text text) {
+        text.text = "";
+        for (int i = 0; i < str.Length; i++) {
+            text.text += RandomSymbol();
+            yield return new WaitForSeconds(0.05f);
+            if (HH.ItemNum() == 14) //Транскриптор
+            {
+                text.text = text.text.Substring(0, text.text.Length - 1);
+                text.text += str[i];
+                yield return new WaitForSeconds(0.05f);
+            }
+          
+        }
 
+    }
+    char RandomSymbol()
+    {
+        string symbols = "@#$%^&*()~`<>/+=";
 
+        return symbols[UnityEngine.Random.Range(0, symbols.Length)];
+    }
     public void ContinueDialogue()
     {
         startButton.SetActive(false);
@@ -101,8 +121,11 @@ public class DialogueSystem : MonoBehaviour
                     Tuple<UnityEngine.Color, string> tuple = ReturnCharName(i);
                     chatWindows[i].textAuthor.color = tuple.Item1;
                     chatWindows[i].textAuthor.text = tuple.Item2;
+                   
                     chatWindows[i].chatCloud.SetBool("PopUp", true);
-                    chatWindows[i].textLine.text = chatLines[stringCounter].textLine;
+                    StopAllCoroutines();
+                    StartCoroutine(CastString(chatLines[stringCounter].textLine, chatWindows[i].textLine));
+
                     break;
                 }
             }

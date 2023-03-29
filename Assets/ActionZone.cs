@@ -24,10 +24,12 @@ public class ActionZone : commonOutliner
     private CarryManager CarryController;
     private bool Finished;
     private bool blockEffect;
-   
+    private HandsHolds HH;
+
     private void Start()
     {
        SearchForVisuals();
+        HH = GameObject.FindObjectOfType<HandsHolds>();
     }
 
     private void OnTriggerEnter2D (Collider2D other)
@@ -65,7 +67,7 @@ public class ActionZone : commonOutliner
     {
        
         
-        if (ignoreCarry || !CarryController.isPicked())
+        if (ignoreCarry || HH.ItemNum() == -1)
         {
             m_AudioSource.PlayOneShot(Clip);
             if (Rotor)

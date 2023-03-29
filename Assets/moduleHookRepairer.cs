@@ -26,6 +26,7 @@ public class moduleHookRepairer : commonMagneticPlace
     }
     protected override void OnStart()
     {
+        HH = GameObject.FindObjectOfType<HandsHolds>();
         o_moduleRepairer = repairManager.GetComponent<moduleRepairer>();
         SearchForVisuals();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
@@ -39,22 +40,22 @@ public class moduleHookRepairer : commonMagneticPlace
     public override void OnClick()
     {
 
-        if (!Hooked  && o_CManager.isPicked())
+        if (!Hooked  && HH.ItemNum() >= 0)
         {
             
-            hookedItem = o_CManager.GetPickedItem().transform.GetChild(0).gameObject;
-            Item = hookedItem.transform.parent.gameObject;
-            Item.transform.rotation = transform.rotation;
-            itemID = hookedItem.GetComponent<itemDB>().GetItemID();
+            hookedItem = HH.Item();
+
+            hookedItem.transform.rotation = transform.rotation;
+            itemID = hookedItem.GetComponentInChildren<itemDB>().GetItemID();
             o_CManager.ThrowItem();
-            Item.GetComponentInChildren<MagneticItem>().Connect();
+            hookedItem.GetComponentInChildren<MagneticItem>().Connect();
             Picked = true;
             Hooked = true;
 
             if (itemID <= 10)
             {
                 itemRepair iR;
-                if (iR = hookedItem.GetComponent<itemRepair>())
+                if (iR = hookedItem.GetComponentInChildren<itemRepair>())
                 {
                     itemRepaired = iR.GetRepaired();
                     if (!itemRepaired)
@@ -65,7 +66,7 @@ public class moduleHookRepairer : commonMagneticPlace
             else
             {
                 itemScrap iS;
-                if (iS = hookedItem.GetComponent<itemScrap>())
+                if (iS = hookedItem.GetComponentInChildren<itemScrap>())
                 {
                     int scrapCount = iS.GetScrapPotential();
                     if (scrapCount > 0)
@@ -77,9 +78,9 @@ public class moduleHookRepairer : commonMagneticPlace
         }
         else
         {
-            if (Hooked && gameObject.transform.childCount > 0 && !o_CManager.isPicked())
+            if (Hooked && gameObject.transform.childCount > 0 && HH.ItemNum() == -1)
             {
-                o_MagneticItem = hookedItem.GetComponent<MagneticItem>();
+                o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
                 Picked = false;
                 o_MagneticItem.SetCarryManager(o_CManager);
                 o_MagneticItem.StartPick();

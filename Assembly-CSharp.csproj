@@ -162,6 +162,7 @@
     <Compile Include="Assets\itemBucket.cs" />
     <Compile Include="Assets\modulePipe.cs" />
     <Compile Include="Assets\InvokeOnTriggerEnter.cs" />
+    <Compile Include="Assets\ButtonTransliter.cs" />
     <Compile Include="Assets\ChainPack\scriptsOther\CutMouse.cs" />
     <Compile Include="Assets\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Assets\ChainPack\Chain2D\scripts\Chain.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\FogOfWarAlphaPositioner.cs" />
     <Compile Include="Assets\Platformer2DUserControl.cs" />
+    <Compile Include="Assets\HandsHolds.cs" />
     <Compile Include="Assets\itemRepair.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\ConvexMesh.cs" />
     <Compile Include="Assets\StorageManager.cs" />
@@ -243,7 +245,6 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
     <Compile Include="Assets\BarValueTranslator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-    <Compile Include="Assets\ButtonTransliter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ChainPack\Chain2D\README.txt" />

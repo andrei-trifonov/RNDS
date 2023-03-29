@@ -11,6 +11,11 @@ public class outerRain : MonoBehaviour
     private itemBucket o_itemBucket;
     private bool Blocked;
     private bool Inside;
+    private HandsHolds HH;
+    private void Start()
+    {
+        HH = GameObject.FindObjectOfType<HandsHolds>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -36,10 +41,10 @@ public class outerRain : MonoBehaviour
 
     IEnumerator AddWaterCoroutine()
     {
-        if (o_CManager.GetPickedItem())
+        if (HH.ItemNum() >= 0)
         {
-            hookedItem = o_CManager.GetPickedItem().transform.GetChild(0).gameObject;
-            if ((o_itemBucket = hookedItem.GetComponent<itemBucket>()) && o_CManager.isPicked())
+            hookedItem = HH.Item();
+            if ((o_itemBucket = hookedItem.GetComponentInChildren<itemBucket>()) && HH.ItemNum() >= 0)
             {
                 Blocked = true;
                 o_itemBucket.AddWater(20);

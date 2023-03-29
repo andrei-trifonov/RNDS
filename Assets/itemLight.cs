@@ -38,6 +38,7 @@ public class itemLight : MonoBehaviour
         Mask = Instantiate(Mask, maskParent.transform);
         Mask.GetComponent<FixedPos>().SetPoint( gameObject);
         Mask.GetComponent<itemLightCol>().Light = this;
+        Mask.GetComponent<itemLightCol>().lightParent = gameObject.transform.parent.gameObject;
 
     }
 
@@ -47,7 +48,7 @@ public class itemLight : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+       
         for (int j = 0; j < Shadows.Count; j++)
         {
 
@@ -102,12 +103,13 @@ public class itemLight : MonoBehaviour
         }
 
     }
+  
 
 
     public void OnOff()
     {
         if (isOn) {
-
+            Mask.SetActive(false);
             for (int j = 0; j < Shadows.Count; j++)
             {
                 Shadows[j].GetComponent<itemLightShadow>().SetBusy(false);

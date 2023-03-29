@@ -15,11 +15,11 @@ public class commonMagneticPlace : commonOutliner
     protected StorageManager StM;
     protected MagneticItem o_MagneticItem;
     public GameObject hookedItem;
-    protected GameObject Item;
     protected Vector3 targetPosition;
     protected bool Picked = false;
     protected Vector3 currentPosition;
-    protected Vector3 directionOfTravel;       
+    protected Vector3 directionOfTravel;
+    protected HandsHolds HH;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,6 +29,7 @@ public class commonMagneticPlace : commonOutliner
 
     protected virtual void OnStart()
     {
+        HH = GameObject.FindObjectOfType<HandsHolds>();
         SearchForVisuals();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
         StM = GDB.gameObject.GetComponent<StorageManager>();
@@ -70,7 +71,7 @@ public class commonMagneticPlace : commonOutliner
 
     protected virtual void AddToItemDB(GameObject hookedItem)
     {
-        itemID = hookedItem.GetComponent<itemDB>().GetItemID();
+        itemID = hookedItem.GetComponentInChildren<itemDB>().GetItemID();
         PlayerPrefs.SetInt(hookName, itemID);
     }
     
@@ -83,26 +84,26 @@ public class commonMagneticPlace : commonOutliner
     public void ResetHook()
     {
         Hooked = false;
-        hookedItem.transform.parent.gameObject.SetActive(false);
+        hookedItem.SetActive(false);
     }
 
     public void StealItem()
     {
         Picked = false;
         Hooked = false;
-        hookedItem.transform.parent.gameObject.SetActive(false);
+        hookedItem.SetActive(false);
         RemoveFromItemDB();
     } 
     public virtual void OnClick()
     {
-        if (!Hooked  && o_CManager.isPicked())
+        if (!Hooked  && HH.ItemNum() >= 0)
         {
-            hookedItem = o_CManager.GetPickedItem().transform.GetChild(0).gameObject;
-            o_MagneticItem = hookedItem.GetComponent<MagneticItem>();
+            hookedItem = HH.Item();
+            o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
             if (o_MagneticItem.GetStashable())
             {
-                Item = hookedItem.transform.parent.gameObject;
-                Item.transform.rotation = transform.rotation;
+                
+                hookedItem.transform.rotation = transform.rotation;
                 AddToItemDB(hookedItem);
                 StM.AddItem(hookedItem, this);
                 o_CManager.ThrowItem();
@@ -113,10 +114,10 @@ public class commonMagneticPlace : commonOutliner
         }
         else
         {
-            if (Hooked &&  gameObject.transform.childCount > 0 && !o_CManager.isPicked())
+            if (Hooked &&  gameObject.transform.childCount > 0 && HH.ItemNum() == -1)
             {
                 
-                o_MagneticItem = hookedItem.GetComponent<MagneticItem>();
+                o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
                 Picked = false;
                 o_MagneticItem.SetCarryManager(o_CManager);
                 o_MagneticItem.StartPick();
@@ -134,7 +135,7 @@ public class commonMagneticPlace : commonOutliner
         if (Picked) {
 
             targetPosition = gameObject.transform.position;
-            currentPosition = Item.transform.position;
+            currentPosition = hookedItem.transform.position;
 
 
             if(Vector3.Distance(currentPosition, targetPosition) > .1f) {
@@ -144,13 +145,13 @@ public class commonMagneticPlace : commonOutliner
                 //scale the movement on each axis by the directionOfTravel vector components
             }
             else {
-     
-                Item.transform.SetParent(gameObject.transform);
-                Item.GetComponentInChildren<MagneticItem>().Connect();
+
+                hookedItem.transform.SetParent(gameObject.transform);
+                hookedItem.GetComponentInChildren<MagneticItem>().Connect();
                 Picked = false;
             }
-            
-            Item.transform.Translate(
+
+            hookedItem.transform.Translate(
                 (directionOfTravel.x * Speed * Time.deltaTime),
                 (directionOfTravel.y * Speed * Time.deltaTime),
                 (directionOfTravel.z * Speed * Time.deltaTime),

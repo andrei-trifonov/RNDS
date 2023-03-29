@@ -26,7 +26,7 @@ public class StorageManager : MonoBehaviour
     public void AddItem(GameObject Item, commonMagneticPlace Hook)
     {
         StorageStruct SS = new StorageStruct(Item, Hook , false);
-        if (Item.gameObject.GetComponent<itemScrap>().GetScrapPotential() == 0)
+        if (Item.GetComponentInChildren<itemScrap>().GetScrapPotential() == 0)
         {
             scrapCount++;
             SS.isScrap = true;
@@ -42,7 +42,7 @@ public class StorageManager : MonoBehaviour
         {
             if (Storage[i].Hook == Hook)
             {
-                if (Storage[i].Item.gameObject.GetComponent<itemScrap>().GetScrapPotential() == 0)
+                if (Storage[i].Item.GetComponentInChildren<itemScrap>().GetScrapPotential() == 0)
                 {
                     scrapCount--;
                 }

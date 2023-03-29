@@ -11,6 +11,7 @@ public class CarryManager : MonoBehaviour
         [SerializeField] private GameObject itemPivot;
         [SerializeField] private float Speed;
         [SerializeField] private GameObject magnetEffect;
+        private HandsHolds HH;
         private AudioSource m_AudioSource;
         private bool Picked = false;
         private bool Busy = false;
@@ -21,29 +22,26 @@ public class CarryManager : MonoBehaviour
         private Vector3 directionOfTravel;
         
         private Animator m_Anim;
+      
         [HideInInspector] public GameObject Item;
         // Start is called before the first frame update
 
-        public bool isPicked()
-        {
-            return Busy;
-        }
+     
+       
 
-
-        public GameObject GetPickedItem()
-        {
-            return pickedItem;
-        }
 
         void Start()
         {
             Menu.enabled = false;
             m_AudioSource = gameObject.GetComponent<AudioSource>();
+           
             m_Anim = gameObject.GetComponent<PlatformerCharacter2D>().ShareAnimator();
+            HH = GameObject.FindObjectOfType<HandsHolds>();
+       
         }
         public void ThrowItem()
         {
-            if (pickedItem != null)
+            if (!Picked && Busy)
             {
                 Busy = false;
                 Picked = false;
@@ -51,8 +49,7 @@ public class CarryManager : MonoBehaviour
                 Menu.enabled = false;
                 magnetEffect.SetActive(false);
                 pickedItem.GetComponentInChildren<MagneticItem>().StopPick();
-                
-                   
+                HH.AddItem(-1, null);
                 m_Anim.SetBool("Loaded", false);
             }
             
@@ -77,12 +74,13 @@ public class CarryManager : MonoBehaviour
 
         private void FixedUpdate()
         {
+
             // Для подвеса скорость нужна ниже (для визуала)
             if (Picked) {
 
                 targetPosition = itemPivot.transform.position;
                 currentPosition = Item.transform.position;
-
+                
 
                 if(Vector3.Distance(currentPosition, targetPosition) > .1f) {
                     directionOfTravel = targetPosition - currentPosition;
@@ -95,6 +93,7 @@ public class CarryManager : MonoBehaviour
                     Item.transform.SetParent(itemPivot.transform);
                     Item.GetComponentInChildren<MagneticItem>().Connect();
                     pickedItem = Item;
+                    HH.AddItem(pickedItem.GetComponentInChildren<itemDB>().GetItemID(), pickedItem);
                     magnetEffect.SetActive(true);
                     Picked = false;
                 }

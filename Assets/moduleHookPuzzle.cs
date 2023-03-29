@@ -30,32 +30,32 @@ public class moduleHookPuzzle : commonMagneticPlace
     {
         if (!Elevator.GetComponent<Elevator>().GetStateB())
         {
-            if (!Hooked && o_CManager.isPicked())
+            if (!Hooked && HH.ItemNum() >= 0)
             {
-                hookedItem = o_CManager.GetPickedItem().transform.GetChild(0).gameObject;
-                o_MagneticItem = hookedItem.GetComponent<MagneticItem>();
+                hookedItem = HH.Item();
+                o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
                 if (o_MagneticItem.GetStashable())
                 {
-                    Item = hookedItem.transform.parent.gameObject;
-                    Item.transform.rotation = transform.rotation;
+
+                    hookedItem.transform.rotation = transform.rotation;
                     o_CManager.ThrowItem();
                     o_MagneticItem.Connect();
                     Picked = true;
                     Hooked = true;
-                    pE.AddWeight(o_MagneticItem.gameObject.GetComponent<itemWeight>().GetWeight());
+                    pE.AddWeight(hookedItem.GetComponentInChildren<itemWeight>().GetWeight());
                 }
             }
             else
             {
-                if (Hooked && gameObject.transform.childCount > 0 && !o_CManager.isPicked())
+                if (Hooked && gameObject.transform.childCount > 0 && HH.ItemNum() == -1)
                 {
 
-                    o_MagneticItem = hookedItem.GetComponent<MagneticItem>();
+                    o_MagneticItem = hookedItem.GetComponentInChildren<MagneticItem>();
                     Picked = false;
                     o_MagneticItem.SetCarryManager(o_CManager);
                     o_MagneticItem.StartPick();
                     Hooked = false;
-                    pE.RemoveWeight(o_MagneticItem.gameObject.GetComponent<itemWeight>().GetWeight());
+                    pE.RemoveWeight(o_MagneticItem.gameObject.GetComponentInChildren<itemWeight>().GetWeight());
                 }
 
             }

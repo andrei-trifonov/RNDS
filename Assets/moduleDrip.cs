@@ -12,13 +12,14 @@ public class moduleDrip : MonoBehaviour
   
     private AudioSource o_audioSource;
     private GameObject Bucket;
-    private CarryManager o_CManager;
+    private HandsHolds HH;
 
     private itemBucket o_itemBucket;
     // Start is called before the first frame update
 
     private void Start()
     {
+        HH = GameObject.FindObjectOfType<HandsHolds>();
         o_audioSource = gameObject.GetComponent<AudioSource>();
         Module.SetActive(false);
     }
@@ -28,9 +29,9 @@ public class moduleDrip : MonoBehaviour
     public void CloseBreach()
     {
        
-        if (o_CManager && (Bucket = o_CManager.GetPickedItem().transform.GetChild(0).gameObject))
+        if (HH.ItemNum() == 3)
         {
-            if (o_itemBucket = Bucket.GetComponent<itemBucket>()){
+            if (o_itemBucket = HH.Item().GetComponentInChildren<itemBucket>()){
                 o_itemBucket.AddWater(addWaterAmount);
                 o_breakManager.LeakStopped();
                 Module.SetActive(false);
@@ -39,11 +40,5 @@ public class moduleDrip : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            o_CManager = col.GetComponent<CarryManager>();
-        }
-    }
+   
 }
