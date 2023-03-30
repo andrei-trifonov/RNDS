@@ -28,19 +28,26 @@ public struct chatLine
     public string textLine;
 
 }
+[System.Serializable]
+public struct chatVariant
+{
+    public chatLine[] chatLines;
+
+}
 
 [System.Serializable]
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private chatWindow[] chatWindows;
-    [SerializeField] private chatLine[] chatLines;
+    [SerializeField] private chatVariant[] chatVariants;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject continueButton;
     private List<GameObject> actorsList = new List<GameObject>();
     private string Language;
     private HandsHolds HH;
     private int stringCounter;
+    private int currChat;
 
 
     private Tuple<UnityEngine.Color, string> ReturnCharName(int Char)
@@ -107,14 +114,14 @@ public class DialogueSystem : MonoBehaviour
     {
         startButton.SetActive(false);
         continueButton.SetActive(true);
-        if (stringCounter < chatLines.Length)
+        if (stringCounter < chatVariants[currChat].chatLines.Length)
         {
 
 
             for (int i = 0; i < chatWindows.Length; i++)
             {
                 chatWindows[i].chatCloud.gameObject.SetActive(false);
-                if (chatWindows[i].Char == chatLines[stringCounter].Char)
+                if (chatWindows[i].Char == chatVariants[currChat].chatLines[stringCounter].Char)
                 {
 
                     chatWindows[i].chatCloud.gameObject.SetActive(true);
@@ -124,7 +131,7 @@ public class DialogueSystem : MonoBehaviour
                    
                     chatWindows[i].chatCloud.SetBool("PopUp", true);
                     StopAllCoroutines();
-                    StartCoroutine(CastString(chatLines[stringCounter].textLine, chatWindows[i].textLine));
+                    StartCoroutine(CastString(chatVariants[currChat].chatLines[stringCounter].textLine, chatWindows[i].textLine));
 
                     break;
                 }
@@ -179,6 +186,7 @@ public class DialogueSystem : MonoBehaviour
            
             
         }
+        currChat = UnityEngine.Random.Range(0, chatVariants.Length);
         startButton.SetActive(true);
         continueButton.SetActive(false);
     }
