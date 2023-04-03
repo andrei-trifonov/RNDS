@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sprites-Alpha-Mask-WorldCoords
-  m_Shader: {fileID: 4800000, guid: 728c0e664f8bc78468d36dcb0c49f8d5, type: 3}
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -29,10 +29,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - PixelSnap: 0
     - _ClampBorder: 0.01
     - _ClampHoriz: 0
     - _ClampVert: 0
     - _ColorMask: 15
+    - _CullMode: 0
+    - _EnableExternalAlpha: 0
     - _Enabled: 1
     - _IsThisText: 1
     - _PixelSnap: 0
@@ -42,6 +45,10 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _UseAlphaChannel: 0
+    - _UseUIAlphaClip: 0
     m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
