@@ -7,16 +7,16 @@ public class itemLightShadow : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer Shadow;
     [SerializeField] private SpriteRenderer verticalShadow;
+    [SerializeField] private float maxDistance;
     private GameObject Master;
     private float masterDistance;
-    private Animator m_Animator;
     private bool isBusy;
+    
     private void Start()
     {
-        m_Animator = Shadow.GetComponent<Animator>();
+       
         masterDistance = 999.0f;
-        if (m_Animator)
-            m_Animator.SetBool("Hide", true);
+        Shadow.enabled = false;
         if (verticalShadow)
             verticalShadow.enabled = false;
     }
@@ -25,9 +25,8 @@ public class itemLightShadow : MonoBehaviour
     {
         if (isBusy != state)
         {
-            if (m_Animator)
-                m_Animator.SetBool("Hide", !state);
-            //Shadow.enabled = state;
+
+            Shadow.enabled = state;
             if (verticalShadow)
                 verticalShadow.enabled = state;
             isBusy = state;
@@ -36,12 +35,13 @@ public class itemLightShadow : MonoBehaviour
     }
     public bool isPriority(float distance, GameObject master)
     {
-        if (distance < masterDistance || Master == master || !isBusy)
+        if (distance<maxDistance && (distance < masterDistance || Master == master || !isBusy ))
         {
             Master = master;
             masterDistance = distance;
             return true;
         }
+ 
        
         return false;
 

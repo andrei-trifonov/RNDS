@@ -10,7 +10,6 @@ public class itemLightCol : MonoBehaviour
 {
     private PlatformerCharacter2D PC2D;
     private HandsHolds HH;
-    public itemLight Light;
     private bool facingRight = true;
     public GameObject lightParent;
     private void OnEnable()
@@ -29,24 +28,7 @@ public class itemLightCol : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if ( other.CompareTag("ShadowCaster") ) 
-        {
-            Light.Shadows.Remove(other.gameObject);
-            other.GetComponent<itemLightShadow>().SetBusy(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("ShadowCaster") )
-        {   
-            Light.Shadows.Add(col.gameObject);
-            col.GetComponent<itemLightShadow>().SetBusy(true);
-            
-        }
-    }
+   
 
 
 

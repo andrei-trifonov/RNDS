@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2190508372185280750}
   - component: {fileID: 93080573918316629}
   - component: {fileID: 473618667890754271}
-  - component: {fileID: 783896194849131839}
   m_Layer: 0
   m_Name: FlashlightMaskCircle
   m_TagString: Untagged
@@ -122,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Point: {fileID: 0}
   noOffset: 1
+  zOffset: 0
 --- !u!114 &473618667890754271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,23 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21b7e272547035449a1ac533d734e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Light: {fileID: 0}
---- !u!58 &783896194849131839
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2190508372185280748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 52.42
+  lightParent: {fileID: 0}
 --- !u!1 &7452882184962614314
 GameObject:
   m_ObjectHideFlags: 0

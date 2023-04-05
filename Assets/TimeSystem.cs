@@ -41,7 +41,7 @@ public class TimeSystem : MonoBehaviour
     
     private void Start()
     {
-        
+        timeLeft = 2;
         
         targetColor = tintColors[0];
         Day = true;
@@ -65,59 +65,10 @@ public class TimeSystem : MonoBehaviour
               
                 
                 i++;
-                switch (i)
-                {
-                    case 0:
-                    {
-                        sunLight.transform.localPosition = new Vector3(0, 5.53f, 2.04f);
-                      
-                        Day = true;
-
-                        Stars.SetActive(false);
-                        Sun.SetActive(false);
-                    }
-                        break;
-
-                    case 1:
-                    {
-                        sunLight.transform.localPosition = new Vector3(4.16f, 5.53f, -12.99f);
-                     
-
-                        Evening = true;
-                    }
-                        break;
+                if (i == 4) i = 0;
+                InstantAdjust(i);
+             
                 
-                    case 2:
-                    {
-
-                        
-                        sunLight.transform.localPosition = new Vector3(0, 100, 0);
-                      
-            
-                        Night = true;
-
-                        Stars.SetActive(true);
-                    }
-                        break;
-                    case 3:
-                    {
-                        sunLight.SetActive(true);
-                        sunLight.transform.localPosition = new Vector3(-4.16f, 5.53f, -12.99f);
-                        Mourning = true;
-
-                        Sun.SetActive(true);
-                    }
-                        break;
-                    default: {
-                        sunLight.transform.localPosition = new Vector3(0, 5.53f, 2.04f);
-                        i = 0;
-                      
-                        Sun.SetActive(false);
-                        Stars.SetActive(false);
-
-                        Day = true;
-                    } break;
-                }
                     // transition complete
                 // assign the target colo
                 timeLeft = 0;
@@ -139,27 +90,7 @@ public class TimeSystem : MonoBehaviour
             }
         }
 
-        else
-        {
-           
-          
-            if (Day)
-            {
-                InstantAdjust(0);
-            }
-            if (Evening)
-            {
-                InstantAdjust(1);
-            }
-            if (Night)
-            {
-                InstantAdjust(2);
-            }
-            if (Mourning)
-            {
-                InstantAdjust(3);
-            }
-        }
+    
         tintSpiteF.material.color = currentColor;
         tintSpiteB.material.color = new Color(currentColor.r, currentColor.g, currentColor.b, currentColor.a/2);
 
@@ -167,8 +98,7 @@ public class TimeSystem : MonoBehaviour
 
     private void InstantAdjust(int i)
     {
-        currentColor = tintColors[i];
-        PPV.profile = PPVPresets[i];
+      
         switch (i)
         {
             case 0:
@@ -215,7 +145,7 @@ public class TimeSystem : MonoBehaviour
             default:
                 {
                     sunLight.transform.localPosition = new Vector3(0, 5.53f, -12.99f);
-                    i = 0;
+                   
 
                     Sun.SetActive(false);
                     Stars.SetActive(false);

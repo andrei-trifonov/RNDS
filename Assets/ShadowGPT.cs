@@ -9,8 +9,9 @@ using System.Linq;
 
 public class Correction
 {
-    public Vector3 correction;
-    public int num;
+    public float correction;
+    public int startNum;
+    public int endNum;
 }
 public class ListOfList
 {
@@ -53,6 +54,9 @@ public class ShadowGPT : MonoBehaviour
     private GameObject lastShadow;
     [SerializeField] private GameObject shadowPrototype;
     private List<ListOfList> AllCountours = new List<ListOfList>();
+    private List<float> corCoords = new List<float>();
+    int tci;
+
 
     public void AddLight(GameObject light)
     {
@@ -156,6 +160,8 @@ public class ShadowGPT : MonoBehaviour
                 if (countour.shadowSprite == Sprite && countour.shadowSprite != null)
                 {
                     targetCountour = countour;
+                    tci = AllCountours.IndexOf(countour);
+
                     break;
                 }
             }
@@ -246,11 +252,14 @@ public class ShadowGPT : MonoBehaviour
                 targetCountour.MoveList[j] = new Vector3(targetCountour.MoveList[j].x - leftPoint.x, targetCountour.MoveList[j].y - lowestPoint.y, 0);
             }
 
+
             //перенос меша на праильное место тени
 
-        
-            targetCountour.shadowObj.transform.position = new Vector3(Sihouette.transform.position.x - Center.x + leftPoint.x, Sihouette.transform.position.y, zPosition);
-
+            
+            if (targetCountour.Flipped)
+                targetCountour.shadowObj.transform.position = new Vector3(Sihouette.transform.position.x - Center.x + leftPoint.x + corCoords[tci], Sihouette.transform.position.y, zPosition);
+            else
+                targetCountour.shadowObj.transform.position = new Vector3(Sihouette.transform.position.x - Center.x + leftPoint.x - corCoords[tci], Sihouette.transform.position.y, zPosition);
 
             if (targetCountour.shadowObj != null)
                 targetCountour.shadowObj.SetActive(true);
@@ -271,25 +280,29 @@ public class ShadowGPT : MonoBehaviour
    private void Start()
 
    {
-       foreach (var sprite in renderSprites)
+       
+        
+        foreach (var sprite in renderSprites)
        {
            Sprite = sprite;
            CreateShadowFrame();
        }
+        for (int i = 0; i < renderSprites.Count(); i++) {
 
-       foreach (Correction cor in correctSprites)
-       {
-           for (int i=0; i< AllCountours[cor.num].VectorList.Count; i++)
-           {
-            //   AllCountours[cor.num].VectorList[i] += cor.correction;
-               AllCountours[cor.num].StartList[i] += cor.correction;
-             //  AllCountours[cor.num].MoveList[i] += cor.correction;
-           }
-          
-       }
-       
+            corCoords.Add(0);
+        }
+        foreach (Correction cor in correctSprites)
+        {
+            for (int i = cor.startNum; i < cor.endNum; i++)
+            {
+                corCoords[i] = cor.correction;
+            }
 
-       lastShadow = targetCountour.shadowObj;
+        }
+
+
+
+        lastShadow = targetCountour.shadowObj;
     }
 
    Vector3 ConvertToVector3(Vector2 v2)
