@@ -112,8 +112,10 @@ public class DialogueSystem : MonoBehaviour
     }
     public void ContinueDialogue()
     {
-        startButton.SetActive(false);
-        continueButton.SetActive(true);
+        if(startButton)
+            startButton.SetActive(false);
+        if(continueButton)
+            continueButton.SetActive(true);
         if (stringCounter < chatVariants[currChat].chatLines.Length)
         {
 
@@ -166,14 +168,16 @@ public class DialogueSystem : MonoBehaviour
         if ( collision.CompareTag("Player"))
         {
             EndDialogue();
-            startButton.SetActive(false);
+            if (startButton)    
+                startButton.SetActive(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            startButton.SetActive(true);
+            if(startButton)
+                startButton.SetActive(true);
         }
     }
     private void EndDialogue()
@@ -187,7 +191,9 @@ public class DialogueSystem : MonoBehaviour
             
         }
         currChat = UnityEngine.Random.Range(0, chatVariants.Length);
-        startButton.SetActive(true);
-        continueButton.SetActive(false);
+        if(startButton)
+            startButton.SetActive(true);
+        if(continueButton)  
+            continueButton.SetActive(false);
     }
 }
