@@ -96,6 +96,7 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\PointedCircleMesh.cs" />
     <Compile Include="Assets\moduleHookBreaker.cs" />
     <Compile Include="Assets\commonThrower.cs" />
+    <Compile Include="Assets\radioZone.cs" />
     <Compile Include="Assets\moduleBigHook.cs" />
     <Compile Include="Assets\PSG\Scripts\Demo Scripts\CarDemo.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceTitle.cs" />
     <Compile Include="Assets\OuterRenderer3D.cs" />
+    <Compile Include="Assets\itemRadio.cs" />
     <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Destination\DestinationBar.cs" />
     <Compile Include="Assets\Elevator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\SplineShapeMesh.cs" />
@@ -242,8 +244,8 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
     <Compile Include="Assets\BarValueTranslator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-    <Compile Include="Assets\itemRadio.cs" />
-    <Compile Include="Assets\radioZone.cs" />
+    <Compile Include="Assets\itemCogitoMeasure.cs" />
+    <Compile Include="Assets\Raycaster.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ChainPack\Chain2D\README.txt" />
