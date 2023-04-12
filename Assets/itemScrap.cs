@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class itemScrap : MonoBehaviour
 {
+  
     [SerializeField] private int scrapPotential;
+
 
     public int GetScrapPotential()
     {
