@@ -26,7 +26,7 @@ public class GameDataBase : MonoBehaviour
 
     private void Start()
     {
-        RenewArchiveCells();
+        //RenewArchiveCells();
     }
 
     private void RenewArchiveCells()

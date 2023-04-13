@@ -89,6 +89,18 @@ public class TimeSystem : MonoBehaviour
                 
             }
         }
+        else
+        {
+           
+            if (Day) 
+                InstantAdjust(0);
+            if (Evening)
+                InstantAdjust(1);
+            if (Night)
+                InstantAdjust(2);
+            if (Mourning)
+                InstantAdjust(3);
+        }
 
     
         tintSpiteF.material.color = currentColor;

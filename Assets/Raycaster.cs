@@ -29,8 +29,8 @@ public class Raycaster : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Prism"))
             {
-                Debug.Log(hit.collider.gameObject.name);
-                hit.rigidbody.gameObject.GetComponentInChildren<itemPrism>().Cast(ray- (Vector2)Parent.position);
+                //Debug.Log(hit.collider.gameObject.name);
+                hit.collider.gameObject.GetComponent<itemPrism>().Cast(ray- (Vector2)Parent.position);
             }
             lineRenderer.enabled = true;
             Vector2 firstPosition = Parent.position;

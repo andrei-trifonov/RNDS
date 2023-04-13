@@ -8,11 +8,12 @@ public class itemPrism : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private LayerMask lMask;
     public float deflectionAngle;
+    private bool casting;
     public void Cast(Vector2 normal)
     {
 
         // Calculate the direction of the deflected laser
-
+        casting = true;
         Vector2 deflectedDirection = new Vector2(normal.y, normal.x);
         RaycastHit2D hit = (Physics2D.Raycast(transform.position, deflectedDirection, maxDistance, lMask));
         lineRenderer.SetPosition(0, transform.position);
@@ -21,7 +22,7 @@ public class itemPrism : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Prism"))
             {
-                Debug.Log(hit.collider.gameObject.name);
+             //   Debug.Log(hit.collider.gameObject.name);
                 hit.rigidbody.gameObject.GetComponentInChildren<itemPrism>().Cast(hit.normal);
             }
             lineRenderer.enabled = true;
@@ -30,6 +31,14 @@ public class itemPrism : MonoBehaviour
             lineRenderer.SetPosition(0, firstPosition);
             lineRenderer.SetPosition(1, secondPosition);
         }
+    }
+    private void FixedUpdate()
+    {
+            lineRenderer.enabled = casting;
+            casting = false;
+        
+
+        
     }
 
 }

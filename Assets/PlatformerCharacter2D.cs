@@ -113,7 +113,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 if (Difference > 0)
                 {
-                    if (!m_FacingRight)
+                    if (!m_FacingRight )
                     {
                         // ... flip the player.
 
@@ -263,21 +263,25 @@ public class PlatformerCharacter2D : MonoBehaviour
                     m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed + o_Velocity.x, m_Rigidbody2D.velocity.y+ o_Velocity.y) ;
 
                     // If the input is moving the player right and the player is facing left...
-                    if (move > 0 && !m_FacingRight )
-                    {
-                        // ... flip the player.
-                        Flip(false);
-                    }
-                        // Otherwise if the input is moving the player left and the player is facing right...
-                    else if (move < 0 && m_FacingRight  )
-                    {
-                        // ... flip the player.
-                        Flip(false);
-                    }
+                 
                 } 
+                if (m_Grounded && !jump)
+                {
+                    if (move > 0 && !m_FacingRight && m_Grounded)
+                    {
+                        // ... flip the player.
+                        Flip(false);
+                    }
+                    // Otherwise if the input is moving the player left and the player is facing right...
+                    else if (move < 0 && m_FacingRight && m_Grounded)
+                    {
+                        // ... flip the player.
+                        Flip(false);
+                    }
+                }
                
                 // If the player should jump...
-            if (m_Grounded && jump && !jumpBlocked  && m_Anim.GetBool("Ground"))
+            if (m_Grounded && jump && !jumpBlocked  && m_Anim.GetBool("Ground") && !m_Anim.GetBool("Switch"))
             {
 
                 StartCoroutine(JumpCoroutine());
