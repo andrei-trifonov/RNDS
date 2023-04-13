@@ -50,6 +50,18 @@ TextureImporter:
   - first:
       213: -5926456561817985987
     second: LillyHouse_15
+  - first:
+      213: -1577555219216494084
+    second: LillyHouse_16
+  - first:
+      213: 6090468341980595040
+    second: LillyHouse_17
+  - first:
+      213: 3978585811868215461
+    second: LillyHouse_18
+  - first:
+      213: 6056938562656005695
+    second: LillyHouse_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,10 +125,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,10 +137,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,10 +149,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,10 +460,10 @@ TextureImporter:
       name: LillyHouse_14
       rect:
         serializedVersion: 2
-        x: 1042
-        y: 414
-        width: 467
-        height: 574
+        x: 1033
+        y: 421
+        width: 206
+        height: 258
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,7 +486,7 @@ TextureImporter:
         width: 86
         height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,6 +494,90 @@ TextureImporter:
       bones: []
       spriteID: d3c5e00282ff0cda0800000000000000
       internalID: -5926456561817985987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LillyHouse_16
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 435
+        width: 144
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf19909e2e56b1ae0800000000000000
+      internalID: -1577555219216494084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LillyHouse_17
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 689
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063048730b0b58450800000000000000
+      internalID: 6090468341980595040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LillyHouse_18
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 535
+        width: 90
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a860d867b6c63730800000000000000
+      internalID: 3978585811868215461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LillyHouse_19
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 448
+        width: 105
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ee97d18819e0450800000000000000
+      internalID: 6056938562656005695
       vertices: []
       indices: 
       edges: []
