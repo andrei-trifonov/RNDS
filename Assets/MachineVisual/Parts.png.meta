@@ -65,6 +65,33 @@ TextureImporter:
   - first:
       213: -2412194377700111107
     second: Parts_20
+  - first:
+      213: 6922826515642116586
+    second: Parts_21
+  - first:
+      213: 5521285753929265471
+    second: Parts_22
+  - first:
+      213: 3134064079502224622
+    second: Parts_23
+  - first:
+      213: -4675556494037076702
+    second: Parts_24
+  - first:
+      213: 947456644059542688
+    second: Parts_25
+  - first:
+      213: 5158753386856834778
+    second: Parts_26
+  - first:
+      213: 2748179268226535885
+    second: Parts_27
+  - first:
+      213: -1433595848297821553
+    second: Parts_28
+  - first:
+      213: 5236109532403712327
+    second: Parts_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -552,7 +579,7 @@ TextureImporter:
         width: 63
         height: 117
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,7 +600,7 @@ TextureImporter:
         width: 135
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -594,7 +621,7 @@ TextureImporter:
         width: 151
         height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,6 +629,195 @@ TextureImporter:
       bones: []
       spriteID: dfc8dfb6ef9268ed0800000000000000
       internalID: -2412194377700111107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_21
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 52
+        width: 103
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9e08a8902d21060800000000000000
+      internalID: 6922826515642116586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_22
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 124
+        width: 137
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31f062e32c8f9c40800000000000000
+      internalID: 5521285753929265471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_23
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 6
+        width: 194
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eecaa02ecae6e7b20800000000000000
+      internalID: 3134064079502224622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_24
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 54
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22536ad04261d1fb0800000000000000
+      internalID: -4675556494037076702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_25
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 296
+        width: 125
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4b0454cca062d00800000000000000
+      internalID: 947456644059542688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_26
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 749
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6e1738fd2979740800000000000000
+      internalID: 5158753386856834778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_27
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 810
+        width: 87
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc15cb5eb7e732620800000000000000
+      internalID: 2748179268226535885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_28
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 893
+        width: 87
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8acbb6eb28da1ce0800000000000000
+      internalID: -1433595848297821553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parts_29
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 976
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741c5fba0e56aa840800000000000000
+      internalID: 5236109532403712327
       vertices: []
       indices: 
       edges: []

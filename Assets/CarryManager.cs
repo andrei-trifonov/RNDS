@@ -49,6 +49,7 @@ public class CarryManager : MonoBehaviour
                 Menu.enabled = false;
                 magnetEffect.SetActive(false);
                 pickedItem.GetComponentInChildren<MagneticItem>().StopPick();
+                pickedItem.transform.position = new Vector3(pickedItem.transform.position.x, pickedItem.transform.position.y, 0);
                 HH.AddItem(-1, null);
                 m_Anim.SetBool("Loaded", false);
             }
