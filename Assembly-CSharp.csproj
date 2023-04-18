@@ -129,6 +129,7 @@
     <Compile Include="Assets\ShipMove.cs" />
     <Compile Include="Assets\CoverParallax.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\LogoSpecularityAnimator.cs" />
+    <Compile Include="Assets\TakeToGrave.cs" />
     <Compile Include="Assets\PSG\Scripts\MeshCreator.cs" />
     <Compile Include="Assets\Materials\MaskSphere3D.cs" />
     <Compile Include="Assets\itemCogitoMeasure.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\DungeonCharacterAnimator.cs" />
     <Compile Include="Assets\moduleWaterTank.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
+    <Compile Include="Assets\itemLaser.cs" />
     <Compile Include="Assets\PSG\Scripts\ExtensionMethods.cs" />
     <Compile Include="Assets\commonOutliner.cs" />
     <Compile Include="Assets\modulePostamat.cs" />
@@ -242,16 +244,16 @@
     <Compile Include="Assets\PSG\Scripts\Demo Scripts\ConvexMeshDemo.cs" />
     <Compile Include="Assets\Suntail Village\Scripts\PlayerController.cs" />
     <Compile Include="Assets\itemLightCol.cs" />
+    <Compile Include="Assets\itemMusic.cs" />
+    <Compile Include="Assets\itemPrismP.cs" />
     <Compile Include="Assets\HideShadowOnEnter.cs" />
     <Compile Include="Assets\WorldArchive.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\RingMesh.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
     <Compile Include="Assets\BarValueTranslator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-    <Compile Include="Assets\itemMusic.cs" />
-    <Compile Include="Assets\TakeToGrave.cs" />
-    <Compile Include="Assets\itemPrismP.cs" />
-    <Compile Include="Assets\itemLaser.cs" />
+    <Compile Include="Assets\TessStartAnimation.cs" />
+    <Compile Include="Assets\itemBreaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ChainPack\Chain2D\README.txt" />
