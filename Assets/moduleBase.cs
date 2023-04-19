@@ -73,4 +73,8 @@ public  class moduleBase : MonoBehaviour
     {
         GetComponent<puzzleBridge>().Open();
     }
+    public void Save()
+    {
+        GetComponent<GameDataBase>().Save();
+    }
 }

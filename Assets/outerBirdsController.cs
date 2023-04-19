@@ -33,6 +33,7 @@ public class outerBirdsController : MonoBehaviour
     {
         Borders.x = first;
         Borders.y = second;
+        goalTime = second;
     }
     private List<outerBirds> GetBirds(Transform parent)
     {

@@ -7,8 +7,6 @@ using UnityEngine;
 public class PanZoom : MonoBehaviour {
     private bool Auto;
     [SerializeField] private float zoomSpeed = 5f; // скорость изменения зума
-    [SerializeField] private float maxZoom = 5f; // максимальное значение зума
-    [SerializeField] private float minZoom = 1f; // минимальное значение зума
     Vector3 touchStart;
     [SerializeField] private Camera lightCamera;
     [SerializeField] private float zoomOutMin = 1;
@@ -26,7 +24,7 @@ public class PanZoom : MonoBehaviour {
     public void ChangeZoom(float targetZoom)
     {
         Auto = true;
-        targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom); // ограничение значения зума в интервале [minZoom, maxZoom]
+        targetZoom = Mathf.Clamp(targetZoom, zoomOutMin, zoomOutMax); // ограничение значения зума в интервале [minZoom, maxZoom]
         StartCoroutine(SmoothZoom(targetZoom)); // запуск корутины для плавного изменения зума
     }
 

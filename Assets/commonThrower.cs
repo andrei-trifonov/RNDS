@@ -28,8 +28,8 @@ public class commonThrower : MonoBehaviour
         GameObject garbage;
         garbage = Instantiate(spawnObject,throwPoint.position, throwPoint.rotation, throwPoint);
         inSpawn(garbage);
-        float xComponent = Mathf.Cos(throwAngle) * garbageSpeed;
-        float yComponent = Mathf.Sin(throwAngle) * garbageSpeed;
+        float xComponent = Mathf.Cos(throwAngle*Mathf.Deg2Rad) * garbageSpeed;
+        float yComponent = Mathf.Sin(throwAngle * Mathf.Deg2Rad) * garbageSpeed;
         garbage.GetComponent<Rigidbody2D>().AddForce(new Vector2(xComponent, yComponent));
         if (garbage.GetComponentInChildren<Canvas>())
             panZoomCamera.Canvases.Add(garbage.GetComponentInChildren<Canvas>().gameObject);

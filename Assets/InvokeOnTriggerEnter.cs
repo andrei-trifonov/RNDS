@@ -12,7 +12,12 @@ public class InvokeOnTriggerEnter : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            invokeScript.Invoke(enterMethod, 0);
+            try
+            {
+                invokeScript.Invoke(enterMethod, 0);
+            }
+            catch { }
+
         }
 
     }
@@ -21,7 +26,11 @@ public class InvokeOnTriggerEnter : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            invokeScript.Invoke(exitMethod, 0);
+            try
+            {
+                invokeScript.Invoke(exitMethod, 0);
+            }
+            catch { }
         }
     }
 }

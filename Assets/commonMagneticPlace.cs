@@ -50,6 +50,10 @@ public class commonMagneticPlace : commonOutliner
         return GDB;
     }
 
+    public void Save()
+    {
+        PlayerPrefs.SetInt(hookName, itemID);
+    }
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -71,8 +75,7 @@ public class commonMagneticPlace : commonOutliner
 
     protected virtual void AddToItemDB(GameObject hookedItem)
     {
-        itemID = hookedItem.GetComponentInChildren<itemDB>().GetItemID();
-        PlayerPrefs.SetInt(hookName, itemID);
+        itemID = hookedItem.GetComponentInChildren<itemDB>().GetItemID(); 
     }
     
 

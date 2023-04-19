@@ -94,7 +94,7 @@ public class moduleCannon : commonThrower
     }
     public void FireCannon()
     {
-        throwAngle = (Cannon.transform.rotation.eulerAngles.z)%360;
+        throwAngle = (Cannon.transform.rotation.eulerAngles.z);
         if (!Blocked)
         {
             Reload();

@@ -1,0 +1,408 @@
+fileFormatVersion: 2
+guid: aef40a4343a063b4bb18d312ed32ec18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2559302331014835255
+    second: Hund1Head_0
+  - first:
+      213: 1751558850800237453
+    second: Hund1Head_1
+  - first:
+      213: -6154068310686673661
+    second: Hund1Head_2
+  - first:
+      213: 6592279809332730516
+    second: Hund1Head_3
+  - first:
+      213: -5079897241514922593
+    second: Hund1Head_4
+  - first:
+      213: 1584869973203975505
+    second: Hund1Head_5
+  - first:
+      213: -3316900332406941320
+    second: Hund1Head_6
+  - first:
+      213: -4936477141324253138
+    second: Hund1Head_7
+  - first:
+      213: -3510693592511267464
+    second: Hund1Head_8
+  - first:
+      213: -3077316392799457500
+    second: Hund1Head_9
+  - first:
+      213: -2565649555239128199
+    second: Hund1Head_10
+  - first:
+      213: 2971901041782062468
+    second: Hund1Head_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hund1Head_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 353
+        width: 111
+        height: 134
+      alignment: 9
+      pivot: {x: 0.25763923, y: 0.38347727}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ce7f809e7748320800000000000000
+      internalID: 2559302331014835255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 353
+        width: 107
+        height: 133
+      alignment: 9
+      pivot: {x: 0.2288044, y: 0.38636056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bb321ae79ce4810800000000000000
+      internalID: 1751558850800237453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_2
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 352
+        width: 97
+        height: 135
+      alignment: 9
+      pivot: {x: 0.15098745, y: 0.38959283}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30558022a7b589aa0800000000000000
+      internalID: -6154068310686673661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_3
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 352
+        width: 109
+        height: 134
+      alignment: 9
+      pivot: {x: 0.23655379, y: 0.39024445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ad1472f8b7c7b50800000000000000
+      internalID: 6592279809332730516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 187
+        width: 104
+        height: 134
+      alignment: 9
+      pivot: {x: 0.20644914, y: 0.38347718}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d24009f549089b0800000000000000
+      internalID: -5079897241514922593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_5
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 186
+        width: 100
+        height: 134
+      alignment: 9
+      pivot: {x: 0.17657104, y: 0.39475593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d7108f7d69ef510800000000000000
+      internalID: 1584869973203975505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_6
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 186
+        width: 100
+        height: 135
+      alignment: 9
+      pivot: {x: 0.17657104, y: 0.39183182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879528ba8b008f1d0800000000000000
+      internalID: -3316900332406941320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_7
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 187
+        width: 105
+        height: 131
+      alignment: 9
+      pivot: {x: 0.20636742, y: 0.3922592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28388dc13c1e7bb0800000000000000
+      internalID: -4936477141324253138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 21
+        width: 105
+        height: 134
+      alignment: 9
+      pivot: {x: 0.2063661, y: 0.38122138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d302f27c2874fc0800000000000000
+      internalID: -3510693592511267464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_9
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 21
+        width: 108
+        height: 134
+      alignment: 9
+      pivot: {x: 0.23691319, y: 0.38122138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fa3b98b0d2b45d0800000000000000
+      internalID: -3077316392799457500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_10
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 21
+        width: 111
+        height: 134
+      alignment: 9
+      pivot: {x: 0.25763956, y: 0.38347712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97335d9a25bf46cd0800000000000000
+      internalID: -2565649555239128199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hund1Head_11
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 20
+        width: 100
+        height: 132
+      alignment: 9
+      pivot: {x: 0.17657104, y: 0.39844722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d780f60405e3920800000000000000
+      internalID: 2971901041782062468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

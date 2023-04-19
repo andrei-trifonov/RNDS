@@ -64,6 +64,8 @@ public class DialogueSystem : MonoBehaviour
                             return Tuple.Create(UnityEngine.Color.red, "Лилли"); break;
                         case 2:
                             return Tuple.Create(UnityEngine.Color.gray, "Ханс"); break;
+                        case 3:
+                            return Tuple.Create(UnityEngine.Color.white, "Тесс"); break;
 
 
                     }

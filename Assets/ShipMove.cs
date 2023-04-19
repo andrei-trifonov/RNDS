@@ -25,6 +25,14 @@ public class ShipMove : MonoBehaviour
     private bool pipeBroken;
 
     private bool Blocked;
+    public float GetFuel()
+    {
+        return Fuel;
+    }
+    public float GetWater()
+    {
+        return Water;
+    }
     // Start is called before the first frame update
     public bool GetEngineState()
     {

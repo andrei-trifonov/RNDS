@@ -20,27 +20,39 @@ public struct ArchiveCell
 }
 public class GameDataBase : MonoBehaviour
 {
-    [SerializeField] private GameObject[] hookItemList;
+    [SerializeField] private ShipMove Transport;
+    [SerializeField] public GameObject[] hookItemList;
     [SerializeField] public List<ArchiveCell> archiveCells;
+    [SerializeField] public List<commonMagneticPlace> savePlaces;
     // Start is called before the first frame update
 
     private void Start()
     {
         //RenewArchiveCells();
     }
-
+    public void Save()
+    {
+        foreach(commonMagneticPlace hook in savePlaces)
+        {
+            hook.Save();
+        }
+        PlayerPrefs.SetFloat("Fuel", Transport.GetFuel());
+        PlayerPrefs.SetFloat("Water", Transport.GetWater());
+    }
     private void RenewArchiveCells()
     {
         archiveCells.Clear();
-        foreach (var item in hookItemList)
+        
+        for (int i =0; i<  hookItemList.Length;i++)
         {
-            itemLore lore = item.transform.GetChild(0).GetComponent<itemLore>();
             try
             {
-                if (PlayerPrefs.GetInt(item.name + " Scan") == 1)
+                itemLore lore = hookItemList[i].GetComponentInChildren<itemLore>();
+           
+                if (PlayerPrefs.GetInt(hookItemList[i].name + " Scan") == 1)
                 {
-                    archiveCells.Add(new ArchiveCell(lore.GetLabel(), lore.GetText(), 
-                        item.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite));
+                    archiveCells.Add(new ArchiveCell(lore.GetLabel(), lore.GetText(),
+                        hookItemList[i].GetComponentInChildren<SpriteRenderer>().sprite));
                 }
             }
             catch (Exception e)

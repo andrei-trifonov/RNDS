@@ -45,6 +45,7 @@ public class BreakManager : MonoBehaviour
     {
         breakTimerBounds[0] = first;
         breakTimerBounds[1] = second;
+
     }
 
     public void TurnAlarm(bool state)
