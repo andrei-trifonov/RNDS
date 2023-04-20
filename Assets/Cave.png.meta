@@ -29,6 +29,18 @@ TextureImporter:
   - first:
       213: 7316793297809730775
     second: Cave_8
+  - first:
+      213: -4845170792244362475
+    second: Cave_9
+  - first:
+      213: 5951026009885636841
+    second: Cave_10
+  - first:
+      213: -3044759361422347511
+    second: Cave_11
+  - first:
+      213: 3807257438876814715
+    second: Cave_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -172,32 +184,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave_2
-      rect:
-        serializedVersion: 2
-        x: 2328
-        y: 620
-        width: 263
-        height: 237
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06d5ccf9e99fd20a0800000000000000
-      internalID: -6904588194007982752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Cave_3
       rect:
         serializedVersion: 2
-        x: 2610
-        y: 654
+        x: 2730
+        y: 532
         width: 126
         height: 126
       alignment: 0
@@ -238,8 +229,8 @@ TextureImporter:
       name: Cave_5
       rect:
         serializedVersion: 2
-        x: 2822
-        y: 647
+        x: 2893
+        y: 525
         width: 131
         height: 130
       alignment: 0
@@ -302,9 +293,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3028
-        y: 490
-        width: 217
-        height: 326
+        y: 502
+        width: 204
+        height: 302
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,6 +305,111 @@ TextureImporter:
       bones: []
       spriteID: 7dc68e20db87a8560800000000000000
       internalID: 7316793297809730775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cave_2
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 681
+        width: 497
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d5ccf9e99fd20a0800000000000000
+      internalID: -6904588194007982752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cave_9
+      rect:
+        serializedVersion: 2
+        x: 2806
+        y: 801
+        width: 491
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5134d24d5de72ccb0800000000000000
+      internalID: -4845170792244362475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cave_10
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 484
+        width: 66
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8f75840aa469250800000000000000
+      internalID: 5951026009885636841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cave_11
+      rect:
+        serializedVersion: 2
+        x: 3299
+        y: 515
+        width: 27
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90330eb1e77deb5d0800000000000000
+      internalID: -3044759361422347511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cave_12
+      rect:
+        serializedVersion: 2
+        x: 3246
+        y: 654
+        width: 71
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d47bc087816d430800000000000000
+      internalID: 3807257438876814715
       vertices: []
       indices: 
       edges: []
