@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0868a147a164246a582955a5737185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Angle: 0
+  Angle: 90
   maxDistance: 100
   Parent: {fileID: 0}
   lineRenderer: {fileID: 8665499518381722992}

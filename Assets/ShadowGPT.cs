@@ -277,7 +277,7 @@ public class ShadowGPT : MonoBehaviour
     }
 
   
-   private void Start()
+   private void Awake()
 
    {
        
