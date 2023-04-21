@@ -5,6 +5,7 @@ using UnityEngine;
 public class itemLaser : MonoBehaviour
 {
     [SerializeField] private GameObject laserComponents;
+    [SerializeField] private float Angle;
     Raycaster rc;
     GameObject spawned;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class itemLaser : MonoBehaviour
 
         rc = spawned.GetComponentInChildren<Raycaster>();
         rc.setParent(gameObject.transform);
+        rc.Angle = Angle;
         GetComponent<TakeToGrave>().Objs.Add(spawned);
     }
 

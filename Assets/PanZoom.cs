@@ -20,6 +20,9 @@ public class PanZoom : MonoBehaviour {
     [SerializeField] private  float alphaEnd;
     public List<GameObject> Canvases;
     public List<GameObject> Sprites;
+    
+    private Vector3 targetPosition; // целевая позиция камеры
+    private bool isMoving = false; // флаг движения камеры
 
     public void ChangeZoom(float targetZoom)
     {
@@ -91,11 +94,34 @@ public class PanZoom : MonoBehaviour {
             }
             zoom(Input.GetAxis("Mouse ScrollWheel"));
         }
+
+        if (isMoving)
+        {
+            // вычисляем расстояние до целевой позиции
+            float distance = Vector3.Distance(transform.position, targetPosition);
+            // если расстояние меньше определенного значения, останавливаем движение
+            if (distance < 0.5f)
+            {
+                isMoving = false;
+                return;
+            }
+            // вычисляем новую позицию камеры
+            Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+            transform.position = newPosition;
+        }
+        
+
     }
 
     public void zoom(float increment){
         
         Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
         lightCamera.orthographicSize = Camera.main.orthographicSize;
+    }
+
+    public void MoveToPosition(Vector3 newPosition)
+    {
+        targetPosition = newPosition;
+        isMoving = true;
     }
 }

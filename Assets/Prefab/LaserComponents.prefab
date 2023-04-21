@@ -75,14 +75,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0868a147a164246a582955a5737185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Angle: 90
+  Angle: 0
   maxDistance: 100
+  buffer: 0
   Parent: {fileID: 0}
   lineRenderer: {fileID: 8665499518381722992}
   lMask:
     serializedVersion: 2
     m_Bits: 4194312
-  myCollider: {fileID: 0}
+  Prism: 0
+  casting: 1
 --- !u!120 &8665499518381722992
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -134,8 +136,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.007087713
-        value: 0.104942456
+        time: 0
+        value: 0.8478013
         inSlope: 0
         outSlope: 0
         tangentMode: 0

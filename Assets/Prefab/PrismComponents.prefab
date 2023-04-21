@@ -41,10 +41,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8469525056630708930}
-  - component: {fileID: 8469525056630708931}
-  - component: {fileID: 8469525056630708928}
   - component: {fileID: 8469525056630708929}
   - component: {fileID: 8094642489489408640}
+  - component: {fileID: 8559360390062735705}
+  - component: {fileID: 3545634150519589004}
   m_Layer: 22
   m_Name: PrismComponent
   m_TagString: Untagged
@@ -66,45 +66,6 @@ Transform:
   m_Father: {fileID: 8469525055652413264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8469525056630708931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469525056630708934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a929f438991626346be5a3022a87406f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 8469525057155098993}
---- !u!61 &8469525056630708928
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469525056630708934}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &8469525056630708929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +102,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &8559360390062735705
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469525056630708934}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &3545634150519589004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469525056630708934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0868a147a164246a582955a5737185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Angle: 62
+  maxDistance: 100
+  buffer: 0.01
+  Parent: {fileID: 0}
+  lineRenderer: {fileID: 8469525057155098993}
+  lMask:
+    serializedVersion: 2
+    m_Bits: 4194312
+  Prism: 1
+  casting: 0
 --- !u!1 &8469525057155098998
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +159,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8469525057155098995}
-  - component: {fileID: 8469525057155098992}
   - component: {fileID: 8469525057155098993}
   m_Layer: 17
   m_Name: Ray (1)
@@ -173,26 +181,6 @@ Transform:
   m_Father: {fileID: 8469525055652413264}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8469525057155098992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469525057155098998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0868a147a164246a582955a5737185, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Angle: 62
-  maxDistance: 100
-  Parent: {fileID: 0}
-  lineRenderer: {fileID: 8469525057155098993}
-  lMask:
-    serializedVersion: 2
-    m_Bits: 4194312
-  myCollider: {fileID: 8469525056630708928}
 --- !u!120 &8469525057155098993
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -244,8 +232,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.007087713
-        value: 0.104942456
+        time: 0
+        value: 0.8478013
         inSlope: 0
         outSlope: 0
         tangentMode: 0
