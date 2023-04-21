@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PanZoom : MonoBehaviour {
     private bool Auto;
-    [SerializeField] private float zoomSpeed = 5f; // скорость изменения зума
+    [SerializeField] private float zoomSpeed = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     Vector3 touchStart;
     [SerializeField] private Camera lightCamera;
     [SerializeField] private float zoomOutMin = 1;
@@ -21,22 +21,22 @@ public class PanZoom : MonoBehaviour {
     public List<GameObject> Canvases;
     public List<GameObject> Sprites;
     
-    private Vector3 targetPosition; // целевая позиция камеры
-    private bool isMoving = false; // флаг движения камеры
+    private Vector3 targetPosition; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    private bool isMoving = false; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
     public void ChangeZoom(float targetZoom)
     {
         Auto = true;
-        targetZoom = Mathf.Clamp(targetZoom, zoomOutMin, zoomOutMax); // ограничение значения зума в интервале [minZoom, maxZoom]
-        StartCoroutine(SmoothZoom(targetZoom)); // запуск корутины для плавного изменения зума
+        targetZoom = Mathf.Clamp(targetZoom, zoomOutMin, zoomOutMax); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [minZoom, maxZoom]
+        StartCoroutine(SmoothZoom(targetZoom)); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     }
 
     private IEnumerator SmoothZoom(float targetZoom)
     {
-        while (Mathf.Abs(Camera.main.orthographicSize - targetZoom) > 0.01f) // пока значение зума не достигнуто
+        while (Mathf.Abs(Camera.main.orthographicSize - targetZoom) > 0.01f) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetZoom, Time.deltaTime * zoomSpeed); // плавное изменение зума
-            yield return null; // ожидаем следующего фрейма
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetZoom, Time.deltaTime * zoomSpeed); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+            yield return null; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         }
         Auto = false;
     }
@@ -97,15 +97,15 @@ public class PanZoom : MonoBehaviour {
 
         if (isMoving)
         {
-            // вычисляем расстояние до целевой позиции
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             float distance = Vector3.Distance(transform.position, targetPosition);
-            // если расстояние меньше определенного значения, останавливаем движение
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (distance < 0.5f)
             {
                 isMoving = false;
                 return;
             }
-            // вычисляем новую позицию камеры
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
             transform.position = newPosition;
         }

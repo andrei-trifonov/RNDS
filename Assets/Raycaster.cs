@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Raycaster : MonoBehaviour
 {
-    [SerializeField] private bool puzzleItem1;
-    [SerializeField] private bool puzzleItem2;
+    [SerializeField] public bool puzzleItem1;
+    [SerializeField] public bool puzzleItem2;
     public float Angle;
     [SerializeField] private float maxDistance;
     [SerializeField] private float buffer;
@@ -52,11 +52,11 @@ public class Raycaster : MonoBehaviour
 
             }
             try {
-                if (puzzleItem1)
+                if (puzzleItem1 && casting)
                 {
                     hit.collider.GetComponent<puzzleFinger>().Laser1 = true;
                 }
-                if (puzzleItem2)
+                if (puzzleItem2 && casting)
                 {
                     hit.collider.GetComponent<puzzleFinger>().Laser2 = true;
                 }

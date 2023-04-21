@@ -7,6 +7,8 @@ public class itemPrismP : MonoBehaviour
 
     [SerializeField] private GameObject prismComponents;
     [SerializeField] private float Angle;
+    [SerializeField] private bool P1;
+    [SerializeField] private bool P2;
     GameObject spawned;
     FixedPos fp;
     Raycaster rc;
@@ -17,6 +19,8 @@ public class itemPrismP : MonoBehaviour
         fp.SetPoint(gameObject);
         rc = spawned.GetComponentInChildren<Raycaster>();
         rc.Angle = Angle;
+        rc.puzzleItem1 = P1;
+        rc.puzzleItem2 = P2;
         rc.setParent(gameObject.transform);
         GetComponent<TakeToGrave>().Objs.Add(spawned);
     }
