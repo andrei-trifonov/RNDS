@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2640857128512724029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7136096058180537251}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7136096058180537251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640857128512724029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8888568124825775626}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2727241401325526412
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5695849951711237772}
   - component: {fileID: 7080917438041245126}
+  - component: {fileID: 7702634225695091510}
   m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
@@ -26,10 +57,10 @@ Transform:
   m_GameObject: {fileID: 2727241401325526412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.092050046, y: 0.092050046, z: 0.092050046}
+  m_LocalScale: {x: 0.6805352, y: 0.6805352, z: 0.6805352}
   m_Children: []
   m_Father: {fileID: 8888568124825775626}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7080917438041245126
 SpriteRenderer:
@@ -72,7 +103,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4461622d59228c540b7490c6f30beb5d, type: 3}
+  m_Sprite: {fileID: -4092295223545938652, guid: 603b71fb91336d24d916fb3ef3da40eb,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,6 +115,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7702634225695091510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727241401325526412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da692f6e8cb3ee4f9dd14d546c49112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  point: {fileID: 2640857128512724029}
 --- !u!1 &5148357554169966742
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8888568124825775626}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7884428864590802928
 MonoBehaviour:
@@ -137,7 +182,7 @@ MonoBehaviour:
   fallSound: {fileID: 8300000, guid: 917eb4f80e466844c82a01562c9aed75, type: 3}
   Menu: {fileID: 8888568124812792942}
   Stashable: 1
-  turnRight: 0
+  turnRight: 1
 --- !u!114 &5364407918838121900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +435,7 @@ RectTransform:
   m_Children:
   - {fileID: 8888568126097257648}
   m_Father: {fileID: 8888568124825775626}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -490,6 +535,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7136096058180537251}
   - {fileID: 5655141052180632103}
   - {fileID: 5695849951711237772}
   - {fileID: 8888568124812792914}
@@ -574,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserComponents: {fileID: 8665499516938308842, guid: 951b5e20fb5a05347908ae965d473362,
     type: 3}
+  Angle: 0
 --- !u!1 &8888568126097257649
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400946, guid: 343f26c4dc79f204f950a57bd6947d4c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400946, guid: 343f26c4dc79f204f950a57bd6947d4c, type: 3}
       propertyPath: m_LocalScale.x

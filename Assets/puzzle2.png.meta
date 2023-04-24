@@ -573,7 +573,7 @@ TextureImporter:
         width: 470
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,6 +581,27 @@ TextureImporter:
       bones: []
       spriteID: 6e539a883f13ebc40800000000000000
       internalID: 5529912314497152486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puzzle2_19
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 318
+        width: 134
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f25c18c1f08e4c40800000000000000
+      internalID: 5498473970998727417
       vertices: []
       indices: 
       edges: []

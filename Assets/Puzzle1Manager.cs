@@ -45,6 +45,8 @@ public class Puzzle1Manager : MonoBehaviour
         {
             yield return new WaitForSeconds(6);
             toDestroy1.SetActive(false);
+            Scale1.enabled = false;
+            Scale2.enabled = false;
             toDestroy2.SetActive(false);
         }
 

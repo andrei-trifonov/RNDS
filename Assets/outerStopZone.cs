@@ -19,5 +19,6 @@ public class outerStopZone : MonoBehaviour
     public void UnblockMachine()
     {
         SM.SetMachineBlocked(false);
+        Destroy(gameObject);
     }
 }

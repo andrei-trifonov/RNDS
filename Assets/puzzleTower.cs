@@ -21,7 +21,8 @@ public class puzzleTower : MonoBehaviour
             list[n] = t;  
         }  
     }
-    
+
+    [SerializeField] public outerStopZone SZ;
     [SerializeField] public List<SpriteRenderer> Template;
     [SerializeField] public List<SpriteRenderer> Task;
     [SerializeField] public List<puzzleButton> Buttons;
@@ -31,6 +32,7 @@ public class puzzleTower : MonoBehaviour
     [HideInInspector] public List<int> taskInt;
     [HideInInspector] public List<int> answerInt;
     [SerializeField] public List<GameObject> destroyAfterPuzzle;
+    [SerializeField] public List<GameObject> enableAfterPuzzle;
     private bool isPrep;
     private int winCount=0;
 
@@ -104,12 +106,19 @@ public class puzzleTower : MonoBehaviour
                     Restart();
                 else
                 {
+                    SZ.UnblockMachine();
                     uM.Upgrade(1);
+                    foreach (var go in enableAfterPuzzle)
+                    {
+                        go.SetActive(true);
+                    
+                    }
                     foreach (var go in destroyAfterPuzzle)
                     {
                         go.SetActive(false);
-                        this.enabled = false;
-                    }
+                     
+                    }   
+                    this.enabled = false;
                 }
             }
             else

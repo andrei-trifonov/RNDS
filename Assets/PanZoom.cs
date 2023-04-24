@@ -20,7 +20,9 @@ public class PanZoom : MonoBehaviour {
     [SerializeField] private  float alphaEnd;
     public List<GameObject> Canvases;
     public List<GameObject> Sprites;
-    
+ 
+    private float delta;
+
     private Vector3 targetPosition; // ������� ������� ������
     private bool isMoving = false; // ���� �������� ������
 
@@ -97,17 +99,15 @@ public class PanZoom : MonoBehaviour {
 
         if (isMoving)
         {
-            // ��������� ���������� �� ������� �������
             float distance = Vector3.Distance(transform.position, targetPosition);
+            // ��������� ���������� �� ������� �������
+            delta += 0.07f;
             // ���� ���������� ������ ������������� ��������, ������������� ��������
-            if (distance < 0.5f)
-            {
-                isMoving = false;
-                return;
-            }
             // ��������� ����� ������� ������
-            Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+            Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, delta);
             transform.position = newPosition;
+            if (delta >= 1)
+                isMoving = false;
         }
         
 
@@ -121,7 +121,10 @@ public class PanZoom : MonoBehaviour {
 
     public void MoveToPosition(Vector3 newPosition)
     {
+       
+        delta = 0;
         targetPosition = newPosition;
         isMoving = true;
+     
     }
 }

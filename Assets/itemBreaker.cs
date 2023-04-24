@@ -24,7 +24,7 @@ public class itemBreaker : MonoBehaviour
                 for (int i = 0; i < Random.Range(3, 6); i++)
                 {
                     GameObject go = Instantiate(Part);
-                    go.transform.position = gameObject.transform.position;
+                    go.transform.position = gameObject.transform.position + (Vector3)new Vector2(Random.Range(0f,1f),Random.Range(0f,1f) );
                 }
                 gameObject.transform.parent.gameObject.SetActive(false);
             }

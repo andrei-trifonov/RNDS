@@ -31,7 +31,7 @@ public class Raycaster : MonoBehaviour
             ray = new Vector2 (-Vector2.right.x - Mathf.Sin(Mathf.Deg2Rad * Angle) * 100, Parent.right.y + Mathf.Cos(Mathf.Deg2Rad * Angle) * 100);
       
         lineRenderer.SetPosition(0, new Vector3 ( Parent.position.x, Parent.position.y, 1));
-        lineRenderer.SetPosition(1, ray*maxDistance);
+        lineRenderer.SetPosition(1, (Vector2)Parent.position + ray * 0.12f);
 
         RaycastHit2D hit = (Physics2D.Raycast((Vector2)Parent.position + ray *buffer , ray, maxDistance, lMask));
         Debug.DrawRay((Vector2)Parent.position + ray * buffer, ray);

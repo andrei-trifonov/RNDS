@@ -41,16 +41,16 @@ public class puzzleFinger : MonoBehaviour
         {
             obj.SetActive(true);
         }
-        foreach (GameObject obj in itemsPuzzle)
-        {
-            obj.SetActive(false);
-        }
         yield return new WaitForSeconds(3);
         Camera.MoveToPosition(campos);
         Camera.ChangeZoom(2.6f);
         yield return new WaitForSeconds(4);
         PC2D.UnBlock();
        
+        foreach (GameObject obj in itemsPuzzle)
+        {
+            obj.SetActive(false);
+        }
         Destroy(gameObject);
     }
 }

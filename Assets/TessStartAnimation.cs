@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TessStartAnimation : MonoBehaviour
 {
-    public GameObject TessStartPack;
+    public GameObject[] TessStartPack;
     public PanZoom Cam;
     public GameObject Dialogue;
     public Animator Anim;
@@ -24,7 +24,12 @@ public class TessStartAnimation : MonoBehaviour
     }
     public void DestroyMe()
     {
-        Destroy(TessStartPack);
+        foreach (GameObject go in TessStartPack)
+        {
+            Destroy(go);
+        }
+
+        PC2D.GetComponent<Platformer2DUserControl>().useBeacon = true;
         Destroy(Dialogue);
     }
     IEnumerator C()

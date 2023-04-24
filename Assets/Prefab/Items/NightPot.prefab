@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 1765611564847431149}
   - component: {fileID: 8547395344204790540}
   - component: {fileID: 6637703200112781627}
+  - component: {fileID: 1146033838526737730}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -674,6 +675,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+--- !u!114 &1146033838526737730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932497514431841077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6670375a477e3d84d85a4a6ff9c430d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakSound: {fileID: 8300000, guid: df0ec39bb7429284fb2f1c3413e68098, type: 3}
+  Part: {fileID: 2854060269430121425, guid: efff3c5a357171348933e4a5fccd65a6, type: 3}
 --- !u!1 &6068796033609100847
 GameObject:
   m_ObjectHideFlags: 0

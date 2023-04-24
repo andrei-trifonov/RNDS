@@ -44,6 +44,21 @@ TextureImporter:
   - first:
       213: 4820386318783352842
     second: RoadParts_13
+  - first:
+      213: 4402866936707566139
+    second: RoadParts_14
+  - first:
+      213: 1498663052134105390
+    second: RoadParts_15
+  - first:
+      213: 1907777183567832398
+    second: RoadParts_16
+  - first:
+      213: -1622698972033703972
+    second: RoadParts_17
+  - first:
+      213: -8280687853706877964
+    second: RoadParts_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -321,7 +336,7 @@ TextureImporter:
         width: 205
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -342,7 +357,7 @@ TextureImporter:
         width: 110
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -363,7 +378,7 @@ TextureImporter:
         width: 125
         height: 116
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -384,7 +399,7 @@ TextureImporter:
         width: 98
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -405,7 +420,7 @@ TextureImporter:
         width: 94
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -426,7 +441,7 @@ TextureImporter:
         width: 83
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,6 +449,111 @@ TextureImporter:
       bones: []
       spriteID: a001c3341d375e240800000000000000
       internalID: 4820386318783352842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoadParts_14
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 165
+        width: 233
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a44cbc6202a1d30800000000000000
+      internalID: 4402866936707566139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoadParts_15
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 548
+        width: 467
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21c47c0b125cc410800000000000000
+      internalID: 1498663052134105390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoadParts_16
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 927
+        width: 121
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45e7299d39c97a10800000000000000
+      internalID: 1907777183567832398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoadParts_17
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 860
+        width: 162
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf1a82e1e30b79e0800000000000000
+      internalID: -1622698972033703972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoadParts_18
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 693
+        width: 188
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3e8ef1546151d80800000000000000
+      internalID: -8280687853706877964
       vertices: []
       indices: 
       edges: []
