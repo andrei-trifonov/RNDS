@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class puzzleFinger : MonoBehaviour
 {
+    public outerStopZone SZ;
     public PlatformerCharacter2D PC2D;
     public Transform CameraPoint;
     public bool Laser1;
@@ -31,8 +32,8 @@ public class puzzleFinger : MonoBehaviour
     }
     IEnumerator EndPuzzleCoroutine()
     {
-
-        campos = Camera.gameObject.transform.position;
+        SZ.UnblockMachine();
+        campos = PC2D.transform.position + new Vector3(0f, 0.12f, -9.51f);
         Camera.MoveToPosition(CameraPoint.position);
         Camera.ChangeZoom(19);
         PC2D.Block();

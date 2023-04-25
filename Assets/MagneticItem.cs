@@ -10,7 +10,9 @@ public class MagneticItem : MonoBehaviour
     [SerializeField] private GameObject Menu;
     [SerializeField] private bool Stashable;
     [SerializeField] private bool turnRight = false;
-    
+    [SerializeField] private GameObject Shadow;
+    [SerializeField] private float maxShadowCast;
+    [SerializeField] private LayerMask lMask;
     private bool Picked;
     private Collider2D PlayerCollider;
     private GameObject m_Parent;
@@ -101,49 +103,81 @@ public class MagneticItem : MonoBehaviour
         m_Parent.transform.parent = null;
     }
 
+    private void FixedUpdate()
+    {
+        if (m_Rigidbody.simulated)
+        {
+            try
+            {
+                Shadow.SetActive(false);
+                Ray2D ray = new Ray2D(gameObject.transform.position, Vector2.down);
+              
 
+                RaycastHit2D hit = (Physics2D.Raycast(gameObject.transform.position, ray.direction, maxShadowCast, lMask));
+                Debug.DrawRay(gameObject.transform.position, ray.direction);
+                if (hit.collider != null)
+                {
+
+                    Shadow.transform.position = hit.point;
+                    Shadow.SetActive(true) ;
+                    Vector2 normal = hit.normal;
+
+                    // поворачиваем объект на 90 градусов вокруг оси, указанной нормалью
+
+                    // Преобразуем направление в угол поворота
+                    float angle = Mathf.Atan2(normal.y, normal.x) * Mathf.Rad2Deg;
+
+                    // Устанавливаем поворот объекта в направлении целевой позиции
+                    Shadow.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+                }
+            
+
+            }
+            catch { }
+        }
+    }
     //void FixedUpdate()
-   // {
-        //  // Для подвеса скорость нужна ниже (для визуала)
-        // if (Picked) {
-        //
-        //      targetPosition = Target.transform.position;
-        //      currentPosition = m_Parent.transform.position;
-        //
-        //
-        //     if(Vector3.Distance(currentPosition, targetPosition) > .1f) {
-        //         directionOfTravel = targetPosition - currentPosition;
-        //         //now normalize the direction, since we only want the direction information
-        //         directionOfTravel.Normalize();
-        //         //scale the movement on each axis by the directionOfTravel vector components
-        //         }
-        //      else {
-        //
-        //             m_Parent.transform.SetParent(Target.transform);
-        //             
-        //             m_Rigidbody.simulated = false;
-        //             m_Collider.enabled= false;
-        //             Picked = false;
-        //
-        //             if (toPlayer)
-        //             {
-        //                 
-        //                 Target.GetComponentInParent<CarryManager>().SetPickedItem(m_Parent);
-        //                 magnetEffect.SetActive(true);
-        //             }
-        //
-        //
-        //
-        //
-        //     }
-        //      m_Parent.transform.Translate(
-        //                     (directionOfTravel.x * speed * Time.deltaTime),
-        //                     (directionOfTravel.y * speed * Time.deltaTime),
-        //                     (directionOfTravel.z * speed * Time.deltaTime),
-        //                     Space.World);
-        //
-        //     }
-   // }
-   
+    // {
+    //  // Для подвеса скорость нужна ниже (для визуала)
+    // if (Picked) {
+    //
+    //      targetPosition = Target.transform.position;
+    //      currentPosition = m_Parent.transform.position;
+    //
+    //
+    //     if(Vector3.Distance(currentPosition, targetPosition) > .1f) {
+    //         directionOfTravel = targetPosition - currentPosition;
+    //         //now normalize the direction, since we only want the direction information
+    //         directionOfTravel.Normalize();
+    //         //scale the movement on each axis by the directionOfTravel vector components
+    //         }
+    //      else {
+    //
+    //             m_Parent.transform.SetParent(Target.transform);
+    //             
+    //             m_Rigidbody.simulated = false;
+    //             m_Collider.enabled= false;
+    //             Picked = false;
+    //
+    //             if (toPlayer)
+    //             {
+    //                 
+    //                 Target.GetComponentInParent<CarryManager>().SetPickedItem(m_Parent);
+    //                 magnetEffect.SetActive(true);
+    //             }
+    //
+    //
+    //
+    //
+    //     }
+    //      m_Parent.transform.Translate(
+    //                     (directionOfTravel.x * speed * Time.deltaTime),
+    //                     (directionOfTravel.y * speed * Time.deltaTime),
+    //                     (directionOfTravel.z * speed * Time.deltaTime),
+    //                     Space.World);
+    //
+    //     }
+    // }
+
 
 }
