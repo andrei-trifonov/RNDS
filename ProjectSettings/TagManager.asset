@@ -46,7 +46,7 @@ TagManager:
   - BlockLight
   - StartMask
   - Prism
-  - 
+  - Controls
   - 
   - 
   - 
@@ -70,4 +70,10 @@ TagManager:
     locked: 0
   - name: SplitHouse
     uniqueID: 3110825701
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 3366403329
+    locked: 0
+  - name: Controls
+    uniqueID: 3046500141
     locked: 0
