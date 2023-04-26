@@ -7,15 +7,14 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] private bool isMovingParent;
-    [SerializeField] private Rigidbody2D parentRigidbody;
-    [SerializeField] private Rigidbody2D machineRigidbody;
+
     [SerializeField] private float Speed;
     [SerializeField] private GameObject[] Stages;
-    [SerializeField] private GameObject Player;
+   // [SerializeField] private GameObject Player;
     [SerializeField] private GameObject Menu;
     [SerializeField] private AudioClip Clip;
-    
+
+    private Rigidbody2D Player;
     private AudioSource m_AudioSource;
     private float m_Position_y;
     private float o_Position_y;
@@ -25,6 +24,7 @@ public class Elevator : MonoBehaviour
     private Vector3 m_Vector;
     private Rigidbody2D startRigidbody;
     private bool playerEnter;
+    private bool goingDown;
     // Start is called before the first frame update
 
     public int GetState()
@@ -37,11 +37,11 @@ public class Elevator : MonoBehaviour
     }
     private void Start()
     {
+        Player = GameObject.Find("Player").GetComponentInChildren<Rigidbody2D>();
         m_AudioSource = GetComponent<AudioSource>();
         Menu.GetComponent<Canvas>().enabled = false;
         m_Anim = gameObject.GetComponent<Animator>();
-        if (isMovingParent)
-           startRigidbody = parentRigidbody;
+
 
     }
 
@@ -51,7 +51,7 @@ public class Elevator : MonoBehaviour
         {
 
             playerEnter = true;
-            Player.transform.SetParent(gameObject.transform);
+            //Player.transform.SetParent(gameObject.transform);
             Menu.GetComponent<Canvas>().enabled = true;
             
         }
@@ -61,9 +61,10 @@ public class Elevator : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.transform.SetParent(null);
-            Player.transform.parent = null;
+            //Player.transform.SetParent(null);
+            //Player.transform.parent = null;
             playerEnter = false;
+            goingDown = false;
             Menu.GetComponent<Canvas>().enabled = false;
         }
     }
@@ -73,19 +74,19 @@ public class Elevator : MonoBehaviour
        
         m_AudioSource.Stop();
         m_AudioSource.PlayOneShot(Clip);
-        if (playerEnter)
-            Player.transform.SetParent(gameObject.transform);
+       // if (playerEnter)
+       //     Player.transform.SetParent(gameObject.transform);
         Blocked = true;
         m_Anim.SetBool("Move", true);
         
     }
     public void Down()
     {
-        
+       
         if (State > 0 && !Blocked)
         {
             Common();
-          
+            goingDown = true;
             State -= 1;
             m_Vector = Vector3.down;
            
@@ -124,15 +125,12 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isMovingParent)
+        if (goingDown)
         {
-            if (playerEnter)
-                parentRigidbody.velocity = machineRigidbody.velocity;
-            else
-                parentRigidbody.velocity = startRigidbody.velocity;
+            Player.AddForce(Vector2.down * 100);
         }
-        m_Position_y = gameObject.transform.position.y;
-        o_Position_y = Stages[State].transform.position.y;
+        m_Position_y = gameObject.transform.localPosition.y;
+        o_Position_y = Stages[State].transform.localPosition.y;
         if (!(((m_Position_y + 0.05f) > o_Position_y) && ((m_Position_y - 0.05f) < o_Position_y)))
         {
             transform.Translate(m_Vector * Speed / 100, transform.parent);
@@ -142,6 +140,7 @@ public class Elevator : MonoBehaviour
         {
             if (Blocked)
             {
+                goingDown = false;
                 m_AudioSource.Stop();
                 Blocked = false;
               

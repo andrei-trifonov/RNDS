@@ -15,6 +15,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         [SerializeField] private GameObject Pivot;
         [SerializeField] private GameObject dustEffect;
         [SerializeField] private Rigidbody2D Empty;
+    [SerializeField] private Rigidbody2D Machine;
         [SerializeField] private Animator m_Anim;            // Reference to the player's animator component.
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip landSound;
@@ -78,7 +79,11 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 movingObject = collision.gameObject.GetComponentInParent<Rigidbody2D>();
             }
-            if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Machine"))
+        {
+            movingObject = Machine;
+        }
+        if (collision.gameObject.CompareTag("Ground"))
             {
                 movingObject = Empty;
             }

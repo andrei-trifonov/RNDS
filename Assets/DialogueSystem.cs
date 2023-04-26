@@ -81,9 +81,7 @@ public class DialogueSystem : MonoBehaviour
     private void Start()
     {
 
-        if (DEBUG) {
-            PlayerPrefs.SetString("Language", "RUS");
-        }
+
         for (int i = 0; i < chatWindows.Length; i++)
         {
             chatWindows[i].chatCloud.gameObject.SetActive(false);
