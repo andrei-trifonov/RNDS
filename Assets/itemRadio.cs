@@ -8,7 +8,11 @@ public class itemRadio : MonoBehaviour
     [SerializeField] DialogueSystem ds;
     [SerializeField] List<AudioClip> Music;
     [SerializeField] AudioClip Noise;
-    
+
+    private void Start()
+    {
+        audioPlayer = GameObject.FindGameObjectWithTag("AudioPlayer").GetComponent<ASFade>();
+    }
     public void playMusic()
     {
         StopAllCoroutines();

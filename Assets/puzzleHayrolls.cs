@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class puzzleHayrolls : MonoBehaviour
 {
+    public upgradeManager uM;
     public List<GameObject> toDisable;
     public List<GameObject> toEnable;
     public bool T1;
@@ -66,6 +67,7 @@ public class puzzleHayrolls : MonoBehaviour
 
     void EndPuzzle()
     {
+        uM.Upgrade(6);
         SZ.UnblockMachine();
         foreach(GameObject obj in toDisable)
         {

@@ -17,7 +17,7 @@ public class ASFade : MonoBehaviour
 
     public void Fade()
     {
-        m_AS.volume = 1;
+        m_AS.volume = PlayerPrefs.GetFloat("Music");
         fadeOut = true;
     }
 
@@ -47,7 +47,7 @@ public class ASFade : MonoBehaviour
         }
         if (fadeIn)
         {
-            if ( m_AS.volume < 1)
+            if ( m_AS.volume < PlayerPrefs.GetFloat("Music"))
                 m_AS.volume += Time.deltaTime * Speed;
             else
             {

@@ -40,7 +40,7 @@ public struct chatVariant
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private chatWindow[] chatWindows;
-    [SerializeField] private chatVariant[] chatVariants;
+    [SerializeField] private List<chatVariant> chatVariants;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject continueButton;
     private List<GameObject> actorsList = new List<GameObject>();
@@ -109,6 +109,16 @@ public class DialogueSystem : MonoBehaviour
         string symbols = "@#$%^&*()~`<>/+=";
 
         return symbols[UnityEngine.Random.Range(0, symbols.Length)];
+    }
+
+    public void ClearDialogue()
+    {
+        chatVariants.Clear();
+    }
+    public void AddVariant(chatVariant chat)
+    {
+        if (!chatVariants.Contains(chat))
+                chatVariants.Add(chat);
     }
     public void ContinueDialogue()
     {
@@ -190,7 +200,7 @@ public class DialogueSystem : MonoBehaviour
            
             
         }
-        currChat = UnityEngine.Random.Range(0, chatVariants.Length);
+        currChat = UnityEngine.Random.Range(0, chatVariants.Count);
         if(startButton)
             startButton.SetActive(true);
         if(continueButton)  

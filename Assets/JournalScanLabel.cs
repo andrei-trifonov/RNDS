@@ -24,5 +24,6 @@ public class JournalScanLabel : MonoBehaviour
         descriptionImage.sprite = Icon.sprite;
         descriptionLabel.text = Label.text;
         descriptionText.text = Text;
+        descriptionText.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionText.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionText.text.Length / 20 * 50);
     }
 }

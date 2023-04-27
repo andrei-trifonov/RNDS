@@ -51,8 +51,8 @@ public class GameDataBase : MonoBehaviour
            
                 if (PlayerPrefs.GetInt(hookItemList[i].name + " Scan") == 1)
                 {
-                    archiveCells.Add(new ArchiveCell(lore.GetLabel(), lore.GetText(),
-                        hookItemList[i].GetComponentInChildren<SpriteRenderer>().sprite));
+                        archiveCells.Add(new ArchiveCell(lore.GetLabel(), lore.GetText(),
+                   lore.GetSprite()));
                 }
             }
             catch (Exception e)
@@ -72,6 +72,20 @@ public class GameDataBase : MonoBehaviour
         Debug.Log(item.name + " Scan");
         PlayerPrefs.SetInt(item.name + " Scan", 1);
        
+    }
+    public int archiveSize()
+    {
+        try
+        {
+            RenewArchiveCells();
+        }
+        catch { }
+        return archiveCells.Count;
+    }
+    public int collectionSize()
+    {
+
+        return hookItemList.Length;
     }
 
     public List<ArchiveCell> GetArchiveCells()

@@ -56,7 +56,14 @@ public class PanZoom : MonoBehaviour {
             float value;
             value = Mathf.Clamp(Camera.main.orthographicSize / zoomOutMax * canvasSizeMax, 1, canvasSizeMax);
             for (int i = 0; i < Canvases.Count; i++)
-                Canvases[i].gameObject.transform.localScale = new Vector3(value, value, 1);
+                try
+                {
+                    Canvases[i].gameObject.transform.localScale = new Vector3(value, value, 1);
+                }
+                catch
+                {
+
+                }
             value = (alphaEnd) * ((Camera.main.orthographicSize - alphaBegin) / zoomOutMax);
 
             if (Camera.main.orthographicSize <= alphaBegin)

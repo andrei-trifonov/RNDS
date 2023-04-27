@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class WorldArchive : MonoBehaviour
 {
 
-    
+    [SerializeField] private Text CollectionText;
     [SerializeField] private GameObject labelContent;
     [SerializeField] private GameObject labelTemplate;
     [SerializeField] private GameObject scanEffect;
     [SerializeField] private AudioClip scanSound;
+    [SerializeField] private RectTransform ItemList;
 
     public List<ArchiveCell> archiveCells;
     public List<GameObject> ScanItems;
@@ -22,7 +24,7 @@ public class WorldArchive : MonoBehaviour
     {
         m_AudioSource = GetComponent<AudioSource>();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
-       
+        CollectionText.text =  GDB.archiveSize().ToString() + "/" +  GDB.collectionSize().ToString() ;
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -65,6 +67,7 @@ public class WorldArchive : MonoBehaviour
             StartCoroutine(ScanCoroutine());
            
         }
+        CollectionText.text = GDB.collectionSize().ToString() + "/" + GDB.archiveSize().ToString();
     }
 
     private void AddToArchive(int i)
@@ -83,6 +86,13 @@ public class WorldArchive : MonoBehaviour
             JournalScanLabel Label = Instantiate(labelTemplate, labelContent.transform).GetComponent<JournalScanLabel>();
             Label.gameObject.SetActive(true);
             Label.OnSpawn(item.Image, item.Label, item.Text);
+
         }
+        children = new List<GameObject>();
+        float height = 0;
+        foreach (Transform child in labelContent.transform) if (child != labelContent.transform ) height += (child.GetComponent<RectTransform>().rect.height + 10);
+        ItemList.sizeDelta = new Vector2(ItemList.sizeDelta.x, height);
+        
+        
     }
 }

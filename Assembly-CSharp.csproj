@@ -200,6 +200,7 @@
     <Compile Include="Assets\SpriteOutline.cs" />
     <Compile Include="Assets\Suntail Village\Scripts\SuntailStartDemo.cs" />
     <Compile Include="Assets\PSG\Scripts\Triangulation.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\outerRain.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\NightAndDayMaskAnimator.cs" />
     <Compile Include="Assets\Alpha Masking\Samples\Scripts\UVAnimator.cs" />
@@ -259,7 +260,7 @@
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
     <Compile Include="Assets\BarValueTranslator.cs" />
     <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\outerMonologueZone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ChainPack\Chain2D\README.txt" />
