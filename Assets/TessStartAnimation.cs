@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +17,17 @@ public class TessStartAnimation : MonoBehaviour
     public float t3;
     public float Zoom;
     public float oldZoom;
-    
+    public AudioClip Sounds;
+    private AudioSource m_AudioSource;
+    private void Start()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     public void StartC()
     {
+        m_AudioSource.PlayOneShot(Sounds);
         StartCoroutine(C());        
     }
     public void DestroyMe()
@@ -28,7 +36,7 @@ public class TessStartAnimation : MonoBehaviour
         {
             Destroy(go);
         }
-
+        
         PC2D.GetComponent<Platformer2DUserControl>().useBeacon = true;
         Destroy(Dialogue);
     }

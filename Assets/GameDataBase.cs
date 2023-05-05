@@ -36,6 +36,7 @@ public class GameDataBase : MonoBehaviour
         {
             hook.Save();
         }
+        PlayerPrefs.SetString("Save", PlayerPrefs.GetString("Zone"));
         PlayerPrefs.SetFloat("Fuel", Transport.GetFuel());
         PlayerPrefs.SetFloat("Water", Transport.GetWater());
     }

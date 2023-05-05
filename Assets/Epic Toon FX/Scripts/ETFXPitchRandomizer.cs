@@ -11,7 +11,12 @@ namespace EpicToonFX
 	
 		void Start ()
 		{
-        transform.GetComponent<AudioSource>().pitch *= 1 + Random.Range(-randomPercent / 100, randomPercent / 100);
+			Randomize();
+		}
+
+		public void Randomize()
+		{
+			transform.GetComponent<AudioSource>().pitch *= 1 + Random.Range(-randomPercent / 100, randomPercent / 100);
 		}
 	}
 }

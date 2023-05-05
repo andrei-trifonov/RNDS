@@ -25,6 +25,7 @@ public class WorldArchive : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
         CollectionText.text =  GDB.archiveSize().ToString() + "/" +  GDB.collectionSize().ToString() ;
+     //   Renew();
     }
     private void OnTriggerExit2D(Collider2D other)
     {

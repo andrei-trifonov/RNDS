@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class puzzleFinger : MonoBehaviour
 {
+    public AudioClip finishSound;
     public outerStopZone SZ;
     public PlatformerCharacter2D PC2D;
     public Transform CameraPoint;
@@ -13,6 +15,12 @@ public class puzzleFinger : MonoBehaviour
     public GameObject[] itemsPuzzle;
     public PanZoom Camera;
     private Vector3 campos;
+    private AudioSource m_AudioSource;
+    private bool ended;
+    private void Start()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
 
     private void FixedUpdate() 
     {
@@ -27,11 +35,16 @@ public class puzzleFinger : MonoBehaviour
     }
     private void EndPuzzle()
     {
-        StartCoroutine(EndPuzzleCoroutine());
-      
+        if (!ended)
+        {
+            ended = true;
+            m_AudioSource.PlayOneShot(finishSound);
+            StartCoroutine(EndPuzzleCoroutine());
+        }
     }
     IEnumerator EndPuzzleCoroutine()
     {
+       
         SZ.UnblockMachine();
         campos = PC2D.transform.position + new Vector3(0f, 0.12f, -9.51f);
         Camera.MoveToPosition(CameraPoint.position);

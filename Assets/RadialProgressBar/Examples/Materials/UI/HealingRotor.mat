@@ -170,15 +170,15 @@ Material:
     - _ASEOutlineColor: {r: 0.9117647, g: 0.24805364, b: 0.24805364, a: 1}
     - _BGColor: {r: 1, g: 1, b: 1, a: 1}
     - _BackgroundColor: {r: 0.049199797, g: 0.5807034, b: 0.9558824, a: 1}
-    - _Backgroundbordercolor: {r: 0.21950683, g: 0.5362239, b: 0.85294116, a: 0}
-    - _Backgroundfillcolor: {r: 0.058282807, g: 0.5259269, b: 0.7205882, a: 0}
-    - _Barmaxcolor: {r: 0.39391342, g: 0.8748542, b: 0.12825088, a: 1}
-    - _Barmincolor: {r: 1.4614084, g: 0, b: 0, a: 1}
+    - _Backgroundbordercolor: {r: 0.06301003, g: 0.06301003, b: 0.06301003, a: 0.15686275}
+    - _Backgroundfillcolor: {r: 0.06301003, g: 0.06301003, b: 0.06301003, a: 0.15686275}
+    - _Barmaxcolor: {r: 1, g: 0.924717, b: 0.7490566, a: 1}
+    - _Barmincolor: {r: 0.26666668, g: 0.2, b: 0.03529412, a: 1}
     - _Barsecondarymaxcolor: {r: 0, g: 0, b: 0, a: 1}
     - _Barsecondarymincolor: {r: 0, g: 0, b: 0, a: 0}
     - _Bordercolor: {r: 0.42388234, g: 1.201, b: 0.59002465, a: 1}
-    - _Bordermaxcolor: {r: 0, g: 0, b: 0, a: 1}
-    - _Bordermincolor: {r: 0, g: 0, b: 0, a: 1}
+    - _Bordermaxcolor: {r: 1, g: 1, b: 1, a: 1}
+    - _Bordermincolor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.6824544, g: 0.2573529, b: 1, a: 0}
     - _Color1: {r: 0, g: 0.95862055, b: 1, a: 0}

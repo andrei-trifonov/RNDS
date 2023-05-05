@@ -5,16 +5,19 @@ using UnityEngine;
 
 using UnityEngine.UI;
 using Color = System.Drawing.Color;
+using Random = System.Random;
 
 public enum charsDropdown { 
       Psye,
       Lilly,
-      Hans
+      Hans,
+      Tess
 };
 
 [System.Serializable]
 public struct chatWindow {
     public charsDropdown Char;
+    public AudioClip[] Clips;
     public Text textAuthor;
     public Text textLine;
     public Animator chatCloud;
@@ -43,12 +46,13 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private List<chatVariant> chatVariants;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject continueButton;
+    public bool Translated;
     private List<GameObject> actorsList = new List<GameObject>();
     private string Language;
     private HandsHolds HH;
     private int stringCounter;
     private int currChat;
-
+    private AudioSource m_AudioSource;
 
     private Tuple<UnityEngine.Color, string> ReturnCharName(int Char)
     {
@@ -59,13 +63,13 @@ public class DialogueSystem : MonoBehaviour
                 {
                     switch (Char) {
                         case 0:
-                            return Tuple.Create(UnityEngine.Color.yellow, "Сай"); break;
+                            return Tuple.Create(new UnityEngine.Color(0.7f, 0.6f,0.1f), "Сай"); break;
                         case 1:
-                            return Tuple.Create(UnityEngine.Color.red, "Лилли"); break;
+                            return Tuple.Create(new UnityEngine.Color(0.7f,0.2f,0.3f), "Лилли"); break;
                         case 2:
                             return Tuple.Create(UnityEngine.Color.gray, "Ханс"); break;
                         case 3:
-                            return Tuple.Create(UnityEngine.Color.white, "Тесс"); break;
+                            return Tuple.Create(new UnityEngine.Color(0.2f, 0.5f, 0.6f), "Тесс"); break;
 
 
                     }
@@ -80,7 +84,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private bool DEBUG;
     private void Start()
     {
-
+        m_AudioSource = GetComponent<AudioSource>();
 
         for (int i = 0; i < chatWindows.Length; i++)
         {
@@ -94,7 +98,7 @@ public class DialogueSystem : MonoBehaviour
         for (int i = 0; i < str.Length; i++) {
             text.text += RandomSymbol();
             yield return new WaitForSeconds(0.05f);
-            if (HH.ItemNum() == 14) //Транскриптор
+            if (HH.ItemNum() == 14 || Translated) //Транскриптор
             {
                 text.text = text.text.Substring(0, text.text.Length - 1);
                 text.text += str[i];
@@ -143,6 +147,8 @@ public class DialogueSystem : MonoBehaviour
                    
                     chatWindows[i].chatCloud.SetBool("PopUp", true);
                     StopAllCoroutines();
+                    m_AudioSource.PlayOneShot(chatWindows[i]
+                        .Clips[UnityEngine.Random.Range(0, chatWindows[i].Clips.Length)]);
                     StartCoroutine(CastString(chatVariants[currChat].chatLines[stringCounter].textLine, chatWindows[i].textLine));
 
                     break;

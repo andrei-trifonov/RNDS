@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 4076679206366872988
     second: Eater_7
+  - first:
+      213: 7056749464662435278
+    second: Eater_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -290,6 +293,27 @@ TextureImporter:
       bones: []
       spriteID: c9508b69326439830800000000000000
       internalID: 4076679206366872988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eater_8
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 175
+        width: 104
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5e126ff3c9ee160800000000000000
+      internalID: 7056749464662435278
       vertices: []
       indices: 
       edges: []

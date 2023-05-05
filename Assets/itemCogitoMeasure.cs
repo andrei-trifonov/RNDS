@@ -21,12 +21,12 @@ public class itemCogitoMeasure : MonoBehaviour
             if (mindist > dist)
                 mindist = dist;
             if (mindist > 10)
-                sprite.color = Color.green;
+                sprite.color = new Color(0,1,0,0.5f);
             else
                 if (mindist > 5)
-                sprite.color = Color.yellow;
+                sprite.color = new Color(1,1,0,0.5f);
                 else
-                  sprite.color = Color.red;
+                  sprite.color = new Color(1,0,0,0.5f);
         }
     }
 }

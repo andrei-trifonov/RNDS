@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
+    public GameObject startText;
+    public GameObject promptText;
+    public GameObject Settings_;
     public Slider Music;
     public Slider Audio;
     public Slider Master;
     public GameObject loadingScreen;
     public Slider slider;
     public Text progressText;
+    private bool start;
+    private float backupMusic;
+    private float backupSound;
+    private float backupMaster;
+    private int backupControls;
     public void FirstLaunch()
     {
         PlayerPrefs.DeleteAll();
@@ -31,10 +39,43 @@ public class MainMenu : MonoBehaviour
             FirstLaunch();
         }
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("Quality"));
-
+        GetMasterVolume();
+        GetMusicVolume();
+        GetSoundVolume();
  
     }
 
+    public void Start_()
+    {
+        if (start)
+        {
+            NewGame();
+        }
+        else
+        {
+            start = true;
+            startText.SetActive(false);
+            promptText.SetActive(true);
+        }
+    }
+    public void NewGame()
+    {
+        backupControls = PlayerPrefs.GetInt("Controls");
+        backupMaster = PlayerPrefs.GetFloat("Master");
+        backupSound = PlayerPrefs.GetFloat("Sound");
+        backupMusic = PlayerPrefs.GetFloat("Music");
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Controls", backupControls );
+        PlayerPrefs.SetInt("Quality", 2);
+        PlayerPrefs.SetString("Save", "00");
+        PlayerPrefs.SetInt("FirstLaunch", 1);
+        PlayerPrefs.SetString("Language", "RUS");
+        PlayerPrefs.SetFloat("Music", backupMusic);
+        PlayerPrefs.SetFloat("Sound", backupSound);
+        PlayerPrefs.SetFloat("Master", backupMaster);
+        PlayerPrefs.SetInt("CrueCount", 1);
+        Load();
+    }
     public void SetQuality(int num)
     {
         QualitySettings.SetQualityLevel(num);
@@ -45,20 +86,25 @@ public class MainMenu : MonoBehaviour
       
         PlayerPrefs.SetInt("Controls", num);
     }
-    public void SetMusicVolume(float num)
+    public void Settings()
     {
-
-        PlayerPrefs.SetFloat("Music", num);
+      Settings_.SetActive(!Settings_.activeSelf);
+        
     }
-    public void SetSoundVolume(float num)
+    public void SetMusicVolume()
     {
-
-        PlayerPrefs.SetFloat("Sound", num);
+        
+        PlayerPrefs.SetFloat("Music", Music.value);
     }
-    public void SetMasterVolume(float num)
+    public void SetSoundVolume()
     {
 
-        PlayerPrefs.SetFloat("Master", num);
+        PlayerPrefs.SetFloat("Sound",  Audio.value);
+    }
+    public void SetMasterVolume()
+    {
+
+        PlayerPrefs.SetFloat("Master", Master.value);
     }
     public void GetMusicVolume()
     {
@@ -68,12 +114,12 @@ public class MainMenu : MonoBehaviour
     public void GetSoundVolume()
     {
 
-        Music.value = PlayerPrefs.GetFloat("Sound");
+        Audio.value = PlayerPrefs.GetFloat("Sound");
     }
     public void GetMasterVolume()
     {
 
-        Music.value = PlayerPrefs.GetFloat("Master");
+        Master.value = PlayerPrefs.GetFloat("Master");
     }
     public void SetLanguage(int num)
     {
@@ -104,7 +150,7 @@ public class MainMenu : MonoBehaviour
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
             slider.value = progress;
-            progressText.text = progress * 100f + "%";
+            progressText.text = (int)(progress * 100f) + "%";
 
             yield return null;
         }

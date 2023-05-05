@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class puzzleHayrolls : MonoBehaviour
 {
+    public AudioClip finishPuzzle;
     public upgradeManager uM;
     public List<GameObject> toDisable;
     public List<GameObject> toEnable;
@@ -12,10 +13,11 @@ public class puzzleHayrolls : MonoBehaviour
     public bool C;
     public bool B;
     public outerStopZone SZ;
+    private AudioSource m_AudioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_AudioSource = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -67,6 +69,7 @@ public class puzzleHayrolls : MonoBehaviour
 
     void EndPuzzle()
     {
+        m_AudioSource.PlayOneShot(finishPuzzle);
         uM.Upgrade(6);
         SZ.UnblockMachine();
         foreach(GameObject obj in toDisable)

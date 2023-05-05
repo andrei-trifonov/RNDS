@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Raycaster : MonoBehaviour
 {
     [SerializeField] public bool puzzleItem1;
     [SerializeField] public bool puzzleItem2;
+    [SerializeField] private AudioClip lightSound;
+  
     public float Angle;
     [SerializeField] private float maxDistance;
     [SerializeField] private float buffer;
@@ -15,6 +18,19 @@ public class Raycaster : MonoBehaviour
     //[SerializeField] private Collider2D myCollider;
     [SerializeField] private bool  Prism;
     public bool casting;
+    private AudioSource m_AudioSource;
+    private bool wasSound;
+    private void Start()
+    {
+        try
+        {
+            m_AudioSource = GetComponent<AudioSource>();
+        }
+        catch
+        {
+        }
+    }
+
     public void setParent(Transform par)
     {
         Parent = par;
@@ -68,11 +84,15 @@ public class Raycaster : MonoBehaviour
         }
         if (casting)
         {
+            if (!wasSound)
+                m_AudioSource.PlayOneShot(lightSound);
+            wasSound = true;
             lineRenderer.enabled = true;
             casting = false;
         }
         else
         {
+            wasSound = false;
             lineRenderer.enabled = false;
         }
         if (!Prism)

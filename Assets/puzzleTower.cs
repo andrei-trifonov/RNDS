@@ -22,6 +22,10 @@ public class puzzleTower : MonoBehaviour
         }  
     }
 
+    [SerializeField] public AudioClip buttonPressSound;
+    [SerializeField] public AudioClip wrongSound;
+    [SerializeField] public AudioClip finishSound;
+    [SerializeField] public AudioClip turnSound;
     [SerializeField] public outerStopZone SZ;
     [SerializeField] public List<SpriteRenderer> Template;
     [SerializeField] public List<SpriteRenderer> Task;
@@ -34,8 +38,9 @@ public class puzzleTower : MonoBehaviour
     [SerializeField] public List<GameObject> destroyAfterPuzzle;
     [SerializeField] public List<GameObject> enableAfterPuzzle;
     private bool isPrep;
+    private AudioSource m_AudioSource;
     private int winCount=0;
-
+    private bool firstLaunch=true;
     IEnumerator RestartCoroutine()
     {
         isPrep = false;
@@ -48,6 +53,8 @@ public class puzzleTower : MonoBehaviour
        
         for (int i = 0; i < 3; i++)
         {
+            if (!firstLaunch)
+              m_AudioSource.PlayOneShot(turnSound);
             Template[i].enabled = true;
             switch (templateInt[i])
             {
@@ -59,6 +66,8 @@ public class puzzleTower : MonoBehaviour
         }
         for (int i = 0; i < 3; i++)
         {
+            if (!firstLaunch)
+              m_AudioSource.PlayOneShot(turnSound);
             taskInt.Add(Random.Range(0,3));
             Task[i].enabled = true;
             switch (taskInt.Last())
@@ -75,6 +84,7 @@ public class puzzleTower : MonoBehaviour
             Buttons[i].SetNumber(templateInt[i]);
         }
 
+        firstLaunch = false;
         isPrep = true;
 
     }
@@ -94,6 +104,7 @@ public class puzzleTower : MonoBehaviour
     
     public void ButtonPressed(int i)
     {
+        m_AudioSource.PlayOneShot(buttonPressSound);
         if (isPrep)
             answerInt.Add(i);
         if (answerInt.Count >= 3)
@@ -106,8 +117,10 @@ public class puzzleTower : MonoBehaviour
                     Restart();
                 else
                 {
+                    m_AudioSource.PlayOneShot(finishSound);
                     SZ.UnblockMachine();
                     uM.Upgrade(1);
+                    uM.Upgrade(5);
                     foreach (var go in enableAfterPuzzle)
                     {
                         go.SetActive(true);
@@ -123,6 +136,7 @@ public class puzzleTower : MonoBehaviour
             }
             else
             {
+                m_AudioSource.PlayOneShot(wrongSound);
                 Restart();
             }
         }
@@ -130,6 +144,7 @@ public class puzzleTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_AudioSource = GetComponent<AudioSource>();
         Restart();
     }
 

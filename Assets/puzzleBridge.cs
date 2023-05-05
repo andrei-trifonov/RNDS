@@ -8,14 +8,17 @@ public class puzzleBridge : MonoBehaviour
     public PlatformerCharacter2D PC2D;
     public PanZoom Cam;
     private Animator m_Animator;
-
+    public AudioClip Sound;
+    private AudioSource m_AudioSource;
     private void Start()
     {
+        m_AudioSource = GetComponent<AudioSource>();
         m_Animator = gameObject.GetComponent<Animator>();
     }
 
     public void Open()
     {
+        m_AudioSource.PlayOneShot(Sound);
         StartCoroutine(EndPuzzleCoroutine());
        
     }

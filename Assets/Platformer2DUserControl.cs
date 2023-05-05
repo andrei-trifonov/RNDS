@@ -8,7 +8,7 @@ using UnityStandardAssets.CrossPlatformInput;
     public class Platformer2DUserControl : MonoBehaviour
     {
         
-        [SerializeField] private GameObject OneStickMovement;
+        [SerializeField] private Canvas OneStickMovement;
        
         [SerializeField] private float latency;
         [SerializeField] private GameObject Beacon;
@@ -31,8 +31,8 @@ using UnityStandardAssets.CrossPlatformInput;
         controls = PlayerPrefs.GetInt("Controls");
         switch (controls)
         {
-          
-            case 1: OneStickMovement.SetActive(true); break;
+            case 0: OneStickMovement.enabled = false; break;
+            case 1: OneStickMovement.enabled = true; break;
         }
         }
 
