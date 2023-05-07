@@ -64,6 +64,7 @@ public class MagneticItem : MonoBehaviour
         if (turnRight)
         {
             m_Parent.transform.rotation = Quaternion.Euler(0, 0, 0);
+            m_Parent.transform.localScale = new Vector3(Mathf.Abs(m_Parent.transform.localScale.x), m_Parent.transform.localScale.y, 1);
         }
 
         m_Rigidbody.simulated = false;
