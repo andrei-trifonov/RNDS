@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
+    public ButtonCheck buttonRus;
+    public ButtonCheck buttonJoystick;
+    public ButtonCheck buttonJesture;
+    public ButtonCheck buttonQualityL;
+    public ButtonCheck buttonQualityM;
+    public ButtonCheck buttonQualityH;
     public GameObject startText;
     public GameObject promptText;
     public GameObject Settings_;
@@ -32,8 +38,29 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Master", 1);
         PlayerPrefs.SetInt("CrueCount", 1);
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("CreditsExample");
+    }
     private void Start()
     {
+        switch (PlayerPrefs.GetInt("Controls", 1))
+        {
+            case 0: buttonJesture.Check(); break;
+            case 1: buttonJoystick.Check(); break;
+        }
+        switch (PlayerPrefs.GetInt("Quality", 2))
+        {
+            case 0: buttonQualityL.Check(); break;
+            case 1: buttonQualityM.Check(); break;
+            case 2: buttonQualityH.Check(); break;
+        }
+        switch (PlayerPrefs.GetString("Language", "RUS"))
+        {
+            case "RUS": buttonRus.Check(); break;
+           
+        }
         if (PlayerPrefs.GetInt("FirstLaunch") == 0)
         {
             FirstLaunch();
