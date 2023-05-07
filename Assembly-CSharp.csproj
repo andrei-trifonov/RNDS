@@ -81,6 +81,7 @@
      <Compile Include="Assets\Alpha Masking\UIMaterialModifier.cs" />
      <Compile Include="Assets\Suntail Village\Scripts\PlayerInteractions.cs" />
      <Compile Include="Assets\itemDB.cs" />
+     <Compile Include="Assets\LoadManager.cs" />
      <Compile Include="Assets\HealBar.cs" />
      <Compile Include="Assets\itemLore.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\PointedCircleMesh.cs" />
@@ -160,6 +161,7 @@
      <Compile Include="Assets\ButtonTransliter.cs" />
      <Compile Include="Assets\ChainPack\scriptsOther\CutMouse.cs" />
      <Compile Include="Assets\PlatformerCharacter2D.cs" />
+     <Compile Include="Assets\moduleHookOutside.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
      <Compile Include="Assets\moduleCannon.cs" />
      <Compile Include="Assets\moduleBreaker.cs" />
@@ -224,6 +226,8 @@
      <Compile Include="Assets\outerBirds.cs" />
      <Compile Include="Assets\TessStartAnimation.cs" />
      <Compile Include="Assets\ChainPack\Chain2D\scripts\ChainController.cs" />
+     <Compile Include="Assets\zoneChange.cs" />
+     <Compile Include="Assets\itemBirdsSummon.cs" />
      <Compile Include="Assets\ShowMenuExt.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\TriangleMesh.cs" />
      <Compile Include="Assets\Restarter.cs" />
@@ -240,6 +244,7 @@
      <Compile Include="Assets\commonMagneticPlace.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Camera\Index.cs" />
      <Compile Include="Assets\OuterRenderer.cs" />
+     <Compile Include="Assets\ActivateOnTriggerEnter.cs" />
      <Compile Include="Assets\PSG\Scripts\Demo Scripts\ConvexMeshDemo.cs" />
      <Compile Include="Assets\Suntail Village\Scripts\PlayerController.cs" />
      <Compile Include="Assets\itemLightCol.cs" />
@@ -251,10 +256,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\ActivateOnTriggerEnter.cs" />
-     <Compile Include="Assets\zoneChange.cs" />
-     <Compile Include="Assets\itemBirdsSummon.cs" />
-     <Compile Include="Assets\LoadManager.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />

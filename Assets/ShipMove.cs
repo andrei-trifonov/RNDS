@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ShipMove : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody;
-
+    [SerializeField] private float fuelConsumption = 0.1f;
+    [SerializeField] private float waterConsumption =  0.1f;
     [SerializeField] private Animator engineAnimator;
     [SerializeField] private Animator pipeAnimator;
     [SerializeField] private float Speed;
@@ -15,7 +16,7 @@ public class ShipMove : MonoBehaviour
     [SerializeField] private float Water = 100;
     [SerializeField] private float maxFuel;
     [SerializeField] private float maxWater;
-    [SerializeField] private AudioSource pipeAudioSource ;
+    [SerializeField] private AudioSource pipeAudioSource;
     [SerializeField] private AudioClip startEngineSound;
     [SerializeField] private AudioClip stopEngineSound;
     [SerializeField] private AudioSource engineAudioSource ;
@@ -121,10 +122,10 @@ public class ShipMove : MonoBehaviour
 
         fuelBar.value = Fuel / maxFuel;
         waterBar.value = Water / maxWater;
-        if (Fuel >= 0.1f && Water >= 0.1f && engineStarted  && !Blocked)
+        if (Fuel >= fuelConsumption && Water >= waterConsumption && engineStarted  && !Blocked)
         {
-            Water -= 0.1f;
-            Fuel -= 0.1f;
+            Water -= waterConsumption;
+            Fuel -= fuelConsumption;
             
 
             if (m_Rigidbody.velocity.magnitude >= maxVelocity)

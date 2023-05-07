@@ -15,14 +15,7 @@ public class upgradeManager : MonoBehaviour
     private void Start()
     {
         panZoom = GameObject.FindObjectOfType<PanZoom>();
-        for(int i=0; i < 20; i++)
-        {
-            int upg =PlayerPrefs.GetInt("Upgrade" + i);
-            if (upg == 1)
-            {
-                Upgrade(i);
-            }
-        }
+        
     }
     public void Upgrade(int i)
     {

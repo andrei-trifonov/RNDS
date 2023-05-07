@@ -144,8 +144,29 @@ public class puzzleTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_AudioSource = GetComponent<AudioSource>();
-        Restart();
+        if (PlayerPrefs.GetString("Save") == "01")
+        {
+
+            SZ.enabled = false;
+          
+            foreach (var go in enableAfterPuzzle)
+            {
+                go.SetActive(true);
+                    
+            }
+            foreach (var go in destroyAfterPuzzle)
+            {
+                go.SetActive(false);
+                     
+            }   
+            this.enabled = false;
+        }
+        else
+        {
+            m_AudioSource = GetComponent<AudioSource>();
+            Restart();    
+        }
+        
     }
 
     // Update is called once per frame

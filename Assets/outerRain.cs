@@ -6,12 +6,12 @@ using UnityEngine.PlayerLoop;
 
 public class outerRain : MonoBehaviour
 {
-    private GameObject hookedItem;
-    private CarryManager o_CManager;
+  
     private itemBucket o_itemBucket;
-    private bool Blocked;
+  
     private bool Inside;
     private HandsHolds HH;
+    private float timeLeft = 0f;
     private void Start()
     {
         HH = GameObject.FindObjectOfType<HandsHolds>();
@@ -20,7 +20,7 @@ public class outerRain : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            o_CManager = other.GetComponent<CarryManager>();
+            
             Inside = true;
         }
     }
@@ -31,28 +31,20 @@ public class outerRain : MonoBehaviour
             Inside = false;
         }
     }
-    private void FixedUpdate()
-    {
-        if (!Blocked && Inside)
-        {
-            StartCoroutine(AddWaterCoroutine());
-        }
-    }
 
-    IEnumerator AddWaterCoroutine()
-    {
-        if (HH.ItemNum() >= 0)
-        {
-            hookedItem = HH.Item();
-            if ((o_itemBucket = hookedItem.GetComponentInChildren<itemBucket>()) && HH.ItemNum() >= 0)
+    private void FixedUpdate () {
+        if(timeLeft <= 0){
+            // Выполняем функцию здесь
+
+            if (HH.ItemNum() == 3 && Inside)
             {
-                Blocked = true;
+                o_itemBucket = HH.Item().GetComponentInChildren<itemBucket>();
                 o_itemBucket.AddWater(20);
-                yield return new WaitForSeconds(2f);
-                Blocked = false;
             }
+            timeLeft = 2f;
         }
 
-
+        timeLeft -= Time.deltaTime;
     }
+    
 }

@@ -30,8 +30,8 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private bool Day, Evening, Night, Mourning;
     [SerializeField] private GameObject Stars;
     [SerializeField] private GameObject Sun;
-
-  
+    [SerializeField] private Animator Fade;
+    private Coroutine c;
    
     float timeLeft;
     private int i;
@@ -66,7 +66,7 @@ public class TimeSystem : MonoBehaviour
                 
                 i++;
                 if (i == 4) i = 0;
-                InstantAdjust(i);
+                c = StartCoroutine(InstantAdjust(i));
              
                 
                     // transition complete
@@ -93,13 +93,13 @@ public class TimeSystem : MonoBehaviour
         {
            
             if (Day) 
-                InstantAdjust(0);
+                c = StartCoroutine(InstantAdjust(0));
             if (Evening)
-                InstantAdjust(1);
+                c = StartCoroutine(InstantAdjust(1));
             if (Night)
-                InstantAdjust(2);
+                c = StartCoroutine(InstantAdjust(2));
             if (Mourning)
-                InstantAdjust(3);
+                c = StartCoroutine(InstantAdjust(3));
         }
 
     
@@ -108,20 +108,25 @@ public class TimeSystem : MonoBehaviour
 
     }
 
-    private void InstantAdjust(int i)
+    IEnumerator InstantAdjust(int i)
     {
-      
+        Fade.SetBool("Fade", true);
+        yield return new WaitForSeconds(0.3f);
+        Fade.SetBool("Fade", false);
         switch (i)
         {
             case 0:
-                {
+            {
+                   
                     sunLight.transform.localPosition = new Vector3(0, 5.53f, -12.99f);
 
                     Day = true;
 
                     Stars.SetActive(false);
                     Sun.SetActive(false);
-                }
+                    
+            }
+                
                 break;
 
             case 1:
@@ -165,7 +170,9 @@ public class TimeSystem : MonoBehaviour
                     Day = true;
                 }
                 break;
+            
         }
+        StopCoroutine(c);
     }
 
     public bool isNight()

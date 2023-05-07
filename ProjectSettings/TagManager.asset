@@ -23,6 +23,7 @@ TagManager:
   - Actor
   - Cogito
   - MusicPlayer
+  - BGTint
   layers:
   - Default
   - TransparentFX
