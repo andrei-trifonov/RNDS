@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
+
 
 public class LoadManager : MonoBehaviour
 {
@@ -13,9 +13,13 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private Transform[] PlayerPlaces;
     [SerializeField] private upgradeManager uM;
     // Start is called before the first frame update
+    public void DebugCheat()
+    {
+        PlayerPrefs.SetString("Save", "01");
+    }
     void Start()
     {
-        Debug.Log(PlayerPrefs.GetString("Save"));
+          
         Vector3 ppos = PlayerPlaces[Int32.Parse(PlayerPrefs.GetString("Save")) % 10].position;
         Vector3 mpos = MachinePlaces[Int32.Parse(PlayerPrefs.GetString("Save")) % 10].position;
         Player.transform.position = new Vector3(ppos.x, ppos.y, Player.transform.position.z);
@@ -25,9 +29,13 @@ public class LoadManager : MonoBehaviour
 
             case "01":
             {
+                ASFade asfade = GameObject.FindGameObjectWithTag("AudioPlayer").GetComponent<ASFade>();
+                asfade.Fade(1);
+                PlayerPrefs.SetInt("CrueCount", 1);
                 uM.Upgrade(1);
                 uM.Upgrade(5);
                 uM.Upgrade(0);
+                Player.GetComponent<Platformer2DUserControl>().useBeacon = true;
                 if (PlayerPrefs.GetInt("Upgrade4") == 1)
                 {
                     uM.Upgrade(4);

@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4352a46c8f475148a6e72782b5bc1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapPotential: 3
+  scrapPotential: 1
 --- !u!114 &2949745557294351202
 MonoBehaviour:
   m_ObjectHideFlags: 0

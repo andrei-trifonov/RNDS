@@ -20,15 +20,15 @@ public class puzzleElevator : MonoBehaviour
     public void AddWeight(int i)
     {
         Weight += i;
-        if (Weight <= 5)
+        if (Weight <= 2)
         {
             newPos = 0;
         }
-        if (Weight > 5 && Weight <= 10)
+        if (Weight > 2 && Weight <= 5)
         {
             newPos = 1;
         }
-        if (Weight >  10)
+        if (Weight >  5)
         {
             newPos = 2;
         }
@@ -42,15 +42,15 @@ public class puzzleElevator : MonoBehaviour
     {
         Weight -= i;
 
-        if (Weight <= 5)
+        if (Weight <= 2)
         {
             newPos = 0;
         }
-        if (Weight > 5 && Weight <= 10)
+        if (Weight > 2 && Weight <= 5)
         {
             newPos = 1;
         }
-        if (Weight >  10)
+        if (Weight >  5)
         {
             newPos = 2;
         }

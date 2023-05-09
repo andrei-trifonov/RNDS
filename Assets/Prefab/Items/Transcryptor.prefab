@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4352a46c8f475148a6e72782b5bc1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapPotential: 6
+  scrapPotential: 5
 --- !u!114 &2949745557294351202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a46ca8cfefc6b44a85f9454bad79f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weight: 1
+  Weight: 5
 --- !u!1 &6057652056787276073
 GameObject:
   m_ObjectHideFlags: 0

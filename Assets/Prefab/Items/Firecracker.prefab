@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 1292882
+  instanceID: 784022
 --- !u!1 &773251144243480338
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 1292880
+  instanceID: 784020
 --- !u!1 &773251144820940196
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 1292948
+  instanceID: 784090
 --- !u!1 &3143179059787290318
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 1292936
+  instanceID: 784078
 --- !u!1 &3222131756388574443
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4352a46c8f475148a6e72782b5bc1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapPotential: 3
+  scrapPotential: 4
 --- !u!114 &2949745557294351202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,19 +1202,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &72072061794736725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6884938894329242921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628ef9b0c7e4fd24db54868035e11237, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomPercent: 20
 --- !u!82 &5918136006125681374
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1311,6 +1298,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &72072061794736725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6884938894329242921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ef9b0c7e4fd24db54868035e11237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomPercent: 20
 --- !u!1001 &215415178408956885
 PrefabInstance:
   m_ObjectHideFlags: 0

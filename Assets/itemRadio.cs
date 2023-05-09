@@ -1,42 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class itemRadio : MonoBehaviour
 {
-    [SerializeField] ASFade audioPlayer;
-    [SerializeField] DialogueSystem ds;
+    AudioSource m_AudioSource;
+     DialogueSystem ds;
     [SerializeField] List<AudioClip> Music;
     [SerializeField] AudioClip Noise;
-
+    [SerializeField] private GameObject Dialogue;
+    private float timeLeft;
+    private GameObject spawned;
     private void Start()
     {
-        audioPlayer = GameObject.FindGameObjectWithTag("AudioPlayer").GetComponent<ASFade>();
-    }
-    public void playMusic()
-    {
-        StopAllCoroutines();
-        audioPlayer.Fade(Music[Random.Range(0,Music.Count)]);
+        m_AudioSource = GetComponent<AudioSource>();
+       spawned  = Instantiate(Dialogue);
+        spawned.GetComponent<FixedPos>().SetPoint(gameObject);
+        ds = spawned.GetComponentInChildren<DialogueSystem>();
     }
 
-    public void playNews()
+    private void OnDisable()
     {
-        audioPlayer.Fade();
-        StopAllCoroutines();
-        StartCoroutine(newsCoroutine());
+        spawned.SetActive(false);
     }
 
-    IEnumerator newsCoroutine()
-    {
-        while (true)
-        {
+    private void FixedUpdate () {
+        if(timeLeft <= 0){
+
             ds.ContinueDialogue();
-            yield return new WaitForSeconds(5);
+            timeLeft = 6f;
         }
+
+        timeLeft -= Time.deltaTime;
     }
-    public void playNoise()
-    {
-        StopAllCoroutines();
-        audioPlayer.Fade(Noise);
-    }
+
+  
 }

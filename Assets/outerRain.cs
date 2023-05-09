@@ -41,7 +41,7 @@ public class outerRain : MonoBehaviour
                 o_itemBucket = HH.Item().GetComponentInChildren<itemBucket>();
                 o_itemBucket.AddWater(20);
             }
-            timeLeft = 2f;
+            timeLeft = 1f;
         }
 
         timeLeft -= Time.deltaTime;

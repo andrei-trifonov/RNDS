@@ -8,7 +8,6 @@ public struct Upgrade
 }
 public class upgradeManager : MonoBehaviour
 {
-   
     [SerializeField] private List<Upgrade> modulesUpgrade;
     private PanZoom panZoom; 
 
@@ -23,7 +22,8 @@ public class upgradeManager : MonoBehaviour
         {
             case 5:
                 {
-                    modulesUpgrade[5].Objects[0].GetComponent<BreakManager>().SetTimeBounds(30, 120);
+                    modulesUpgrade[5].Objects[0].GetComponent<BreakManager>().SetTimeBounds(250, 300);
+   
                     PlayerPrefs.SetInt("Upgrade" + i.ToString(), 1);
                 }
                 break;
@@ -49,6 +49,23 @@ public class upgradeManager : MonoBehaviour
                     PlayerPrefs.SetInt("Upgrade" + i.ToString(), 1);
                 }
                 break;
+           case 6:
+            { 
+                foreach(GameObject upg in modulesUpgrade[i].Objects)
+                {
+                    upg.SetActive(true);
+                   
+                    Canvas[] Canvases = upg.GetComponentsInChildren<Canvas>();
+                    foreach (Canvas canv in Canvases)
+                    {
+                        if(canv.renderMode == RenderMode.WorldSpace)
+                            panZoom.Canvases.Add(canv.gameObject);
+                    }
+                }
+                PlayerPrefs.SetInt("Upgrade" + i.ToString(), 1);
+                PlayerPrefs.SetInt("CrueCount", 2);
+            }
+                break;
             default:
             { 
                 foreach(GameObject upg in modulesUpgrade[i].Objects)
@@ -66,7 +83,7 @@ public class upgradeManager : MonoBehaviour
 
                 }
                 break;
-        
+              //  PlayerPrefs.SetInt("CrueCount"
         }
     }
 }

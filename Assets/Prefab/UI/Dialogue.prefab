@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 868568910713806520}
   - component: {fileID: 615404830}
   - component: {fileID: 2590034586712752817}
+  - component: {fileID: 2670299675963819372}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -429,6 +430,7 @@ MonoBehaviour:
   chatVariants: []
   startButton: {fileID: 587582455}
   continueButton: {fileID: 2075886603}
+  Translated: 0
   DEBUG: 1
 --- !u!61 &615404830
 BoxCollider2D:
@@ -553,6 +555,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2670299675963819372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868568910713806526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf82c2edbb84164ead3577c5314915a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Canvas: {fileID: 1583879256}
 --- !u!1001 &3474524623664674415
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class CrueController : MonoBehaviour
         if (randomList.Count > 0 && !Variants[lastPicked].isVisible)
         {
             VariantsObj[lastPicked].SetActive(false);
-            lastPicked = Random.Range(0, randomList.Count);
+            lastPicked = randomList[Random.Range(0, randomList.Count)];
             VariantsObj[lastPicked].SetActive(true);
             updating = false;
         }

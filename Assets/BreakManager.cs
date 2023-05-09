@@ -27,7 +27,8 @@ public class BreakManager : MonoBehaviour
     private GameObject selectedBreach;
     [SerializeField] private bool DEBUG;
     [SerializeField] private int BreakElementNumber;
-   
+
+    [SerializeField] private GameObject[] Tutorials;
     // Start is called before the first frame update
 
     private void Start()
@@ -41,10 +42,20 @@ public class BreakManager : MonoBehaviour
         bFinishTime = Random.Range(breakTimerBounds[0], breakTimerBounds[1]);
     }
 
+    void ShowTutorial(string name, int i)
+    {
+        if (PlayerPrefs.GetInt(name) == 0)
+        {
+            PlayerPrefs.SetInt(name, 1);
+            Tutorials[i].SetActive(true);
+        }        
+    }
+    
     public void SetTimeBounds(float first, float second)
     {
         breakTimerBounds[0] = first;
         breakTimerBounds[1] = second;
+        bFinishTime = Random.Range(breakTimerBounds[0], breakTimerBounds[1]);
 
     }
 
@@ -62,8 +73,10 @@ public class BreakManager : MonoBehaviour
             i = BreakElementNumber;
         
         Breakers[i].Break();
+        ShowTutorial("TutorialBreak", 0);
         if (Breakers[i].GetComponent<modulePipe>())
         {
+            ShowTutorial("TutorialPipe", 1);
             Breakers[i].gameObject.GetComponent<modulePipe>().BreakPipe();
         }
         bCurrentTime = 0;
@@ -75,6 +88,7 @@ public class BreakManager : MonoBehaviour
         int i = Random.Range(0, Leaks.Length);
         if (DEBUG)
             i = BreakElementNumber;
+        ShowTutorial("TutorialLeak", 2);
         Leaks[i].SetActive(true);
         lCurrentTime = 0;
         Leak = true;
@@ -87,7 +101,7 @@ public class BreakManager : MonoBehaviour
     }
     void OnAccident()
     {
-        
+        ShowTutorial("TutorialAccident", 3);
         Accident = true;
         Engine.SetMachineBlocked(true);
         int rnd = Random.Range(0, breachList.Count);

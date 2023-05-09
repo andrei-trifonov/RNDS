@@ -28,23 +28,18 @@ public class StorageManager : MonoBehaviour
     private int scrapCount;
 
     private int itemsCount;
-   
 
+
+    public void RenewStatus()
+    {
+        CrueText.text = PlayerPrefs.GetInt("CrueCount").ToString();
+        ScrapText.text = scrapCount.ToString();
+        HooksText.text = itemsCount.ToString() + "/" + hooksCount.ToString();
+    }
 
     private void Start()
     {
         itemsCount = Storage.Count();
-       
-        CrueText.text = PlayerPrefs.GetInt("CrueCount").ToString();
-        
-        ScrapText.text = scrapCount.ToString();
-        HooksText.text = itemsCount.ToString() + "/" + hooksCount.ToString();
-
-    }
-    public void AddCrew()
-    {
-        PlayerPrefs.SetInt("CrueCount", PlayerPrefs.GetInt("CrueCount")+1);
-        CrueText.text = PlayerPrefs.GetInt("CrueCount").ToString();
     }
     public void AddItem(GameObject Item, commonMagneticPlace Hook)
     {
@@ -54,7 +49,7 @@ public class StorageManager : MonoBehaviour
             scrapCount++;
             SS.isScrap = true;
         }
-        ScrapText.text = scrapCount.ToString();
+        
         Storage.Add(SS);
         itemsCount = Storage.Count();
 
@@ -69,8 +64,6 @@ public class StorageManager : MonoBehaviour
                 {
                     scrapCount--;
                 }
-                ScrapText.text = scrapCount.ToString();
-                HooksText.text = itemsCount.ToString() + "/" + hooksCount.ToString();
                 Storage.RemoveAt(i);
                 itemsCount = Storage.Count();
                 return;
@@ -91,7 +84,6 @@ public class StorageManager : MonoBehaviour
                     {
                         scrapCount--;
                         Storage[i].Hook.StealItem();
-                        HooksText.text = itemsCount.ToString() + "/" + hooksCount.ToString();
                         Storage.RemoveAt(i);
                         tmpScrap++;
                     }

@@ -4858,7 +4858,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.76551723, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -14578,7 +14578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 601898
+  instanceID: 790180
 --- !u!1 &773251144243480338
 GameObject:
   m_ObjectHideFlags: 0
@@ -14726,7 +14726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 601896
+  instanceID: 790178
 --- !u!1 &773251144820940196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15067,7 +15067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 601998
+  instanceID: 790280
 --- !u!1 &3143179059787290318
 GameObject:
   m_ObjectHideFlags: 0
@@ -15161,7 +15161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 601986
+  instanceID: 790268
 --- !u!1 &3222131756388574443
 GameObject:
   m_ObjectHideFlags: 0
@@ -15278,7 +15278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c430454777bb1c4cb39dddbf26467ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Efficience: 50
+  Efficience: 350
 --- !u!114 &2091260938508343704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15291,7 +15291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4352a46c8f475148a6e72782b5bc1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapPotential: 3
+  scrapPotential: 5
 --- !u!114 &338439140359926969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15366,7 +15366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a46ca8cfefc6b44a85f9454bad79f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weight: 1
+  Weight: 3
 --- !u!82 &5482790227947726817
 AudioSource:
   m_ObjectHideFlags: 0

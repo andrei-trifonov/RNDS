@@ -35,7 +35,8 @@ public struct chatLine
 public struct chatVariant
 {
     public chatLine[] chatLines;
-
+    public GameObject dialogueTrigger;
+    public bool noRepeat;
 }
 
 [System.Serializable]
@@ -84,6 +85,20 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private bool DEBUG;
     private void Start()
     {
+        if (chatVariants.Count > 0)
+        {
+            if (startButton)
+            {
+                startButton.SetActive(true);
+            }
+        }
+        else
+        {
+            if (startButton)
+            {
+                startButton.SetActive(false);
+            }
+        }
         m_AudioSource = GetComponent<AudioSource>();
 
         for (int i = 0; i < chatWindows.Length; i++)
@@ -122,7 +137,10 @@ public class DialogueSystem : MonoBehaviour
     public void AddVariant(chatVariant chat)
     {
         if (!chatVariants.Contains(chat))
-                chatVariants.Add(chat);
+        {
+            chatVariants.Add(chat);
+            startButton.SetActive(true);
+        }
     }
     public void ContinueDialogue()
     {
@@ -141,14 +159,22 @@ public class DialogueSystem : MonoBehaviour
                 {
 
                     chatWindows[i].chatCloud.gameObject.SetActive(true);
-                    Tuple<UnityEngine.Color, string> tuple = ReturnCharName(i);
+                    Tuple<UnityEngine.Color, string> tuple = ReturnCharName((int)chatWindows[i].Char);
                     chatWindows[i].textAuthor.color = tuple.Item1;
                     chatWindows[i].textAuthor.text = tuple.Item2;
-                   
+                   Debug.Log(tuple.Item2);
                     chatWindows[i].chatCloud.SetBool("PopUp", true);
                     StopAllCoroutines();
-                    m_AudioSource.PlayOneShot(chatWindows[i]
-                        .Clips[UnityEngine.Random.Range(0, chatWindows[i].Clips.Length)]);
+                    try
+                    {
+                        m_AudioSource.PlayOneShot(chatWindows[i]
+                            .Clips[UnityEngine.Random.Range(0, chatWindows[i].Clips.Length)]);
+                    }
+                    catch 
+                    {
+                    
+                    }
+                  
                     StartCoroutine(CastString(chatVariants[currChat].chatLines[stringCounter].textLine, chatWindows[i].textLine));
 
                     break;
@@ -184,8 +210,8 @@ public class DialogueSystem : MonoBehaviour
         if ( collision.CompareTag("Player"))
         {
             EndDialogue();
-            if (startButton)    
-                startButton.SetActive(false);
+       
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -206,10 +232,31 @@ public class DialogueSystem : MonoBehaviour
            
             
         }
-        currChat = UnityEngine.Random.Range(0, chatVariants.Count);
-        if(startButton)
-            startButton.SetActive(true);
-        if(continueButton)  
-            continueButton.SetActive(false);
+
+        if (chatVariants[currChat].noRepeat)
+        {
+            Destroy(chatVariants[currChat].dialogueTrigger);
+            if (startButton && chatVariants.Count < 2)
+            {
+                startButton.SetActive(false);
+                Debug.Log("Здесь");
+            }
+            else
+            {
+                startButton.SetActive(true);
+            }
+
+            if (continueButton)
+                continueButton.SetActive(false);
+            chatVariants.Remove(chatVariants[currChat]);
+        }
+        else
+        {
+            currChat = UnityEngine.Random.Range(0, chatVariants.Count);
+            if (startButton)
+                startButton.SetActive(true);
+            if (continueButton)
+                continueButton.SetActive(false);
+        }
     }
 }
