@@ -213,6 +213,7 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\ConvexMesh.cs" />
      <Compile Include="Assets\StorageManager.cs" />
      <Compile Include="Assets\moduleFurnance.cs" />
+     <Compile Include="Assets\musicZone.cs" />
      <Compile Include="Assets\commonMagnet.cs" />
      <Compile Include="Assets\puzzleTower.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\LineMesh.cs" />
@@ -225,6 +226,7 @@
      <Compile Include="Assets\itemLight.cs" />
      <Compile Include="Assets\DialogueSystem.cs" />
      <Compile Include="Assets\itemFuel.cs" />
+     <Compile Include="Assets\switchLevel.cs" />
      <Compile Include="Assets\outerBirds.cs" />
      <Compile Include="Assets\TessStartAnimation.cs" />
      <Compile Include="Assets\ChainPack\Chain2D\scripts\ChainController.cs" />
@@ -258,8 +260,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\musicZone.cs" />
-     <Compile Include="Assets\switchLevel.cs" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
