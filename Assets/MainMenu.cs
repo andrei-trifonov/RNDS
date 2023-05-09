@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetString("Save", "00");
         PlayerPrefs.SetInt("FirstLaunch", 1);
         PlayerPrefs.SetString("Language", "RUS");
-        PlayerPrefs.SetFloat("Music", 0.9f);
+        PlayerPrefs.SetFloat("Music", 0.5f);
         PlayerPrefs.SetFloat("Sound", 1);
         PlayerPrefs.SetFloat("Master", 1);
         PlayerPrefs.SetInt("CrueCount", 1);
