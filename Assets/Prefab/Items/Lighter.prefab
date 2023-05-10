@@ -14578,7 +14578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 927086
+  instanceID: 57932
 --- !u!1 &773251144243480338
 GameObject:
   m_ObjectHideFlags: 0
@@ -14726,7 +14726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 927084
+  instanceID: 57930
 --- !u!1 &773251144820940196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15067,7 +15067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 927186
+  instanceID: 58032
 --- !u!1 &3143179059787290318
 GameObject:
   m_ObjectHideFlags: 0
@@ -15161,7 +15161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 927174
+  instanceID: 58020
 --- !u!1 &3222131756388574443
 GameObject:
   m_ObjectHideFlags: 0
@@ -15336,7 +15336,7 @@ MonoBehaviour:
   overrideImage: 0
   Label: "\u0424\u043E\u043D\u0430\u0440\u044C"
   Text: "<\u041C\u043E\u0449\u043D\u044B\u0439 \u0444\u043E\u043D\u0430\u0440\u044C,
-    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u044B\u0439 \u0440\u0430\u0437\u0432\u0435\u044F\u0442\u044C 
+    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u044B\u0439 \u0440\u0430\u0437\u0432\u0435\u044F\u0442\u044C
     \u0442\u044C\u043C\u0443. \u041C\u043D\u043E\u0436\u0435\u0441\u0442\u0432\u043E
     \u043B\u0438\u043D\u0437 \u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442
     \u0441\u0432\u0435\u0442 \u043E\u0442 \u043E\u0433\u043D\u044F \u0434\u0443\u0448,

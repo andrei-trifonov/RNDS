@@ -2,15 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class itemRadio : MonoBehaviour
 {
+    [SerializeField] private Vector2 timeBounds;
     AudioSource m_AudioSource;
      DialogueSystem ds;
-    [SerializeField] List<AudioClip> Music;
+     private bool turnOff;
     [SerializeField] AudioClip Noise;
     [SerializeField] private GameObject Dialogue;
     private float timeLeft;
+    private float timeLeftTurnOff=10;
     private GameObject spawned;
     private void Start()
     {
@@ -26,12 +29,25 @@ public class itemRadio : MonoBehaviour
     }
 
     private void FixedUpdate () {
-        if(timeLeft <= 0){
-
+        
+        if(timeLeft <= 0)
+        {
+            turnOff = true;
+            m_AudioSource.PlayOneShot(Noise);
             ds.ContinueDialogue();
-            timeLeft = 6f;
+            timeLeft = UnityEngine.Random.Range(timeBounds.x, timeBounds.y);
         }
 
+        if (turnOff && timeLeftTurnOff <=0)
+        {
+            timeLeftTurnOff = 20;
+            turnOff = false;
+            ds.ContinueDialogue();
+        }
+        if (turnOff)
+        {
+            timeLeftTurnOff -= Time.deltaTime;
+        }
         timeLeft -= Time.deltaTime;
     }
 

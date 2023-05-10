@@ -18,7 +18,7 @@ public class itemBreaker : MonoBehaviour
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Moving"))
         {
             f++;
-            if (f > 1)
+            if (f > 3)
             {
                 m_audioSource.PlayOneShot(breakSound);
                 for (int i = 0; i < Random.Range(3, 6); i++)
