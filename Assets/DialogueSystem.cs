@@ -11,7 +11,8 @@ public enum charsDropdown {
       Psye,
       Lilly,
       Hans,
-      Tess
+      Tess,
+      Clayman
 };
 
 [System.Serializable]
@@ -68,10 +69,11 @@ public class DialogueSystem : MonoBehaviour
                         case 1:
                             return Tuple.Create(new UnityEngine.Color(0.7f,0.2f,0.3f), "Лилли"); break;
                         case 2:
-                            return Tuple.Create(UnityEngine.Color.gray, "Ханс"); break;
+                            return Tuple.Create(new UnityEngine.Color(0.2f, 0.2f, 0.2f), "Ханс"); break;
                         case 3:
-                            return Tuple.Create(new UnityEngine.Color(0.2f, 0.5f, 0.6f), "Тесс"); break;
-
+                            return Tuple.Create(new UnityEngine.Color(0.2f, 0.1f, 0.3f), "Тесс"); break;
+                        case 4:
+                            return Tuple.Create(new UnityEngine.Color(0.35f, 0.2f, 0.2f), "Черепок"); break;
 
                     }
 

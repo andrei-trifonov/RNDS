@@ -83,7 +83,8 @@ public class ShipMove : MonoBehaviour
 
     void Start()
     {
-    
+        Fuel =  PlayerPrefs.GetFloat("Fuel");
+        Water = PlayerPrefs.GetFloat("Water");
         engineAnimator.enabled = false;
         m_Rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }

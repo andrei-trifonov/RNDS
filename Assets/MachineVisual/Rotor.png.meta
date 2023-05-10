@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -672290319774750095
     second: Rotor_2
+  - first:
+      213: 149273305269114514
+    second: Rotor_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -170,6 +173,27 @@ TextureImporter:
       bones: []
       spriteID: 17a64ef148b8ba6f0800000000000000
       internalID: -672290319774750095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotor_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 179
+        width: 43
+        height: 125
+      alignment: 9
+      pivot: {x: 0.4924898, y: 0.24429554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296930fb743521200800000000000000
+      internalID: 149273305269114514
       vertices: []
       indices: 
       edges: []

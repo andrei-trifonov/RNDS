@@ -38,6 +38,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Sound", 1);
         PlayerPrefs.SetFloat("Master", 1);
         PlayerPrefs.SetInt("CrueCount", 1);
+        PlayerPrefs.SetFloat("Fuel", 500);
+        PlayerPrefs.SetFloat("Water", 500);
     }
 
     public void Credits()

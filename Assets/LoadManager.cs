@@ -29,7 +29,7 @@ public class LoadManager : MonoBehaviour
 
             case "01":
             {
-                ASFade asfade = GameObject.FindGameObjectWithTag("AudioPlayer").GetComponent<ASFade>();
+                ASFade asfade = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<ASFade>();
                 asfade.Fade(1);
                 PlayerPrefs.SetInt("CrueCount", 1);
                 uM.Upgrade(1);

@@ -20,6 +20,8 @@ public struct ArchiveCell
 }
 public class GameDataBase : MonoBehaviour
 {
+    private bool isSaving;
+    [SerializeField] private GameObject saveScreen;
     [SerializeField] private ShipMove Transport;
     [SerializeField] public GameObject[] hookItemList;
     [SerializeField] public List<ArchiveCell> archiveCells;
@@ -39,6 +41,18 @@ public class GameDataBase : MonoBehaviour
         PlayerPrefs.SetString("Save", PlayerPrefs.GetString("Zone"));
         PlayerPrefs.SetFloat("Fuel", Transport.GetFuel());
         PlayerPrefs.SetFloat("Water", Transport.GetWater());
+        if (!isSaving)
+        {
+            StartCoroutine(SaveCoroutine());
+        }
+    }
+    IEnumerator SaveCoroutine()
+    {
+        isSaving = true;
+        saveScreen.SetActive(true);
+        yield return new WaitForSeconds(6);
+        saveScreen.SetActive(false);
+        isSaving = false;
     }
     private void RenewArchiveCells()
     {
