@@ -30,7 +30,7 @@ public struct chatWindow {
 public struct chatLine
 {
     public charsDropdown Char;
-    [TextArea(15, 10)]
+    [TextArea(15, 5)]
     public string textLine;
 
 }
@@ -120,12 +120,12 @@ public class DialogueSystem : MonoBehaviour
         text.text = "";
         for (int i = 0; i < str.Length; i++) {
             text.text += RandomSymbol();
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
             if (HH.ItemNum() == 14 || Translated) //Транскриптор
             {
                 text.text = text.text.Substring(0, text.text.Length - 1);
                 text.text += str[i];
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.01f);
             }
           
         }
