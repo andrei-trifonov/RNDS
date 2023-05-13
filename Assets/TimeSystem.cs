@@ -31,8 +31,9 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private GameObject Stars;
     [SerializeField] private GameObject Sun;
     [SerializeField] private Animator Fade;
+    [SerializeField] private Shadow2D _shadow2D;
     private Coroutine c;
-   
+    private bool bestQuality;
     float timeLeft;
     private int i;
         Color targetColor;
@@ -45,7 +46,8 @@ public class TimeSystem : MonoBehaviour
         
         targetColor = tintColors[0];
         Day = true;
-
+        if (PlayerPrefs.GetInt("Quality") == 2)
+            bestQuality = true;
     }
 
 
@@ -124,6 +126,8 @@ public class TimeSystem : MonoBehaviour
 
                     Stars.SetActive(false);
                     Sun.SetActive(false);
+                    if (!bestQuality)
+                       _shadow2D.SetShadow(0);
                     
             }
                 
@@ -135,6 +139,8 @@ public class TimeSystem : MonoBehaviour
 
 
                     Evening = true;
+                    if (!bestQuality)
+                      _shadow2D.SetShadow(1);
                 }
                 break;
 
@@ -148,6 +154,8 @@ public class TimeSystem : MonoBehaviour
                     Night = true;
 
                     Stars.SetActive(true);
+                    if (!bestQuality)
+                        _shadow2D.SetShadow(2);
                 }
                 break;
             case 3:
@@ -157,6 +165,8 @@ public class TimeSystem : MonoBehaviour
                     Mourning = true;
 
                     Sun.SetActive(true);
+                    if (!bestQuality)
+                        _shadow2D.SetShadow(3);
                 }
                 break;
             default:
@@ -168,6 +178,8 @@ public class TimeSystem : MonoBehaviour
                     Stars.SetActive(false);
 
                     Day = true;
+                    if (!bestQuality)
+                      _shadow2D.SetShadow(0);
                 }
                 break;
             

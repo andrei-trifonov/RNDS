@@ -24,6 +24,7 @@ TagManager:
   - Cogito
   - MusicPlayer
   - BGTint
+  - 2DShadow
   layers:
   - Default
   - TransparentFX
