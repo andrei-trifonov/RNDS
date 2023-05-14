@@ -7,14 +7,22 @@ using UnityEngine;
 public class HideShadowOnEnter : MonoBehaviour
 {
     [SerializeField] private GameObject globalShadow;
-
+    [SerializeField] private Shadow2D _shadow2D;
+    private bool bestQuality;
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("Quality") == 2)
+            bestQuality = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            globalShadow.SetActive(false);
-
+            if (bestQuality)
+                globalShadow.SetActive(false);
+            else
+                _shadow2D.SetShadow(-1);
         }
     }
 
@@ -23,8 +31,10 @@ public class HideShadowOnEnter : MonoBehaviour
     
         if(other.CompareTag("Player"))
         {
-            globalShadow.SetActive(true);
-
+            if (bestQuality)
+                globalShadow.SetActive(true);
+            else
+                _shadow2D.SetShadow(-1);
 
         }
     }

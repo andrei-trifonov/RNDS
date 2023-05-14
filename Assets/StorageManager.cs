@@ -23,7 +23,7 @@ public class StorageManager : MonoBehaviour
     [SerializeField] private Text HooksText;
     [SerializeField] private Text ScrapText;
 
-    [SerializeField] private int hooksCount;
+     private int hooksCount;
     [SerializeField] private List<StorageStruct> Storage;
     private int scrapCount;
 
@@ -39,6 +39,7 @@ public class StorageManager : MonoBehaviour
 
     private void Start()
     {
+        hooksCount = GetComponent<GameDataBase>().getSavePlaces();
         itemsCount = Storage.Count();
     }
     public void AddItem(GameObject Item, commonMagneticPlace Hook)

@@ -59,7 +59,6 @@
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Float.cs" />
      <Compile Include="Assets\randomStartVisual.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\BombDefusal\BombDefusal.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceSpace.cs" />
      <Compile Include="Assets\Parallax.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Speed\SpeedBar.cs" />
      <Compile Include="Assets\BackgroundSlice.cs" />
@@ -76,6 +75,7 @@
      <Compile Include="Assets\moduleWindow.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
      <Compile Include="Assets\PSG\Scripts\Demo Scripts\LineMeshDemo.cs" />
+     <Compile Include="Assets\Shadow2D.cs" />
      <Compile Include="Assets\Raycaster.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\RainbowRing\RainbowRing2.cs" />
      <Compile Include="Assets\Alpha Masking\UIMaterialModifier.cs" />
@@ -94,10 +94,7 @@
      <Compile Include="Assets\itemBreaker.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CircleMesh.cs" />
      <Compile Include="Assets\moduleHook.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstance.cs" />
      <Compile Include="Assets\CoverParallaxShadow.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceImage.cs" />
-     <Compile Include="Assets\Credits\3_Demo\CreditsExampleScript.cs" />
      <Compile Include="Assets\moduleBase.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\ConvexSplineMesh.cs" />
      <Compile Include="Assets\puzzleScales.cs" />
@@ -109,7 +106,6 @@
      <Compile Include="Assets\outerStopZone.cs" />
      <Compile Include="Assets\PSG\Scripts\MeshHelper.cs" />
      <Compile Include="Assets\PolyDrawer.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceSingleColumn.cs" />
      <Compile Include="Assets\Suntail Village\Scripts\PhysicsObject.cs" />
      <Compile Include="Assets\puzzleElevator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\GearMesh.cs" />
@@ -132,7 +128,6 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\StarMesh.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Rainbow\RainbowStrip.cs" />
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceTitle.cs" />
      <Compile Include="Assets\OuterRenderer3D.cs" />
      <Compile Include="Assets\itemRadio.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Destination\DestinationBar.cs" />
@@ -149,7 +144,6 @@
      <Compile Include="Assets\modulePostamat.cs" />
      <Compile Include="Assets\outerBirdsController.cs" />
      <Compile Include="Assets\Suntail Village\Scripts\Door.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Prefabs\CreditLineInstanceTwoColumns.cs" />
      <Compile Include="Assets\PSG\Scripts\TriangulableMesh.cs" />
      <Compile Include="Assets\itemScrap.cs" />
      <Compile Include="Assets\E_Water\Scripts_C\WaterAnim2.cs" />
@@ -243,7 +237,6 @@
      <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
      <Compile Include="Assets\moduleHookRepairer.cs" />
      <Compile Include="Assets\PSG\Scripts\Demo Scripts\DemoScene.cs" />
-     <Compile Include="Assets\Credits\1_Scripts\Credits.cs" />
      <Compile Include="Assets\outerMonologueZone.cs" />
      <Compile Include="Assets\commonMagneticPlace.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Camera\Index.cs" />
@@ -260,16 +253,18 @@
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\QuadrangleMesh.cs" />
      <Compile Include="Assets\BarValueTranslator.cs" />
      <Compile Include="Assets\PSG\Scripts\Mesh scripts\CakeMesh.cs" />
-     <Compile Include="Assets\Shadow2D.cs" />
+     <Compile Include="Assets\3DSauce\CreditsPro\Resources\Scripts\CreditScroller.cs" />
+     <Compile Include="Assets\3DSauce\CreditsPro\Resources\Scripts\ButtonOpenURL.cs" />
+     <None Include="Assets\3DSauce\CreditsPro\Resources\Demo\ImportCreditsSample 1.txt" />
      <None Include="Assets\ChainPack\Chain2D\README.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
-     <None Include="Assets\Credits\3_Demo\Resources\credits.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Epic Toon FX\Changelog.txt" />
      <None Include="Assets\Alpha Masking\Resources\Shaders 2D (Sprites)\Sprites-Alpha-Mask-WorldCoords.shader" />
+     <None Include="Assets\3DSauce\CreditsPro\Resources\Demo\ImportCreditsSample.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\RadialProgressBar\SimpleRadialProgressBar.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -285,6 +280,7 @@
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\__www.unityassetcollection.com__.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
@@ -293,6 +289,7 @@
      <None Include="Assets\RadialProgressBar\RadialProgressBar_UI.shader" />
      <None Include="Assets\Kino\Glitch\Shader\DigitalGlitch.shader" />
      <None Include="Assets\Kino\Glitch\Shader\AnalogGlitch.shader" />
+     <None Include="Assets\3DSauce\DOTween License.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\RadialProgressBar\RadialProgressBar.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -528,6 +525,9 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>D:/The Moth/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>D:/The Moth/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -874,6 +874,9 @@
      <Reference Include="System.Xml.Serialization">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.2D.Animation.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
@@ -886,11 +889,26 @@
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="PsdPlugin">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.2D.Tilemap.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
@@ -898,8 +916,17 @@
      <Reference Include="Unity.2D.IK.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Psdimporter.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.2D.Path.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Postprocessing.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -916,6 +943,18 @@
      <Reference Include="UnityEngine.UI">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Runtime">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridge.001">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
@@ -928,62 +967,14 @@
      <Reference Include="com.unity.cinemachine.editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Postprocessing.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Postprocessing.Runtime">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
@@ -991,17 +982,26 @@
      <Reference Include="Unity.2D.PixelPerfect.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Common.Editor">
+     <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>D:/The Moth/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>

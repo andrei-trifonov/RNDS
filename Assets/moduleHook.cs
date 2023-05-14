@@ -12,6 +12,7 @@ public class moduleHook : commonMagneticPlace
     private void Start()
     {
         OnStart();
+        Debug.Log(PlayerPrefs.GetInt(hookName ) + hookName);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

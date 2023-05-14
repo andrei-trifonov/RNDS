@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class switchLevel : MonoBehaviour
 {
+    public int level;
     public GameObject loadingScreen;
     public Slider slider;
     public Text progressText;
@@ -15,7 +16,7 @@ public class switchLevel : MonoBehaviour
         if (col.CompareTag("Player"))
         {
          
-                 StartCoroutine(LoadAsynchronously(1));
+                 StartCoroutine(LoadAsynchronously(level));
 
                
                 

@@ -281,7 +281,8 @@ public class ShadowGPT : MonoBehaviour
 
    {
        
-        
+       if (PlayerPrefs.GetInt("Quality") != 2)
+           this.enabled = false;
         foreach (var sprite in renderSprites)
        {
            Sprite = sprite;
@@ -299,6 +300,7 @@ public class ShadowGPT : MonoBehaviour
             }
 
         }
+    
 
 
 

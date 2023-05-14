@@ -32,6 +32,11 @@ public class GameDataBase : MonoBehaviour
     {
         //RenewArchiveCells();
     }
+
+    public int getSavePlaces()
+    {
+        return savePlaces.Count;
+    }
     public void Save()
     {
         foreach(commonMagneticPlace hook in savePlaces)

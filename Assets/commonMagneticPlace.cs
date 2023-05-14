@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class commonMagneticPlace : commonOutliner
@@ -25,6 +26,7 @@ public class commonMagneticPlace : commonOutliner
     private void Start()
     {
         OnStart();
+        
     }
 
     protected virtual void OnStart()
@@ -38,8 +40,10 @@ public class commonMagneticPlace : commonOutliner
             Hooked = true;
            
             GameObject inst;
-            inst = Instantiate(GDB.GetItemFromList(PlayerPrefs.GetInt(hookName)), transform.position, transform.rotation, transform);
+            itemID = PlayerPrefs.GetInt(hookName);
+            inst = Instantiate(GDB.GetItemFromList(itemID), transform.position, transform.rotation, transform);
             hookedItem = inst.transform.GetChild(0).gameObject;
+         
             StM.AddItem(hookedItem, this);
             inst.GetComponent<Rigidbody2D>().simulated = false;
             inst.GetComponent<Collider2D>().enabled = false;

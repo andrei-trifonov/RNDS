@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     private float backupSound;
     private float backupMaster;
     private int backupControls;
+    private int backupQuality;
     public void FirstLaunch()
     {
         PlayerPrefs.DeleteAll();
@@ -44,7 +45,7 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
-        SceneManager.LoadScene("CreditsExample");
+        SceneManager.LoadScene("Credits");
     }
     private void Start()
     {
@@ -68,6 +69,7 @@ public class MainMenu : MonoBehaviour
         {
             FirstLaunch();
         }
+        
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("Quality"));
         GetMasterVolume();
         GetMusicVolume();
@@ -77,6 +79,7 @@ public class MainMenu : MonoBehaviour
 
     public void Start_()
     {
+      
         if (start)
         {
             NewGame();
@@ -94,9 +97,10 @@ public class MainMenu : MonoBehaviour
         backupMaster = PlayerPrefs.GetFloat("Master");
         backupSound = PlayerPrefs.GetFloat("Sound");
         backupMusic = PlayerPrefs.GetFloat("Music");
+        backupQuality = PlayerPrefs.GetInt("Quality");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Controls", backupControls );
-        PlayerPrefs.SetInt("Quality", 2);
+        PlayerPrefs.SetInt("Quality", backupQuality);
         PlayerPrefs.SetString("Save", "00");
         PlayerPrefs.SetInt("FirstLaunch", 1);
         PlayerPrefs.SetString("Language", "RUS");
@@ -104,6 +108,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Sound", backupSound);
         PlayerPrefs.SetFloat("Master", backupMaster);
         PlayerPrefs.SetInt("CrueCount", 1);
+        PlayerPrefs.SetFloat("Fuel", 500);
+        PlayerPrefs.SetFloat("Water", 500);
         Load();
     }
     public void SetQuality(int num)

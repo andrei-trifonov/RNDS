@@ -68,16 +68,22 @@ public class Shadow2D : MonoBehaviour
         if (Pivot.localScale.x>0)
         {
             eS.transform.localPosition = new Vector3(-0.45f, eS.transform.localPosition.y, eS.transform.localPosition.z);
-            dS.transform.localPosition = new Vector3(0, dS.transform.localPosition.y, dS.transform.localPosition.z);
-            mS.transform.localPosition = new Vector3(-0,0.24f , mS.transform.localPosition.z);
-            flipped = true;
+               dS.transform.localPosition = new Vector3(0.73f, 0.09f, dS.transform.localPosition.z);
+          mS.transform.localPosition = new Vector3(0.62f, -0.01f, mS.transform.localPosition.z);
+            if (backupState == 0 || backupState == 3)
+                flipped = false;
+            else
+                flipped = true;
         }
         else
         {
             eS.transform.localPosition = new Vector3(-0.83f, eS.transform.localPosition.y, eS.transform.localPosition.z);
-            dS.transform.localPosition = new Vector3(0.73f, dS.transform.localPosition.y, dS.transform.localPosition.z);
-            mS.transform.localPosition = new Vector3(0.73f, -0.05f, mS.transform.localPosition.z);
-            flipped = false;
+         dS.transform.localPosition = new Vector3(0.08f, 0.09f, dS.transform.localPosition.z);
+                 mS.transform.localPosition = new Vector3(-0.15f,0.28f , mS.transform.localPosition.z);
+            if (backupState == 0 || backupState == 3)
+                flipped = true;
+            else
+                flipped = false;
         }
     }
     private void FixedUpdate()
