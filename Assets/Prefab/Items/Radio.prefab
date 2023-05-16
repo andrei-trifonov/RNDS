@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de57036cf5d46345ad50aea73f21cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBounds: {x: 60, y: 120}
   Noise: {fileID: 8300000, guid: 31cefff8d4db04a46b6f6d7834f344ca, type: 3}
   Dialogue: {fileID: 4573479361617456817, guid: a472c33a08418b74ab3b031472cae8b8,
     type: 3}

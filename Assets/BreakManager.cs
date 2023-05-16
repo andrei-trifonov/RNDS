@@ -16,6 +16,7 @@ public class BreakManager : MonoBehaviour
     [SerializeField] private commonBar Bar;
     [SerializeField] private List<GameObject> breachList;
     [SerializeField] private StorageManager o_storageManager;
+    [SerializeField] modulePipe _modulePipe;
     private float bFinishTime;
     private float bCurrentTime = 0;
     private float lFinishTime;
@@ -28,6 +29,7 @@ public class BreakManager : MonoBehaviour
     [SerializeField] private bool DEBUG;
     [SerializeField] private int BreakElementNumber;
 
+  
     [SerializeField] private GameObject[] Tutorials;
     // Start is called before the first frame update
 
@@ -74,10 +76,10 @@ public class BreakManager : MonoBehaviour
         
         Breakers[i].Break();
         ShowTutorial("TutorialBreak", 0);
-        if (Breakers[i].GetComponent<modulePipe>())
+        if (i==2)
         {
             ShowTutorial("TutorialPipe", 1);
-            Breakers[i].gameObject.GetComponent<modulePipe>().BreakPipe();
+            _modulePipe.BreakPipe();
         }
         bCurrentTime = 0;
         TurnAlarm(true);

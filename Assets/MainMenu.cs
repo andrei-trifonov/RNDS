@@ -41,6 +41,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("CrueCount", 1);
         PlayerPrefs.SetFloat("Fuel", 500);
         PlayerPrefs.SetFloat("Water", 500);
+        
+        
     }
 
     public void Credits()
@@ -110,6 +112,13 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("CrueCount", 1);
         PlayerPrefs.SetFloat("Fuel", 500);
         PlayerPrefs.SetFloat("Water", 500);
+        
+        PlayerPrefs.SetInt("1Outside1", 13);
+        PlayerPrefs.SetInt("1Outside2", 37);
+        PlayerPrefs.SetInt("1Outside3", 29);
+        PlayerPrefs.SetInt("1Outside4", 31);
+        PlayerPrefs.SetInt("1Outside5", 31);
+        PlayerPrefs.SetInt("1Outside6", 31);
         Load();
     }
     public void SetQuality(int num)

@@ -25,6 +25,8 @@ public class Elevator : MonoBehaviour
     private Rigidbody2D startRigidbody;
     private bool playerEnter;
     private bool goingDown;
+
+    private Canvas menuCanvas;
     // Start is called before the first frame update
 
     public int GetState()
@@ -37,9 +39,11 @@ public class Elevator : MonoBehaviour
     }
     private void Start()
     {
+       
         Player = GameObject.Find("Player").GetComponentInChildren<Rigidbody2D>();
         m_AudioSource = GetComponent<AudioSource>();
-        Menu.GetComponent<Canvas>().enabled = false;
+        menuCanvas = Menu.GetComponent<Canvas>();
+        menuCanvas.enabled = false;
         m_Anim = gameObject.GetComponent<Animator>();
 
 
@@ -52,7 +56,7 @@ public class Elevator : MonoBehaviour
 
             playerEnter = true;
             //Player.transform.SetParent(gameObject.transform);
-            Menu.GetComponent<Canvas>().enabled = true;
+            menuCanvas.enabled = true;
             
         }
     }
@@ -65,7 +69,7 @@ public class Elevator : MonoBehaviour
             //Player.transform.parent = null;
             playerEnter = false;
             goingDown = false;
-            Menu.GetComponent<Canvas>().enabled = false;
+            menuCanvas.enabled = false;
         }
     }
 

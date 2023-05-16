@@ -26,6 +26,7 @@ public class moduleHookBreaker : commonMagneticPlace
     }
     protected override void OnStart()
     {
+        o_CManager = FindObjectOfType<CarryManager>();
         HH = GameObject.FindObjectOfType<HandsHolds>();
         o_moduleBreaker = breakManager.GetComponent<moduleBreaker>();
         SearchForVisuals();

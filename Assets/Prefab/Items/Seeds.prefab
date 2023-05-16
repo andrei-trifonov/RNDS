@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 105202
+  instanceID: 1164008
 --- !u!1 &773251144243480338
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 105200
+  instanceID: 1164006
 --- !u!1 &773251144820940196
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 105272
+  instanceID: 1164078
 --- !u!1 &3143179059787290318
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiedMaterial: {fileID: 0}
-  instanceID: 105258
+  instanceID: 1164064
 --- !u!1 &3222131756388574443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1301,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 773251144820940201}
     m_Modifications:
+    - target: {fileID: 2288109504026809315, guid: e273ee394d019af46b3b7695c679f051,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2288109504040067313, guid: e273ee394d019af46b3b7695c679f051,
         type: 3}
       propertyPath: m_RootOrder

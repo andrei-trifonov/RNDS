@@ -14,7 +14,8 @@ public class moduleHookOutside : commonMagneticPlace
     // Start is called before the first frame update
     private void Start()
     {
-        
+        o_CManager = FindObjectOfType<CarryManager>();
+        Camera = FindObjectOfType<PanZoom>();
         HH = GameObject.FindObjectOfType<HandsHolds>();
         SearchForVisuals();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
@@ -26,7 +27,7 @@ public class moduleHookOutside : commonMagneticPlace
         inst = Instantiate(GDB.GetItemFromList(SpawnItemID), transform.position, transform.rotation, transform);
         visuals = inst.GetComponentsInChildren<SpriteRenderer>();
         hookedItem = inst.transform.GetChild(0).gameObject;
-        
+        Camera.Canvases.Add(inst.GetComponentInChildren<Canvas>().gameObject);
       
         inst.GetComponent<Rigidbody2D>().simulated = false;
         inst.GetComponent<Collider2D>().enabled = false;

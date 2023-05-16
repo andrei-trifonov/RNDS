@@ -8,8 +8,8 @@ public class moduleDrip : MonoBehaviour
     [SerializeField] private float addWaterAmount;
     [SerializeField] private GameObject Module;
     [SerializeField] private BreakManager o_breakManager;
-  
-  
+
+
     private AudioSource o_audioSource;
     private GameObject Bucket;
     private HandsHolds HH;
@@ -19,6 +19,7 @@ public class moduleDrip : MonoBehaviour
 
     private void Start()
     {
+   
         HH = GameObject.FindObjectOfType<HandsHolds>();
         o_audioSource = gameObject.GetComponent<AudioSource>();
         Module.SetActive(false);

@@ -31,8 +31,9 @@ public class commonThrower : MonoBehaviour
         float xComponent = Mathf.Cos(throwAngle*Mathf.Deg2Rad) * garbageSpeed;
         float yComponent = Mathf.Sin(throwAngle * Mathf.Deg2Rad) * garbageSpeed;
         garbage.GetComponent<Rigidbody2D>().AddForce(new Vector2(xComponent, yComponent));
-        if (garbage.GetComponentInChildren<Canvas>())
-            panZoomCamera.Canvases.Add(garbage.GetComponentInChildren<Canvas>().gameObject);
+        Canvas c;
+        if (c = garbage.GetComponentInChildren<Canvas>())
+            panZoomCamera.Canvases.Add(c.gameObject);
         yield return new WaitForSeconds(delayAfter);
         garbageSmoke.SetActive(false);
         AfterSpawn();

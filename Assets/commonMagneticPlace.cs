@@ -9,7 +9,7 @@ public class commonMagneticPlace : commonOutliner
     [SerializeField] protected string hookName;
     [SerializeField] protected float Speed = 8.5f;
     protected bool Hooked;
-    protected GameObject Player;
+    
     protected CarryManager o_CManager;
     protected int itemID;
     protected GameDataBase GDB;
@@ -22,6 +22,7 @@ public class commonMagneticPlace : commonOutliner
     protected Vector3 directionOfTravel;
     protected HandsHolds HH;
 
+    protected PanZoom Camera;
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,12 +32,15 @@ public class commonMagneticPlace : commonOutliner
 
     protected virtual void OnStart()
     {
+      
+        o_CManager = FindObjectOfType<CarryManager>();
         HH = GameObject.FindObjectOfType<HandsHolds>();
         SearchForVisuals();
         GDB = GameObject.Find("GDB").GetComponent<GameDataBase>();
         StM = GDB.gameObject.GetComponent<StorageManager>();
         if (PlayerPrefs.GetInt(hookName)> 10)
-        {
+        {   
+            Camera = FindObjectOfType<PanZoom>();
             Hooked = true;
            
             GameObject inst;
@@ -47,6 +51,7 @@ public class commonMagneticPlace : commonOutliner
             StM.AddItem(hookedItem, this);
             inst.GetComponent<Rigidbody2D>().simulated = false;
             inst.GetComponent<Collider2D>().enabled = false;
+            Camera.Canvases.Add(inst.GetComponentInChildren<Canvas>().gameObject);
         }
     }
     public GameDataBase GetGDB()
@@ -63,8 +68,7 @@ public class commonMagneticPlace : commonOutliner
         if (other.CompareTag("Player"))
         {
             EnableOutline();
-            Player = other.gameObject;
-            o_CManager = Player.GetComponent<CarryManager>();
+            
             
         }
     }
@@ -83,10 +87,7 @@ public class commonMagneticPlace : commonOutliner
     }
     
 
-    protected void RemoveFromItemDB()
-    {
-        PlayerPrefs.SetInt(hookName, 0);
-    }
+  
 
     public void ResetHook()
     {
@@ -99,7 +100,7 @@ public class commonMagneticPlace : commonOutliner
         Picked = false;
         Hooked = false;
         hookedItem.SetActive(false);
-        RemoveFromItemDB();
+        itemID = -1;
     } 
     public virtual void OnClick()
     {
@@ -128,7 +129,7 @@ public class commonMagneticPlace : commonOutliner
                 Picked = false;
                 o_MagneticItem.SetCarryManager(o_CManager);
                 o_MagneticItem.StartPick();
-                RemoveFromItemDB();
+                itemID = -1;
                 StM.RemoveItem(this);
                 Hooked = false;
             }

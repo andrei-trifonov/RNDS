@@ -79,7 +79,7 @@ public class PanZoom : MonoBehaviour {
     // Update is called once per frame
     private void Start()
     {
-        Canvases = GameObject.FindGameObjectsWithTag("ScaleCanvas").ToList();
+        Canvases.AddRange( GameObject.FindGameObjectsWithTag("ScaleCanvas").ToList());
         Sprites = GameObject.FindGameObjectsWithTag("AlphaCanvas").ToList();
     }
 

@@ -27,6 +27,7 @@ public class moduleHookTank : commonMagneticPlace
     }
     protected override void OnStart()
     {
+        o_CManager = FindObjectOfType<CarryManager>();
         HH = GameObject.FindObjectOfType<HandsHolds>();
        o_moduleWaterTank = waterTank.GetComponent<moduleWaterTank>();
         SearchForVisuals();

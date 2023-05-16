@@ -40,22 +40,7 @@ public class MagneticItem : MonoBehaviour
     {
         Menu.SetActive (false);
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-             
-        if (other.CompareTag("Player"))
-        {
-            if (PlayerCollider == null)
-            {
-                PlayerCollider = other;
-                o_CarryManager = PlayerCollider.GetComponent<CarryManager>();
-            }
-
-
-
-        }
-    }
+    
 
    
 
@@ -77,6 +62,7 @@ public class MagneticItem : MonoBehaviour
         m_AudioSource = gameObject.GetComponent<AudioSource>();
         m_Rigidbody = m_Parent.GetComponent<Rigidbody2D>();
         m_Collider = m_Parent.GetComponent<Collider2D>();
+        o_CarryManager = FindObjectOfType<CarryManager>();
     }
 
     public void StartPick(){
@@ -137,48 +123,5 @@ public class MagneticItem : MonoBehaviour
             catch { }
         }
     }
-    //void FixedUpdate()
-    // {
-    //  // Для подвеса скорость нужна ниже (для визуала)
-    // if (Picked) {
-    //
-    //      targetPosition = Target.transform.position;
-    //      currentPosition = m_Parent.transform.position;
-    //
-    //
-    //     if(Vector3.Distance(currentPosition, targetPosition) > .1f) {
-    //         directionOfTravel = targetPosition - currentPosition;
-    //         //now normalize the direction, since we only want the direction information
-    //         directionOfTravel.Normalize();
-    //         //scale the movement on each axis by the directionOfTravel vector components
-    //         }
-    //      else {
-    //
-    //             m_Parent.transform.SetParent(Target.transform);
-    //             
-    //             m_Rigidbody.simulated = false;
-    //             m_Collider.enabled= false;
-    //             Picked = false;
-    //
-    //             if (toPlayer)
-    //             {
-    //                 
-    //                 Target.GetComponentInParent<CarryManager>().SetPickedItem(m_Parent);
-    //                 magnetEffect.SetActive(true);
-    //             }
-    //
-    //
-    //
-    //
-    //     }
-    //      m_Parent.transform.Translate(
-    //                     (directionOfTravel.x * speed * Time.deltaTime),
-    //                     (directionOfTravel.y * speed * Time.deltaTime),
-    //                     (directionOfTravel.z * speed * Time.deltaTime),
-    //                     Space.World);
-    //
-    //     }
-    // }
-
-
+    
 }

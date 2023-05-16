@@ -26,6 +26,7 @@ public class moduleHookRepairer : commonMagneticPlace
     }
     protected override void OnStart()
     {
+        o_CManager = FindObjectOfType<CarryManager>();
         HH = GameObject.FindObjectOfType<HandsHolds>();
         o_moduleRepairer = repairManager.GetComponent<moduleRepairer>();
         SearchForVisuals();

@@ -20,16 +20,19 @@ public class ActionZone : commonOutliner
     [SerializeField] private  moduleBase machineModule;
     [SerializeField] private string actionName;
     [SerializeField] private bool ignoreCarry;
-    private PlatformerCharacter2D CharacterController;
-    private CarryManager CarryController;
+    [SerializeField] private PlatformerCharacter2D CharacterController;
+        //private CarryManager CarryController;
     private bool Finished;
     private bool blockEffect;
     private HandsHolds HH;
+    private Animator m_Animator;
 
     private void Start()
     {
        SearchForVisuals();
-        HH = GameObject.FindObjectOfType<HandsHolds>();
+        HH = FindObjectOfType<HandsHolds>();
+        m_Animator = Visual.GetComponent<Animator>();
+        
     }
 
     private void OnTriggerEnter2D (Collider2D other)
@@ -43,8 +46,8 @@ public class ActionZone : commonOutliner
                 bar.Restart();
             }
             
-            CharacterController = other.GetComponent<PlatformerCharacter2D>();
-            CarryController = other.GetComponent<CarryManager>();
+          
+           
         }
     }
 
@@ -73,12 +76,12 @@ public class ActionZone : commonOutliner
             if (Rotor)
             {
                 CharacterController.StartWorking(1, Target);
-                Visual.GetComponent<Animator>().enabled = true;
+               m_Animator.enabled = true;
             }
             if (Rope)
             {
                 CharacterController.StartWorking(2, Target);
-                Visual.GetComponent<Animator>().SetBool("Activate", true);
+                m_Animator.SetBool("Activate", true);
             }
             if (Button)
             {
@@ -109,11 +112,11 @@ public class ActionZone : commonOutliner
         m_AudioSource.Stop();
         if (Rotor)
         {
-            Visual.GetComponent<Animator>().enabled = false;
+            m_Animator.enabled = false;
         }
         if (Rope)
         {
-            Visual.GetComponent<Animator>().SetBool("Activate", false);
+            m_Animator.SetBool("Activate", false);
         }
         foreach (HealBar bar in m_Bar)
         {
@@ -139,11 +142,11 @@ public class ActionZone : commonOutliner
         m_AudioSource.Stop();
         if (Rotor)
         {
-            Visual.GetComponent<Animator>().enabled = false;
+            m_Animator.enabled = false;
         }
         if (Rope)
         {
-            Visual.GetComponent<Animator>().SetBool("Activate", false);
+            m_Animator.SetBool("Activate", false);
         }
         if (machineModule != null)  
             machineModule.Invoke(actionName, 0);
