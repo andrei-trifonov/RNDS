@@ -86,7 +86,7 @@ public class WorldArchive : MonoBehaviour
         {
             JournalScanLabel Label = Instantiate(labelTemplate, labelContent.transform).GetComponent<JournalScanLabel>();
             Label.gameObject.SetActive(true);
-            Label.OnSpawn(item.Image, item.Label, item.Text);
+            Label.OnSpawn(item.Image, item.Label, item.Text, item.num);
 
         }
         children = new List<GameObject>();

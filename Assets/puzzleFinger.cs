@@ -20,6 +20,21 @@ public class puzzleFinger : MonoBehaviour
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
+        int  save = Int32.Parse(PlayerPrefs.GetString("Save"));
+        if (save % 10 > 5)
+        {
+            SZ.UnblockMachine();
+            campos = PC2D.transform.position + new Vector3(0f, 0.12f, -9.51f);
+            foreach (GameObject obj in finishPuzzle)
+            {
+                obj.SetActive(true);
+            }
+            foreach (GameObject obj in itemsPuzzle)
+            {
+                obj.SetActive(false);
+            }
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate() 
@@ -65,6 +80,8 @@ public class puzzleFinger : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        PlayerPrefs.SetString("Save", "06");
         Destroy(gameObject);
     }
 }

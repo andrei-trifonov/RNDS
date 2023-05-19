@@ -216,6 +216,7 @@
      <Compile Include="Assets\ActionZone.cs" />
      <Compile Include="Assets\SwitchShadowRegime.cs" />
      <Compile Include="Assets\RadialProgressBar\Examples\Scripts\Utility\Camera\CameraPositions.cs" />
+     <Compile Include="Assets\autoSave.cs" />
      <Compile Include="Assets\DEBUGtranslator.cs" />
      <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\itemLight.cs" />

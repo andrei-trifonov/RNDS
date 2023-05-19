@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using TMPro;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -50,6 +53,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private List<chatVariant> chatVariants;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private float textSpeed = 0.01f;
     public bool Translated;
     private List<GameObject> actorsList = new List<GameObject>();
     private string Language;
@@ -57,7 +61,10 @@ public class DialogueSystem : MonoBehaviour
     private int stringCounter;
     private int currChat;
     private AudioSource m_AudioSource;
-
+    private bool casting;
+    private int scTemp;
+    private int cnTemp;
+    private Text currentChat;
     private Tuple<UnityEngine.Color, string> ReturnCharName(int Char)
     {
 
@@ -117,18 +124,21 @@ public class DialogueSystem : MonoBehaviour
         HH = GameObject.FindObjectOfType<HandsHolds>();
     }
     IEnumerator CastString(string str, Text text) {
+        casting = true;
         text.text = "";
         for (int i = 0; i < str.Length; i++) {
             text.text += RandomSymbol();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(textSpeed);
             if (HH.ItemNum() == 14 || Translated) //Транскриптор
             {
                 text.text = text.text.Substring(0, text.text.Length - 1);
                 text.text += str[i];
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(textSpeed);
             }
           
         }
+
+        casting = false;
 
     }
     char RandomSymbol()
@@ -156,16 +166,38 @@ public class DialogueSystem : MonoBehaviour
             startButton.SetActive(false);
         if(continueButton)
             continueButton.SetActive(true);
+        if (casting)
+        {
+            StopAllCoroutines();
+            casting = false;
+            if (HH.ItemNum() == 14 || Translated) //Транскриптор
+            {
+                currentChat.text = chatVariants[cnTemp].chatLines[scTemp].textLine;
+            }
+            else
+            {
+                StringBuilder tmp = new StringBuilder();
+                for (int smb = 0; smb < chatVariants[cnTemp].chatLines[scTemp].textLine.Length; smb++)
+                    tmp.Append(RandomSymbol());
+                currentChat.text = tmp.ToString();
+            }
+
+        }
+        else
+        {
+           
+       
         if (stringCounter < chatVariants[currChat].chatLines.Length)
         {
-
+            
+            
 
             for (int i = 0; i < chatWindows.Length; i++)
             {
                 chatWindows[i].chatCloud.gameObject.SetActive(false);
                 if (chatWindows[i].Char == chatVariants[currChat].chatLines[stringCounter].Char)
                 {
-
+                    currentChat = chatWindows[i].textLine; 
                     chatWindows[i].chatCloud.gameObject.SetActive(true);
                     Tuple<UnityEngine.Color, string> tuple = ReturnCharName((int)chatWindows[i].Char);
                     chatWindows[i].textAuthor.color = tuple.Item1;
@@ -182,7 +214,9 @@ public class DialogueSystem : MonoBehaviour
                     {
                     
                     }
-                  
+
+                    scTemp = stringCounter;
+                    cnTemp = currChat;
                     StartCoroutine(CastString(chatVariants[currChat].chatLines[stringCounter].textLine, chatWindows[i].textLine));
 
                     break;
@@ -197,7 +231,7 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             EndDialogue();
-        }
+        } }
 
 
     }

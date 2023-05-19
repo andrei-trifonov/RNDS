@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +23,15 @@ public class outerStopZone : MonoBehaviour
 
     public void UnblockMachine()
     {
-      
-        SM.SetMachineBlocked(false);
+        try
+        {
+            SM.SetMachineBlocked(false);
+        }
+        catch 
+        {
+           
+        }
+       
         Destroy(gameObject);
     }
 }

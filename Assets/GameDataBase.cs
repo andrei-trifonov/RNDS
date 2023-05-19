@@ -7,15 +7,17 @@ using UnityEngine;
 [System.Serializable]
 public struct ArchiveCell
 {
+    
     public string Label;
     public string Text;
     public Sprite Image;
-
-    public ArchiveCell(string Label, string Text, Sprite Image)
+    public int num;
+    public ArchiveCell(string Label, string Text, Sprite Image, int num)
     {
         this.Label = Label;
         this.Text = Text;
         this.Image = Image;
+        this.num = num;
     }
 }
 public class GameDataBase : MonoBehaviour
@@ -72,7 +74,7 @@ public class GameDataBase : MonoBehaviour
                 if (PlayerPrefs.GetInt(hookItemList[i].name + " Scan") == 1)
                 {
                         archiveCells.Add(new ArchiveCell(lore.GetLabel(), lore.GetText(),
-                   lore.GetSprite()));
+                   lore.GetSprite(), hookItemList[i].GetComponentInChildren<itemDB>().GetItemID()));
                 }
             }
             catch (Exception e)

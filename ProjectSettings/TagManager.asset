@@ -25,6 +25,7 @@ TagManager:
   - MusicPlayer
   - BGTint
   - 2DShadow
+  - ControlTutorial
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 
 public class puzzleTower : MonoBehaviour
@@ -144,7 +145,8 @@ public class puzzleTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetString("Save") == "01")
+        int  save = Int32.Parse(PlayerPrefs.GetString("Save"));
+        if (save % 10 > 2)
         {
 
             SZ.enabled = false;

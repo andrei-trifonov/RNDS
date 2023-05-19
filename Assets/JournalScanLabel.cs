@@ -11,16 +11,25 @@ public class JournalScanLabel : MonoBehaviour
     [SerializeField] private Text descriptionLabel;
     [SerializeField] private Image descriptionImage;
     [SerializeField] private Text descriptionText;
+    [SerializeField] private GameObject Mark;
     private string Text;
-
-    public void OnSpawn(Sprite image, string label, string text)
+    private int num;
+    public void OnSpawn(Sprite image, string label, string text, int num)
     {
+        
         Icon.sprite = image;
         Label.text = label;
         Text = text;
+        this.num = num;
+        if (  PlayerPrefs.GetInt(num +"Mark") == 1)
+        {
+            Mark.SetActive(false);
+        }
     }
     public void OnClick()
     {
+        Mark.SetActive(false);
+        PlayerPrefs.SetInt(num +"Mark", 1);
         descriptionImage.sprite = Icon.sprite;
         descriptionLabel.text = Label.text;
         descriptionText.text = Text;

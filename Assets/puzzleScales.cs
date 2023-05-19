@@ -7,7 +7,7 @@ public class puzzleScales : MonoBehaviour
     [SerializeField] private int summaryWeight;
    public List<itemWeight> Items;
     [SerializeField] private MonoBehaviour Manager;
-
+    [SerializeField] private puzzleScales anotherScales;
     public int GetWeight()
     {
         return summaryWeight;
@@ -18,7 +18,7 @@ public class puzzleScales : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             var component = other.transform.GetChild(0).GetComponent<itemWeight>();
-            if (component && !Items.Contains(component))
+            if (component && !Items.Contains(component) &&!anotherScales.Items.Contains(component) )
             {
                 Items.Add(component);
                 summaryWeight += component.GetWeight();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,20 @@ public class puzzleHayrolls : MonoBehaviour
     void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
+        int  save = Int32.Parse(PlayerPrefs.GetString("Save"));
+        if (save % 10 > 3)
+        {
+            SZ.UnblockMachine();
+            foreach(GameObject obj in toDisable)
+            {
+                Destroy(obj);
+            }
+            foreach (GameObject obj in toEnable)
+            {
+                obj.SetActive(true);
+            }
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

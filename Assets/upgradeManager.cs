@@ -22,6 +22,7 @@ public class upgradeManager : MonoBehaviour
         {
             case 5:
                 {
+                    //250-300
                     modulesUpgrade[5].Objects[0].GetComponent<BreakManager>().SetTimeBounds(250, 300);
    
                     PlayerPrefs.SetInt("Upgrade" + i.ToString(), 1);
