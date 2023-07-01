@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetString("Save", "00");
         PlayerPrefs.SetInt("FirstLaunch", 1);
         PlayerPrefs.SetString("Language", "RUS");
-        PlayerPrefs.SetFloat("Music", 0.5f);
+        PlayerPrefs.SetFloat("Music", 0.35f);
         PlayerPrefs.SetFloat("Sound", 1);
         PlayerPrefs.SetFloat("Master", 1);
         PlayerPrefs.SetInt("CrueCount", 1);
@@ -113,12 +114,12 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Fuel", 500);
         PlayerPrefs.SetFloat("Water", 500);
         
-        PlayerPrefs.SetInt("1Outside1", 13);
-        PlayerPrefs.SetInt("1Outside2", 37);
-        PlayerPrefs.SetInt("1Outside3", 29);
-        PlayerPrefs.SetInt("1Outside4", 31);
-        PlayerPrefs.SetInt("1Outside5", 31);
-        PlayerPrefs.SetInt("1Outside6", 31);
+        PlayerPrefs.SetInt("hook1Deck2", 31);
+        PlayerPrefs.SetInt("hook2Deck2", 31);
+        PlayerPrefs.SetInt("hook3Deck2", 31);
+        PlayerPrefs.SetInt("StaticHook1Deck1", 33);
+        PlayerPrefs.SetInt("hook3Deck1", 15);
+       
         Load();
     }
     public void SetQuality(int num)
@@ -180,11 +181,10 @@ public class MainMenu : MonoBehaviour
     }
     public void Load()
     {
-        switch (PlayerPrefs.GetString("Save"))
+        switch (Int32.Parse(PlayerPrefs.GetString("Save"))/10)
         {
-            case "00": StartCoroutine(LoadAsynchronously(1)); break;
+            case 0: StartCoroutine(LoadAsynchronously(1)); break;
 
-            case "01": StartCoroutine(LoadAsynchronously(1)); break;
         }
     }
     IEnumerator LoadAsynchronously(int sceneIndex)
