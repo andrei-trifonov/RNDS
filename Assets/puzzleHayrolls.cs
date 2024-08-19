@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class puzzleHayrolls : MonoBehaviour
 {
+    private CarryManager CM;
     public AudioClip finishPuzzle;
     public upgradeManager uM;
     public List<GameObject> toDisable;
@@ -18,6 +19,7 @@ public class puzzleHayrolls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CM = GameObject.FindObjectOfType<CarryManager>();
         m_AudioSource = GetComponent<AudioSource>();
         int  save = Int32.Parse(PlayerPrefs.GetString("Save"));
         if (save % 10 > 3)
@@ -84,6 +86,8 @@ public class puzzleHayrolls : MonoBehaviour
 
     void EndPuzzle()
     {
+        
+        CM.ThrowItem();
         m_AudioSource.PlayOneShot(finishPuzzle);
         uM.Upgrade(6);
         SZ.UnblockMachine();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -22,10 +23,12 @@ public class ShipMove : MonoBehaviour
     [SerializeField] private AudioSource engineAudioSource ;
     [SerializeField] private Slider fuelBar;
     [SerializeField] private Slider waterBar;
+    [SerializeField] private chatVariant Tutor;
     private bool engineStarted;
     private bool pipeBroken;
-
+    private bool tutorial;
     private bool Blocked;
+    private int tutorialPlaces;
     public float GetFuel()
     {
         return Fuel;
@@ -56,7 +59,7 @@ public class ShipMove : MonoBehaviour
     }
     public void SetEngineStarted(bool state)
     {
-        if (state)
+        if (state && tutorial)
         {
             StartCoroutine(StartFeedbackCoroutine());
             engineAnimator.enabled = true;
@@ -81,8 +84,20 @@ public class ShipMove : MonoBehaviour
             Fuel += eff;
     }
 
+    public void TryToUnlock()
+    {
+        tutorialPlaces++;
+        if (tutorialPlaces == 8)
+        {
+            tutorial = true;
+            PlayerPrefs.SetInt("Tutorial_ship", 1);
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<DialogueSystem>().AddVariant(Tutor);
+        }
+    }
+
     void Start()
     {
+        tutorial = PlayerPrefs.GetInt("Tutorial_ship").Equals(1);
         Fuel =  PlayerPrefs.GetFloat("Fuel");
         Water = PlayerPrefs.GetFloat("Water");
         engineAnimator.enabled = false;

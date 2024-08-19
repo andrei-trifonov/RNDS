@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Controls", 1);
-        PlayerPrefs.SetInt("Quality", 2);
+        PlayerPrefs.SetInt("Quality", 0);
         PlayerPrefs.SetString("Save", "00");
         PlayerPrefs.SetInt("FirstLaunch", 1);
         PlayerPrefs.SetString("Language", "RUS");
@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour
             case 0: buttonJesture.Check(); break;
             case 1: buttonJoystick.Check(); break;
         }
-        switch (PlayerPrefs.GetInt("Quality", 2))
+        switch (PlayerPrefs.GetInt("Quality", 0))
         {
             case 0: buttonQualityL.Check(); break;
             case 1: buttonQualityM.Check(); break;
